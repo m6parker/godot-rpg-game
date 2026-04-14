@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://ch506fxqkhgf2"]
+
+[ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="1_b3bc3"]
+[ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://item_slot.gd" id="1_g6l6n"]
+[ext_resource type="Texture2D" uid="uid://dl6bng2rbcfcc" path="res://assets/items/mushroom.png" id="3_g6l6n"]
+[ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="3_qui0h"]
+
+[node name="UI" type="Node2D" unique_id=597430547]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1795801493]
+
+[node name="hotbar" type="Panel" parent="CanvasLayer" unique_id=621897900]
+custom_minimum_size = Vector2(224, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -92.0
+offset_right = 170.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/hotbar" unique_id=1113406246]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/hotbar/MarginContainer" unique_id=886798790]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="item_slot" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=852181045]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("1_g6l6n")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot" unique_id=1406985966]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g6l6n")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="item_slot2" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=490466534]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("1_g6l6n")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot2" unique_id=727312175]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qui0h")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="item_slot3" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=2037997904]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("1_g6l6n")
+
+[node name="item_slot4" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=290633614]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("1_g6l6n")
+
+[node name="health_stats" type="VBoxContainer" parent="CanvasLayer" unique_id=921431602]
+custom_minimum_size = Vector2(50, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -95.0
+offset_right = 102.0
+offset_bottom = 95.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="heart" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=1120107064]
+texture_filter = 1
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("1_b3bc3")
+stretch_mode = 4
+
+[node name="heart2" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=305098541]
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("1_b3bc3")
+stretch_mode = 4
+
+[node name="heart3" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=583076805]
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("1_b3bc3")
+stretch_mode = 4

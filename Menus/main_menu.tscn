@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://clcj7pickkv3v"]
+
+[ext_resource type="Script" uid="uid://drcf5014r4kra" path="res://Menus/main_controller.gd" id="1_jf8mj"]
+
+[node name="main_menu" type="Node2D" unique_id=86334363]
+script = ExtResource("1_jf8mj")
+
+[node name="background" type="ColorRect" parent="." unique_id=641050956]
+offset_left = -70.0
+offset_top = -50.0
+offset_right = 1231.0
+offset_bottom = 704.0
+mouse_filter = 2
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1592789088]
+offset_right = 1149.0
+offset_bottom = 292.0
+theme_override_font_sizes/font_size = 75
+text = "PixelPotioneer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main_buttons" type="VBoxContainer" parent="." unique_id=838614786]
+offset_left = 420.0
+offset_top = 299.0
+offset_right = 731.0
+offset_bottom = 513.0
+size_flags_stretch_ratio = 1.38
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="new_button" type="Button" parent="main_buttons" unique_id=1921958663]
+layout_mode = 2
+text = "new game"
+
+[node name="load_button" type="Button" parent="main_buttons" unique_id=974932315]
+layout_mode = 2
+text = "load game"
+
+[node name="settings_button" type="Button" parent="main_buttons" unique_id=1502323308]
+layout_mode = 2
+text = "settings"
+
+[node name="credits_button" type="Button" parent="main_buttons" unique_id=314244072]
+layout_mode = 2
+text = "credits"
+
+[node name="quit_button" type="Button" parent="main_buttons" unique_id=1759487589]
+layout_mode = 2
+text = "quit"
+
+[node name="settings_container" type="VBoxContainer" parent="." unique_id=1739282742]
+visible = false
+offset_left = 420.0
+offset_top = 299.0
+offset_right = 731.0
+offset_bottom = 513.0
+size_flags_stretch_ratio = 1.38
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="help_button" type="Button" parent="settings_container" unique_id=1651034580]
+layout_mode = 2
+text = "help"
+
+[node name="back_button2" type="Button" parent="settings_container" unique_id=1728643429]
+layout_mode = 2
+text = "back"
+
+[node name="credits_container" type="VBoxContainer" parent="." unique_id=186448083]
+visible = false
+offset_left = 427.0
+offset_top = 259.0
+offset_right = 749.0
+offset_bottom = 542.0
+theme_override_constants/separation = 100
+
+[node name="credits_label" type="Label" parent="credits_container" unique_id=55112037]
+layout_mode = 2
+size_flags_vertical = 1
+text = "by Mary "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="Button" parent="credits_container" unique_id=1935375887]
+layout_mode = 2
+text = "back"
+
+[connection signal="pressed" from="main_buttons/new_button" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="main_buttons/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="main_buttons/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="settings_container/help_button" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="settings_container/back_button2" to="." method="_on_back_button_2_pressed"]
+[connection signal="pressed" from="credits_container/back_button" to="." method="_on_back_button_pressed"]
