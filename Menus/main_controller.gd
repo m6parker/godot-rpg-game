@@ -1,13 +1,12 @@
 extends Node2D
 
-var level = "World"
 
 func _on_new_button_pressed() -> void:
-	get_tree().change_scene_to_file(str("res://World/", level, ".tscn"))
+	get_tree().change_scene_to_file(str("res://World/", Globals.level, ".tscn"))
 
 
 func _on_load_button_pressed() -> void:
-	get_tree().change_scene_to_file(str("res://World/", level, ".tscn"))
+	get_tree().change_scene_to_file(str("res://World/", Globals.level, ".tscn"))
 
 
 func _on_quit_button_pressed() -> void:

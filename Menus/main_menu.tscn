@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://clcj7pickkv3v"]
 
 [ext_resource type="Script" uid="uid://drcf5014r4kra" path="res://Menus/main_controller.gd" id="1_jf8mj"]
+[ext_resource type="Texture2D" uid="uid://dixx1wk8twhwg" path="res://assets/ui/background_image.png" id="2_p3jrs"]
 
 [node name="main_menu" type="Node2D" unique_id=86334363]
 script = ExtResource("1_jf8mj")
@@ -12,6 +13,20 @@ offset_right = 1231.0
 offset_bottom = 704.0
 mouse_filter = 2
 color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="TextureRect" type="TextureRect" parent="background" unique_id=2141249811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -430.0
+offset_top = 26.0
+offset_right = 121.98645
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p3jrs")
+expand_mode = 3
 
 [node name="Label" type="Label" parent="." unique_id=1592789088]
 offset_right = 1149.0

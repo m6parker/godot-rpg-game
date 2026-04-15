@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://dcooutv0b2k86" path="res://player/playerMovement.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bvjtbb0xhbb8n" path="res://assets/entity/walk_left.png" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://cio0385iknbif" path="res://assets/entity/walk_right.png" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://item_slot.gd" id="5_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://b6meec6wd3qkl" path="res://assets/ui/inventory.png" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://dl6bng2rbcfcc" path="res://assets/items/mushroom.png" id="6_8t03j"]
+[ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="7_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(9, 6)
@@ -123,3 +128,348 @@ sprite_frames = SubResource("SpriteFrames_e7oew")
 animation = &"walk_right"
 frame = 1
 frame_progress = 0.9588417
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137896441]
+
+[node name="hotbar" type="Panel" parent="CanvasLayer" unique_id=560938128]
+custom_minimum_size = Vector2(224, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -92.0
+offset_right = 170.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/hotbar" unique_id=1488011518]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/hotbar/MarginContainer" unique_id=1602265940]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="item_slot" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=1627507851]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot" unique_id=552016651]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_8t03j")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="item_slot2" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=452362338]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot2" unique_id=1421383537]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_2ieo8")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="item_slot3" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=1203398466]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot3" unique_id=1665827629]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="item_slot4" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=998944260]
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/hotbar/MarginContainer/GridContainer/item_slot4" unique_id=1335430008]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.88
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="health_stats" type="VBoxContainer" parent="CanvasLayer" unique_id=1755395067]
+custom_minimum_size = Vector2(50, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -95.0
+offset_right = 102.0
+offset_bottom = 95.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="heart" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=1060189928]
+texture_filter = 1
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("8_ebec5")
+stretch_mode = 4
+
+[node name="heart2" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=599255559]
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("8_ebec5")
+stretch_mode = 4
+
+[node name="heart3" type="TextureRect" parent="CanvasLayer/health_stats" unique_id=1297372637]
+custom_minimum_size = Vector2(62, 87)
+layout_mode = 2
+texture = ExtResource("8_ebec5")
+stretch_mode = 4
+
+[node name="inventory" type="Panel" parent="CanvasLayer" unique_id=1225059618]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="paper_background" type="TextureRect" parent="CanvasLayer/inventory" unique_id=898431132]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qjkh3")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory" unique_id=1380081864]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(158, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -74.0
+offset_right = 84.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 14
+columns = 4
+
+[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=164895160]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=1202045718]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1776731473]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=1465311796]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=950281159]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=906790742]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1138113596]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1239147329]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=695051457]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=398002479]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=311442176]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=1423812383]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1355375066]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=732992268]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2018269465]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=1528616204]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=783103147]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=511287240]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot10" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=474751142]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot10" unique_id=1073463462]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot11" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=455464532]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot11" unique_id=1802516459]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot12" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1972620187]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot12" unique_id=2083561460]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot13" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=730825033]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot13" unique_id=1404518930]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot14" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1156441081]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot14" unique_id=183599480]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot15" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1602105559]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot15" unique_id=171068984]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="item_slot16" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2085462959]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot16" unique_id=179600126]
+layout_mode = 0
+offset_left = -4.0
+offset_right = -4.0
