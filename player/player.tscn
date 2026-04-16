@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bvjtbb0xhbb8n" path="res://assets/entity/walk_left.png" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://cio0385iknbif" path="res://assets/entity/walk_right.png" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://item_slot.gd" id="5_hg6s5"]
-[ext_resource type="Texture2D" uid="uid://b6meec6wd3qkl" path="res://assets/ui/inventory.png" id="5_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://dl6bng2rbcfcc" path="res://assets/items/mushroom.png" id="6_8t03j"]
 [ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="7_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
+[ext_resource type="Texture2D" uid="uid://d34nuvwngiyfk" path="res://assets/ui/notebook.png" id="9_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://mfu8rcdfu8qv" path="res://assets/entity/player_sprite.png" id="10_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(9, 6)
@@ -268,23 +269,22 @@ texture = ExtResource("8_ebec5")
 stretch_mode = 4
 
 [node name="inventory" type="Panel" parent="CanvasLayer" unique_id=1225059618]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(128, 70)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
+offset_left = -374.65277
+offset_top = -207.5
+offset_right = 374.65277
+offset_bottom = 207.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="paper_background" type="TextureRect" parent="CanvasLayer/inventory" unique_id=898431132]
+[node name="inv_background" type="TextureRect" parent="CanvasLayer/inventory" unique_id=898431132]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -292,184 +292,189 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_qjkh3")
+texture = ExtResource("9_hg6s5")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory" unique_id=1380081864]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0.08627451, 0.08627451, 0.08627451, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(158, 100)
+custom_minimum_size = Vector2(100, 75)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -74.0
-offset_right = 84.0
-offset_bottom = 108.0
+offset_left = 61.0
+offset_top = -141.0
+offset_right = 264.0
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 7
-theme_override_constants/v_separation = 14
-columns = 4
+theme_override_constants/h_separation = 28
+theme_override_constants/v_separation = 25
+columns = 3
 
-[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=164895160]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=288562700]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=1202045718]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=1915409973]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1776731473]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=85858168]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=1465311796]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=33252776]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=950281159]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1146113818]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=906790742]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=79918315]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1138113596]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1894616238]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1239147329]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1549457446]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=695051457]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=38696391]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=398002479]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=1107120240]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=311442176]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=298208437]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=1423812383]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=1968446295]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1355375066]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=124170768]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=732992268]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=1788868415]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2018269465]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=464800580]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=1528616204]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=74845898]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=783103147]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=745622402]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=511287240]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=1761048582]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot10" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=474751142]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot10" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=699684925]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot10" unique_id=1073463462]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot10" unique_id=337689707]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot11" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=455464532]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot11" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1338040648]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot11" unique_id=1802516459]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot11" unique_id=1290796706]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot12" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1972620187]
-custom_minimum_size = Vector2(35, 35)
+[node name="item_slot12" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1835949935]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot12" unique_id=2083561460]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot12" unique_id=474669600]
+modulate = Color(10.995142, 10.995142, 10.995142, 1)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="item_slot13" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=730825033]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot13" unique_id=1404518930]
+[node name="player_photo" type="TextureRect" parent="CanvasLayer/inventory" unique_id=1372786609]
+texture_filter = 1
 layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
-
-[node name="item_slot14" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1156441081]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot14" unique_id=183599480]
-layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
-
-[node name="item_slot15" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1602105559]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot15" unique_id=171068984]
-layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
-
-[node name="item_slot16" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2085462959]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot16" unique_id=179600126]
-layout_mode = 0
-offset_left = -4.0
-offset_right = -4.0
+offset_left = 204.65277
+offset_top = 64.5
+offset_right = 318.65277
+offset_bottom = 185.5
+texture = ExtResource("10_8t03j")
