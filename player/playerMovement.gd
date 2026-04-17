@@ -3,21 +3,28 @@ extends CharacterBody2D
 
 @export var move_speed: float = 100
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var notebook: Panel = $CanvasLayer/notebook
 @onready var inventory: Panel = $CanvasLayer/inventory
 
+
 	
+func openNotebook() -> void:
+	if notebook.visible == false:
+		notebook.visible = true
+	else:
+		notebook.visible = false
+		
 func openInventory() -> void:
-	print("inventory: ", inventory)
 	if inventory.visible == false:
 		inventory.visible = true
-		print("open inventory")
 	else:
 		inventory.visible = false
-		print("close inventory")	
 		
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("inventory"):
+	if Input.is_action_just_pressed("notebook"):
+		openNotebook()
+	elif Input.is_action_just_pressed("inventory"):
 		openInventory()
 		
 	var inputDirection = Vector2(
@@ -35,3 +42,7 @@ func _physics_process(delta: float) -> void:
 		animatedSprite.play("idle")
 
 	move_and_slide()
+
+
+func _on_quit_button_pressed() -> void:
+	pass # Replace with function body.

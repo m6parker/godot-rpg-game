@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://d34nuvwngiyfk" path="res://assets/ui/notebook.png" id="9_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://mfu8rcdfu8qv" path="res://assets/entity/player_sprite.png" id="10_8t03j"]
 [ext_resource type="Texture2D" uid="uid://bpd6k84geluqo" path="res://assets/ui/basket.png" id="11_2ieo8"]
-[ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(9, 6)
@@ -167,7 +166,6 @@ theme_override_constants/v_separation = 6
 columns = 5
 
 [node name="item_slot" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=1627507851]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(79, 85)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
@@ -187,7 +185,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="item_slot2" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=452362338]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(79, 85)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
@@ -207,7 +204,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="item_slot3" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=1203398466]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(79, 85)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
@@ -226,7 +222,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="item_slot4" type="Panel" parent="CanvasLayer/hotbar/MarginContainer/GridContainer" unique_id=998944260]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(79, 85)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
@@ -526,85 +521,53 @@ offset_right = 303.41748
 offset_bottom = 247.5
 theme_override_constants/separation = 8
 
-[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1939770936]
+[node name="Panel" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1939770936]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot" unique_id=1341573493]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/Panel" unique_id=1341573493]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot" unique_id=843103299]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=794479207]
+[node name="Panel2" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=794479207]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot2" unique_id=386833047]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/Panel2" unique_id=386833047]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot2" unique_id=681128511]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1061170433]
+[node name="Panel3" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1061170433]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot3" unique_id=1153744999]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/Panel3" unique_id=1153744999]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot3" unique_id=185249628]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1698965299]
+[node name="Panel4" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer" unique_id=1698965299]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot4" unique_id=845678550]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/Panel4" unique_id=845678550]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer/item_slot4" unique_id=1631406964]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/inventory/inv_background" unique_id=1611202340]
 layout_mode = 0
@@ -614,62 +577,38 @@ offset_right = 276.47095
 offset_bottom = 314.5
 theme_override_constants/separation = 9
 
-[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=1254765530]
+[node name="Panel" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=1254765530]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot" unique_id=707672562]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/Panel" unique_id=707672562]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot" unique_id=1070084181]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=279610978]
+[node name="Panel2" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=279610978]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot2" unique_id=2051414501]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/Panel2" unique_id=2051414501]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot2" unique_id=355949830]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=726132410]
+[node name="Panel3" type="Panel" parent="CanvasLayer/inventory/inv_background/HBoxContainer2" unique_id=726132410]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot3" unique_id=893175897]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/Panel3" unique_id=893175897]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/HBoxContainer2/item_slot3" unique_id=1857749079]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
