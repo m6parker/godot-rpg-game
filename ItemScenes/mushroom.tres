@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cs52qi4hv3xke"]
+
+[ext_resource type="Texture2D" uid="uid://dl6bng2rbcfcc" path="res://assets/items/mushroom.png" id="1_rmush"]
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://item_data.gd" id="2_rmush"]
+
+[resource]
+script = ExtResource("2_rmush")
+item_id = 1
+item_name = "mushroom"
+item_texture = ExtResource("1_rmush")
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

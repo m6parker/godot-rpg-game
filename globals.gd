@@ -15,10 +15,11 @@ func _setup_inventory(size: int) -> void:
 	for i in range(size):
 		player_inventory.append(null)
 
-func add_item(data: Dictionary) -> bool:
+func add_item(item_resource: ItemData) -> bool:
 	for i in range(player_inventory.size()):
 		if player_inventory[i] == null:
-			player_inventory[i] = data 
+			#player_inventory[i] = data 
+			player_inventory[i] = item_resource
 			inventory_updated.emit()
 			return true
 	return false

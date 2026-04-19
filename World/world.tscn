@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="1_62w18"]
 [ext_resource type="Texture2D" uid="uid://bedcdbbpu3u2j" path="res://assets/tilesets/forest_tileset.png" id="2_8a836"]
 [ext_resource type="Texture2D" uid="uid://7f7a3ejd5ki7" path="res://assets/tilesets/animated_tiles.png" id="3_j8job"]
-[ext_resource type="PackedScene" uid="uid://bdv52m4kkprx5" path="res://ItemScenes/mushroom.tscn" id="4_3f78f"]
-[ext_resource type="PackedScene" uid="uid://bm3alpe6ijrkn" path="res://ItemScenes/bee.tscn" id="5_k8do8"]
+[ext_resource type="PackedScene" uid="uid://bjhxnlmcp8srs" path="res://ItemScenes/item.tscn" id="4_k8do8"]
+[ext_resource type="Resource" uid="uid://qkga55hao352" path="res://ItemScenes/pinecomb.tres" id="5_bkhv4"]
+[ext_resource type="Resource" uid="uid://cs52qi4hv3xke" path="res://ItemScenes/mushroom.tres" id="6_bkhv4"]
+[ext_resource type="Texture2D" uid="uid://df06mb4ytixn6" path="res://World/pointlight_texture.webp" id="7_yf0ba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a836"]
 texture = ExtResource("2_8a836")
@@ -1378,7 +1380,7 @@ sources/1 = SubResource("TileSetAtlasSource_j8job")
 [node name="world" type="Node2D" unique_id=1706235273]
 
 [node name="player" parent="." unique_id=1999436841 instance=ExtResource("1_62w18")]
-z_index = 3
+z_index = 6
 position = Vector2(-186, -14)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player" unique_id=1099170255]
@@ -1451,20 +1453,28 @@ rendering_quadrant_size = 32
 physics_quadrant_size = 32
 
 [node name="walk_behind" type="TileMapLayer" parent="forest_map" unique_id=1253846533]
-z_index = 6
+z_index = 7
 tile_map_data = PackedByteArray("AADz//v/AAALAAsAAADz//z/AAALAAwAAADz//3/AAALAA0AAAD0//v/AAAMAAsAAAD0//z/AAAMAAwAAAD0//3/AAAMAA0AAAD1//v/AAANAAsAAAD1//z/AAANAAwAAAD1//3/AAANAA0AAAD2//v/AAAOAAsAAAD2//z/AAAOAAwAAAD2//3/AAAOAA0AAADw//z/AAAIAA0AAADx//z/AAAJAA0AAAD4//r/AAAIAA0AAAD5//r/AAAJAA0AAADx/wIAAAAMAAgAAADu/wAAAAANAAgAAAA=")
 tile_set = SubResource("TileSet_j8job")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
 
-[node name="mushroom" parent="." unique_id=1561762496 instance=ExtResource("4_3f78f")]
-position = Vector2(-236, -61)
+[node name="pinecomb" parent="." unique_id=833787009 instance=ExtResource("4_k8do8")]
+z_index = 6
+position = Vector2(-238, -59)
+data = ExtResource("5_bkhv4")
 
-[node name="mushroom2" parent="." unique_id=1066588619 instance=ExtResource("4_3f78f")]
-position = Vector2(-343, 40)
+[node name="mushroom" parent="." unique_id=464502494 instance=ExtResource("4_k8do8")]
+z_index = 6
+position = Vector2(-183, -74)
+data = ExtResource("6_bkhv4")
 
-[node name="mushroom3" parent="." unique_id=215765717 instance=ExtResource("4_3f78f")]
-position = Vector2(-163, -79)
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1148761258]
+position = Vector2(-549.00006, 19)
+scale = Vector2(0.17968744, 0.17968744)
+texture = ExtResource("7_yf0ba")
 
-[node name="bee" parent="." unique_id=1314269112 instance=ExtResource("5_k8do8")]
-position = Vector2(-224, -95)
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1335217567]
+position = Vector2(-472.00006, 84)
+scale = Vector2(0.17968744, 0.17968744)
+texture = ExtResource("7_yf0ba")

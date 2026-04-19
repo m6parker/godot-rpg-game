@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://qkga55hao352"]
+
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://item_data.gd" id="1_faofu"]
+[ext_resource type="Texture2D" uid="uid://d0khclsqijt3f" path="res://assets/items/pinecomb.png" id="1_utmre"]
+
+[resource]
+script = ExtResource("1_faofu")
+item_name = "pinecomb"
+item_texture = ExtResource("1_utmre")
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

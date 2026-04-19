@@ -9,7 +9,6 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	# Connect the signal from your CollectionArea child node
 	$CollectionArea.area_entered.connect(_on_item_collected)
 
 func _on_item_collected(area: Area2D) -> void:

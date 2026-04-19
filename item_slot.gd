@@ -20,9 +20,11 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 	is_dragging = true
 	
+	var item_resource = Globals.player_inventory[slot_index]
+	
 	# show the item being dragged under the cursor
 	var preview = TextureRect.new()
-	preview.texture = icon.texture
+	preview.texture = item_resource.item_texture
 	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview.size = icon.size
@@ -106,9 +108,9 @@ func _hide_hover_visuals() -> void:
 func display_item(data: Variant) -> void:
 	if icon == null: return
 	
-	if data != null and data is Dictionary and data.has("texture"):
-		icon.texture = data["texture"]
-		icon.modulate.a = 1.0
+	if data is ItemData:
+		icon.texture = data.item_texture
+		icon.modulate.a = 1.0 
 		icon.show()
 	else:
 		icon.texture = null
