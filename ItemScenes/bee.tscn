@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bm3alpe6ijrkn"]
+
+[ext_resource type="Script" uid="uid://bjb254uxf83cx" path="res://item.gd" id="1_dn4w1"]
+[ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="2_dn4w1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttk8k"]
+size = Vector2(20, 33.666664)
+
+[node name="Area2D" type="Area2D" unique_id=1561762496]
+script = ExtResource("1_dn4w1")
+item_id = 1
+item_name = "bee"
+item_texture = ExtResource("2_dn4w1")
+
+[node name="icon" type="TextureRect" parent="." unique_id=1121619897]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dn4w1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777829214]
+position = Vector2(5, 6.05)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_ttk8k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]

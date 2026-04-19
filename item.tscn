@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bdv52m4kkprx5"]
-
-[node name="item" type="Node2D" unique_id=1446561496]
-
-[node name="icon" type="TextureRect" parent="." unique_id=1121619897]
-offset_right = 40.0
-offset_bottom = 40.0

@@ -7,6 +7,23 @@ extends CharacterBody2D
 @onready var inventory: Panel = $CanvasLayer/inventory
 
 
+
+func _ready() -> void:
+	# Connect the signal from your CollectionArea child node
+	$CollectionArea.area_entered.connect(_on_item_collected)
+
+func _on_item_collected(area: Area2D) -> void:
+	# Check if the thing we hit is actually an inventory item
+	if area.has_method("get_item_data"):
+		var data = area.get_item_data()
+		
+		# Try to add to inventory
+		var success = Globals.add_item(data)
+		
+		if success:
+			# Tell the item it was successfully picked up so it can vanish
+			area.collect()
+
 	
 func openNotebook() -> void:
 	if notebook.visible == false:
@@ -35,9 +52,9 @@ func _physics_process(delta: float) -> void:
 	velocity = inputDirection * move_speed
 
 	if inputDirection.length() > 0:
-		animatedSprite.play("walk_right")
+		animatedSprite.play("walk")
 		#flip the walking animation if walking left
-		animatedSprite.flip_h = inputDirection.x < 0
+		animatedSprite.flip_h = inputDirection.x > 0
 	else:
 		animatedSprite.play("idle")
 
@@ -46,3 +63,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_quit_button_pressed() -> void:
 	pass # Replace with function body.
+	
