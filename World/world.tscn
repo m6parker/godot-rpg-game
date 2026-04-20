@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://qkga55hao352" path="res://ItemScenes/pinecomb.tres" id="5_bkhv4"]
 [ext_resource type="Resource" uid="uid://cs52qi4hv3xke" path="res://ItemScenes/mushroom.tres" id="6_bkhv4"]
 [ext_resource type="Texture2D" uid="uid://df06mb4ytixn6" path="res://World/pointlight_texture.webp" id="7_yf0ba"]
+[ext_resource type="PackedScene" uid="uid://bwdweburqspvw" path="res://World/plants/grass_one.tscn" id="8_eidgh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a836"]
 texture = ExtResource("2_8a836")
@@ -1478,3 +1479,77 @@ texture = ExtResource("7_yf0ba")
 position = Vector2(-472.00006, 84)
 scale = Vector2(0.17968744, 0.17968744)
 texture = ExtResource("7_yf0ba")
+
+[node name="grasses" type="Node2D" parent="." unique_id=70005929]
+
+[node name="grass_one" parent="grasses" unique_id=1707911298 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(53, -46)
+
+[node name="grass_one2" parent="grasses" unique_id=874521861 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(74, -39)
+
+[node name="grass_one3" parent="grasses" unique_id=1222482515 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(83, -30)
+
+[node name="grass_one4" parent="grasses" unique_id=411580946 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(52, -32)
+
+[node name="grass_one5" parent="grasses" unique_id=2114497638 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(26, -43)
+
+[node name="grass_one6" parent="grasses" unique_id=643900913 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(15, -32)
+
+[node name="grass_one7" parent="grasses" unique_id=1857372633 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(0, 38)
+
+[node name="grass_one8" parent="grasses" unique_id=1683536719 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-69, 37)
+
+[node name="grass_one9" parent="grasses" unique_id=1528439916 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-44, 38)
+
+[node name="grass_one10" parent="grasses" unique_id=1170354981 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-26, 38)
+
+[node name="grass_one11" parent="grasses" unique_id=1307267236 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-10, 45)
+
+[node name="grass_one12" parent="grasses" unique_id=2122241634 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-26, 52)
+
+[node name="grass_one13" parent="grasses" unique_id=1340293685 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-56, 45)
+
+[node name="grass_one14" parent="grasses" unique_id=73175073 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-40, 59)
+
+[node name="grass_one15" parent="grasses" unique_id=70094599 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(-83, 59)
+
+[node name="grass_one16" parent="grasses" unique_id=2104790312 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(39, -92)
+
+[node name="grass_one17" parent="grasses" unique_id=208681102 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(12, -92)
+
+[node name="grass_one18" parent="grasses" unique_id=1064421060 instance=ExtResource("8_eidgh")]
+z_index = 7
+position = Vector2(23, -83)
