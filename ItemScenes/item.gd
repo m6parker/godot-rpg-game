@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 # This is where you will drag your .tres file in the Inspector

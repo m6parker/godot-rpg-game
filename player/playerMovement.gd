@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var move_speed: float = 100
+@export var move_speed: float = 150
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var notebook: Panel = $CanvasLayer/notebook
 @onready var inventory: Panel = $CanvasLayer/inventory
@@ -51,9 +51,9 @@ func _physics_process(delta: float) -> void:
 	velocity = inputDirection * move_speed
 
 	if inputDirection.length() > 0:
-		animatedSprite.play("walk")
+		animatedSprite.play("run")
 		#flip the walking animation if walking left
-		animatedSprite.flip_h = inputDirection.x > 0
+		animatedSprite.flip_h = inputDirection.x < 0
 	else:
 		animatedSprite.play("idle")
 
