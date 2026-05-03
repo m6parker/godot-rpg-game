@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjhxnlmcp8srs"]
 
-[ext_resource type="Script" uid="uid://bf0qj7oqgl0ve" path="res://ItemScenes/item.gd" id="1_jtlqp"]
+[ext_resource type="Script" uid="uid://bf0qj7oqgl0ve" path="res://Items/item.gd" id="1_jtlqp"]
+[ext_resource type="Resource" uid="uid://cs52qi4hv3xke" path="res://Items/mushroom.tres" id="2_3dnog"]
 [ext_resource type="Texture2D" uid="uid://d0khclsqijt3f" path="res://assets/items/pinecomb.png" id="2_k65w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k65w6"]
@@ -8,6 +9,7 @@ size = Vector2(12, 13)
 
 [node name="WorldItem" type="Area2D" unique_id=833787009]
 script = ExtResource("1_jtlqp")
+data = ExtResource("2_3dnog")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379858094]
 position = Vector2(0.25000018, 0.25000018)

@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://dcooutv0b2k86" path="res://player/playerMovement.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://8nd5hnkjpubx" path="res://assets/entities/idle.png" id="2_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://edfe8xsufhla" path="res://assets/entities/player_spritesheet.png" id="3_8t03j"]
-[ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://Menus/item_slot.gd" id="5_hg6s5"]
+[ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://Menu/item_slot.gd" id="5_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="7_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
 [ext_resource type="Texture2D" uid="uid://ctt7w847pupde" path="res://assets/ui/notebook.png" id="9_hg6s5"]
-[ext_resource type="Texture2D" uid="uid://dpfqpvtd1gyji" path="res://assets/ui/skillIcons/foragingIcon.png" id="10_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://bpd6k84geluqo" path="res://assets/ui/basket.png" id="11_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
 [ext_resource type="Script" uid="uid://dbm7b3y5uh5ni" path="res://player/inventory.gd" id="12_yllr7"]
@@ -145,6 +144,7 @@ cache/0/16/0/scale = 1.0
 
 [node name="player" type="CharacterBody2D" unique_id=322231677 groups=["player"]]
 script = ExtResource("1_rkbax")
+move_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890922905]
 position = Vector2(0, -2.6417718)
@@ -381,7 +381,7 @@ offset_right = 438.2848
 offset_bottom = 251.25
 texture = SubResource("CompressedTexture2D_8t03j")
 
-[node name="player_name" type="Label" parent="CanvasLayer/notebook" unique_id=1811460918]
+[node name="Label" type="Label" parent="CanvasLayer/notebook" unique_id=1811460918]
 layout_mode = 0
 offset_left = 267.2848
 offset_top = 266.25
@@ -389,38 +389,8 @@ offset_right = 439.2848
 offset_bottom = 289.25
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_8t03j")
+text = "player name"
 horizontal_alignment = 1
-
-[node name="SkillsGrid" type="GridContainer" parent="CanvasLayer/notebook" unique_id=1766596061]
-layout_mode = 0
-offset_left = 619.2848
-offset_top = 141.25
-offset_right = 971.2848
-offset_bottom = 496.25
-
-[node name="ForagingPanel" type="Panel" parent="CanvasLayer/notebook/SkillsGrid" unique_id=554365651]
-self_modulate = Color(1, 1, 1, 0.23137255)
-custom_minimum_size = Vector2(97, 95)
-layout_mode = 2
-
-[node name="count" type="Label" parent="CanvasLayer/notebook/SkillsGrid/ForagingPanel" unique_id=2143219979]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 66.0
-offset_right = 92.0
-offset_bottom = 95.0
-theme_override_font_sizes/font_size = 20
-text = "0"
-horizontal_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/SkillsGrid/ForagingPanel" unique_id=774493888]
-texture_filter = 1
-custom_minimum_size = Vector2(97, 95)
-layout_mode = 0
-offset_left = 1.0
-offset_right = 98.0
-offset_bottom = 95.0
-texture = ExtResource("10_2ieo8")
 
 [node name="inventory" type="Panel" parent="CanvasLayer" unique_id=2025456491]
 visible = false

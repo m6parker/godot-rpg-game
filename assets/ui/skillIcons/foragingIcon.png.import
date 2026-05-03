@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxp266rdkna41"
-path="res://.godot/imported/idle.png-b34cfdc085215c6a11164d8acb307061.ctex"
+uid="uid://dpfqpvtd1gyji"
+path="res://.godot/imported/foragingIcon.png-fe963aad4577f1c2829d158982a3e17c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/idle.png"
-dest_files=["res://.godot/imported/idle.png-b34cfdc085215c6a11164d8acb307061.ctex"]
+source_file="res://assets/ui/skillIcons/foragingIcon.png"
+dest_files=["res://.godot/imported/foragingIcon.png-fe963aad4577f1c2829d158982a3e17c.ctex"]
 
 [params]
 

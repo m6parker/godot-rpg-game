@@ -2,6 +2,15 @@ extends Node2D
 
 
 func _on_new_button_pressed() -> void:
+	$main_buttons.visible = false
+	$new_game_container.visible = true
+
+
+func _on_new_game_button_pressed() -> void:
+	if not $new_game_container/player_name_text.text:
+		return
+	var username = $new_game_container/player_name_text.text
+	Globals.player_name = username
 	get_tree().change_scene_to_file(str("res://World/", Globals.level, ".tscn"))
 
 

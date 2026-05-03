@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8p462qtmse7p"]
+
+[ext_resource type="Script" uid="uid://jtign2bl3gw3" path="res://Menus/skill_notification.gd" id="1_xnend"]
+
+[node name="SkillNotification" type="CanvasLayer" unique_id=1920841739]
+script = ExtResource("1_xnend")
+
+[node name="Panel" type="Panel" parent="." unique_id=203393381]
+offset_right = 367.0
+offset_bottom = 109.0
+
+[node name="description" type="Label" parent="Panel" unique_id=200283737]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+offset_top = 17.0
+offset_right = 347.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 32
+text = "+1 Forraging"
+horizontal_alignment = 1
+vertical_alignment = 1

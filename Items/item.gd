@@ -9,7 +9,7 @@ func _ready() -> void:
 		# Automatically set the sprite to the resource's texture
 		$Sprite2D.texture = data.item_texture
 	else:
-		print("Warning: WorldItem spawned without ItemData!")
+		print("WorldItem spawned without ItemData!")
 
 # This is called by the Player's 'CollectionArea'
 func get_item_data() -> ItemData:

@@ -5,11 +5,28 @@ extends CharacterBody2D
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var notebook: Panel = $CanvasLayer/notebook
 @onready var inventory: Panel = $CanvasLayer/inventory
-
+@onready var notification_scene = preload("res://Menus/skill_notification.tscn")
+@onready var foragingCount = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
+@onready var playerNameLabel = $CanvasLayer/notebook/player_name
 
 
 func _ready() -> void:
 	$CollectionArea.area_entered.connect(_on_item_collected)
+	playerNameLabel.text = Globals.player_name
+	print(playerNameLabel.text)
+	print(Globals.player_name)
+	
+
+func show_notification(text: String):
+	var instance = notification_scene.instantiate()
+	instance.get_node("Panel/description").text = text
+	add_child(instance)
+	
+func updateSkillsNotebook():
+	print(foragingCount.text)
+	print(Globals.playerSkills["Foraging"])
+	foragingCount.text = str(Globals.playerSkills["Foraging"])
+
 
 func _on_item_collected(area: Area2D) -> void:
 	# Check if the thing we hit is actually an inventory item
@@ -22,6 +39,10 @@ func _on_item_collected(area: Area2D) -> void:
 		if success:
 			# Tell the item it was successfully picked up so it can vanish
 			area.collect()
+			
+		show_notification("+1 " + data.item_type)
+		Globals.increase_skill(data.item_type)
+		updateSkillsNotebook()
 
 	
 func openNotebook() -> void:

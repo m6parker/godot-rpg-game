@@ -2,8 +2,19 @@ extends Node
 
 signal inventory_updated
 
+var player_name = "player_name"
 var level = "World"
-var playerStats = {"health": 100, "level": 1}
+
+var playerStats = {
+	"health": 100, 
+	"level": 1
+	}
+	
+var playerSkills = {
+	"Foraging": 0, 
+	"Combat": 0, 
+	"Brewing": 0
+	}
 
 var player_inventory = []
 
@@ -23,3 +34,10 @@ func add_item(item_resource: ItemData) -> bool:
 			inventory_updated.emit()
 			return true
 	return false
+	
+func increase_skill(skill_type):
+	playerSkills[skill_type]+=1
+	print("skills:")
+	print(playerSkills)
+	
+	
