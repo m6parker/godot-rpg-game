@@ -17,11 +17,28 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Globals="*uid://js3gn0hk6hk4"
+Recipes="*uid://bsrew02x4p53d"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[file_customization]
+
+folder_colors={
+"res://Items/": "yellow",
+"res://Menus/": "green",
+"res://Objects/": "blue",
+"res://World/": "pink",
+"res://assets/": "red",
+"res://assets/entities/": "pink",
+"res://assets/items/": "purple",
+"res://assets/plants/": "green",
+"res://assets/tilesets/": "teal",
+"res://assets/ui/": "blue",
+"res://player/": "purple"
+}
 
 [global_group]
 

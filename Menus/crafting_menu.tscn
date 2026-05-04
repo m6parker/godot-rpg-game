@@ -30,6 +30,22 @@ offset_right = 523.0
 offset_bottom = 474.0
 texture = ExtResource("1_2om7x")
 
+[node name="Label" type="Label" parent="Panel" unique_id=214801754]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 82.0
+offset_right = 231.0
+offset_bottom = 105.0
+text = "ingredients:"
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1329813782]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 301.0
+offset_right = 316.0
+offset_bottom = 324.0
+text = "result:"
+
 [node name="ingredients_container" type="HBoxContainer" parent="Panel" unique_id=2043661292]
 layout_mode = 0
 offset_left = 65.0
@@ -105,9 +121,9 @@ texture = ExtResource("3_781xm")
 
 [node name="craft_button" type="Button" parent="Panel" unique_id=2058618574]
 layout_mode = 0
-offset_left = 193.0
-offset_top = 267.0
-offset_right = 318.0
-offset_bottom = 298.0
+offset_left = 196.0
+offset_top = 233.0
+offset_right = 321.0
+offset_bottom = 264.0
 text = "craft
 "

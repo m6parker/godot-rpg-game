@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b5h0yl0p2un0o"]
+
+[ext_resource type="Texture2D" uid="uid://cy0a30kj25qqi" path="res://assets/items/rose_petal.png" id="1_01lrw"]
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_r8lje"]
+
+[resource]
+script = ExtResource("2_r8lje")
+item_id = 3
+item_name = "rose_petal"
+item_texture = ExtResource("1_01lrw")
+item_type = "Foraging"
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

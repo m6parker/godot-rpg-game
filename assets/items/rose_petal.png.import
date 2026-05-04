@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chc683pn1rog6"
-path="res://.godot/imported/bee.png-0bb0b3c627f47ed92ebbbd6bd0619ee3.ctex"
+uid="uid://cy0a30kj25qqi"
+path="res://.godot/imported/rose_petal.png-9ceae64b4ca4e7e7465e67ecfac66bac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/bee.png"
-dest_files=["res://.godot/imported/bee.png-0bb0b3c627f47ed92ebbbd6bd0619ee3.ctex"]
+source_file="res://assets/items/rose_petal.png"
+dest_files=["res://.godot/imported/rose_petal.png-9ceae64b4ca4e7e7465e67ecfac66bac.ctex"]
 
 [params]
 

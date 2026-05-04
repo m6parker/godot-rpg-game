@@ -6,20 +6,7 @@ func _ready() -> void:
 	Globals.crafting_updated.connect(_update_slots)
 	$Panel/craft_button.pressed.connect(_on_craft_button_pressed)
 	_update_slots()
-
-func check_recipes() -> void:
-	if Globals.crafting_result != null:
-		return
-
-	var ing1 = Globals.crafting_slots[0]
-	var ing2 = Globals.crafting_slots[1]
 	
-	if ing1 and ing2:
-		if (ing1.item_id == 1 and ing2.item_id == 0) or (ing1.item_id == 0 and ing2.item_id == 1):
-			Globals.crafting_result = HONEY_MUSHROOM
-			return
-			
-	Globals.crafting_result = null
 
 func _update_slots() -> void:
 	var slot1 = $Panel/ingredients_container/ingredient_slot
@@ -31,21 +18,32 @@ func _update_slots() -> void:
 	
 	if res_slot: res_slot.display_item(Globals.crafting_result)
 	
-	var can_craft = get_valid_recipe() != null and Globals.crafting_result == null
-	$Panel/craft_button.disabled = !can_craft
+	var can_craft = check_recipe() != null and Globals.crafting_result == null
+	$Panel/craft_button.disabled = !can_craft  
 
-func get_valid_recipe() -> Resource:
-	var ing1 = Globals.crafting_slots[0]
-	var ing2 = Globals.crafting_slots[1]
+
+func check_recipe() -> Resource:
+	var names = []
+	for item in Globals.crafting_slots:
+		if item != null:
+			var item_name = item.resource_path.get_file().get_basename().to_lower()
+			names.append(item_name)
 	
-	if ing1 and ing2:
-		if (ing1.item_id == 1 and ing2.item_id == 0) or (ing1.item_id == 0 and ing2.item_id == 1):
-			return HONEY_MUSHROOM
+	if names.size() < 2: return null
+	
+	names.sort()
+	var recipe_key = ",".join(names) 
+
+	if Recipes.recipes.has(recipe_key):
+		var result_name = Recipes.recipes[recipe_key]
+		var full_path = Recipes.get_recipe_path(result_name)
+		return load(full_path)
 	
 	return null
 
+
 func _on_craft_button_pressed() -> void:
-	var result = get_valid_recipe()
+	var result = check_recipe()
 	
 	if result != null:
 		Globals.crafting_result = result
