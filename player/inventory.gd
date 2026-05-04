@@ -24,7 +24,6 @@ func _on_inventory_refresh() -> void:
 		if child.has_method("display_item"):
 			var global_idx = start_index + slot_count
 			
-			# Safety check to prevent the "Index 8" crash
 			if global_idx < Globals.player_inventory.size():
 				child.display_item(Globals.player_inventory[global_idx])
 			else:

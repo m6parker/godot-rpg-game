@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbt0lvi81ahem"
-path="res://.godot/imported/waterfall.png-7e72bfa4f875d395db59a1161a150443.ctex"
+uid="uid://tcbjjgjoe8ed"
+path="res://.godot/imported/crafting_table.png-4deb55925bc3590de5da6d82d3d4b695.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/waterfall.png"
-dest_files=["res://.godot/imported/waterfall.png-7e72bfa4f875d395db59a1161a150443.ctex"]
+source_file="res://assets/objects/crafting_table.png"
+dest_files=["res://.godot/imported/crafting_table.png-4deb55925bc3590de5da6d82d3d4b695.ctex"]
 
 [params]
 

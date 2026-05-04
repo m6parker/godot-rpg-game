@@ -8,13 +8,12 @@ extends CharacterBody2D
 @onready var notification_scene = preload("res://Menus/skill_notification.tscn")
 @onready var foragingCount = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
 @onready var playerNameLabel = $CanvasLayer/notebook/player_name
-
+@onready var craft_station_scene = preload("res://Menus/crafting_menu.tscn") 
+var craft_instance = null
 
 func _ready() -> void:
 	$CollectionArea.area_entered.connect(_on_item_collected)
 	playerNameLabel.text = Globals.player_name
-	print(playerNameLabel.text)
-	print(Globals.player_name)
 	
 
 func show_notification(text: String):
@@ -29,15 +28,14 @@ func updateSkillsNotebook():
 
 
 func _on_item_collected(area: Area2D) -> void:
-	# Check if the thing we hit is actually an inventory item
+	# Check if the thing hit is actually an inventory item
 	if area.has_method("get_item_data"):
 		var data = area.get_item_data()
 		
-		# Try to add to inventory
+		# try to add to inventory
 		var success = Globals.add_item(data)
 		
 		if success:
-			# Tell the item it was successfully picked up so it can vanish
 			area.collect()
 			
 		show_notification("+1 " + data.item_type)
@@ -56,13 +54,21 @@ func openInventory() -> void:
 		inventory.visible = true
 	else:
 		inventory.visible = false
-		
+				
+func toggleCraftStation() -> void:
+	if craft_instance == null:
+		craft_instance = craft_station_scene.instantiate()
+		$CanvasLayer.add_child(craft_instance)
+	else:
+		craft_instance.visible = !craft_instance.visible
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("notebook"):
 		openNotebook()
 	elif Input.is_action_just_pressed("inventory"):
 		openInventory()
+	elif Input.is_action_just_pressed("interact") && Globals.can_craft:
+		toggleCraftStation()
 		
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),

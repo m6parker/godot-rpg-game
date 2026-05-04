@@ -1,12 +1,10 @@
 @tool
 extends Area2D
 
-# This is where you will drag your .tres file in the Inspector
 @export var data: ItemData
 
 func _ready() -> void:
 	if data:
-		# Automatically set the sprite to the resource's texture
 		$Sprite2D.texture = data.item_texture
 	else:
 		print("WorldItem spawned without ItemData!")

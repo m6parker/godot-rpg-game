@@ -2,8 +2,9 @@ extends Node
 
 signal inventory_updated
 
-var player_name = "player_name"
-var level = "World"
+var player_name: String = "player_name"
+var level: String = "World"
+var can_craft: bool = false
 
 var playerStats = {
 	"health": 100, 
@@ -15,11 +16,21 @@ var playerSkills = {
 	"Combat": 0, 
 	"Brewing": 0
 	}
+	
+var crafting_slots = []
+var crafting_result = null
+signal crafting_updated
+
+func _ready():
+	player_inventory.resize(20)
+	player_inventory.fill(null)
+	
+	# 2 slots to begin with, unlock more prolly
+	crafting_slots.resize(2)
+	crafting_slots.fill(null)
+
 
 var player_inventory = []
-
-func _ready() -> void:
-	_setup_inventory(20) 
 
 func _setup_inventory(size: int) -> void:
 	player_inventory.clear()
@@ -37,7 +48,6 @@ func add_item(item_resource: ItemData) -> bool:
 	
 func increase_skill(skill_type):
 	playerSkills[skill_type]+=1
-	print("skills:")
 	print(playerSkills)
 	
 	

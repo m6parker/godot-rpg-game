@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://10615w5pyjmg"]
+
+[ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/bee.png" id="1_b5rv2"]
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_7ca4n"]
+
+[resource]
+script = ExtResource("2_7ca4n")
+item_id = 2
+item_name = "honey_mushroom"
+item_texture = ExtResource("1_b5rv2")
+item_type = "Foraging"
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"
