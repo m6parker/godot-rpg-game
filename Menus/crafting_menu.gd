@@ -52,9 +52,8 @@ func _on_craft_button_pressed() -> void:
 		Globals.crafting_slots[0] = null
 		Globals.crafting_slots[1] = null
 		
-		# update UI
+		# update ui
 		Globals.inventory_updated.emit()
 		Globals.crafting_updated.emit()
-		print("Crafted successfully!")
 	else:
-		print("Invalid ingredients!")
+		print("invalid ingredients!")

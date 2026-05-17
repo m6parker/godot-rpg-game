@@ -50,4 +50,25 @@ func increase_skill(skill_type):
 	playerSkills[skill_type]+=1
 	print(playerSkills)
 	
+# --------- shift clicking ------------
+func move_to_crafting(item: Resource, inv_index: int) -> bool:
+	for i in range(crafting_slots.size()):
+		if crafting_slots[i] == null:
+			crafting_slots[i] = item
+			player_inventory[inv_index] = null
+			return true
+	return false
+
+func move_to_inventory(item: Resource, type: String, craft_index: int) -> bool:
+	for i in range(player_inventory.size()):
+		if player_inventory[i] == null:
+			player_inventory[i] = item
+			
+			if type == "result":
+				crafting_result = null
+			else:
+				crafting_slots[craft_index] = null
+			return true
+	return false
+	
 	

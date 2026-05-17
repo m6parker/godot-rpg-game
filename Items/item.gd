@@ -9,10 +9,10 @@ func _ready() -> void:
 	else:
 		print("WorldItem spawned without ItemData!")
 
-# This is called by the Player's 'CollectionArea'
+# called by the players CollectionArea
 func get_item_data() -> ItemData:
 	return data
 
 func collect() -> void:
-	# You can add a sound or particle effect here later
+	# sound or particle effect here later
 	queue_free()

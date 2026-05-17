@@ -124,3 +124,36 @@ func display_item(data: Variant) -> void:
 	else:
 		icon.texture = null
 		icon.hide()
+		
+		
+# -------- shift clicking ---------
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and Input.is_key_pressed(KEY_SHIFT):
+			handle_shift_click()
+
+func handle_shift_click() -> void:
+	var item = get_item_in_this_slot()
+	if item == null: return
+
+	if container_type == "inventory":
+		# Move from inventory -> craft staion
+		if Globals.move_to_crafting(item, slot_index):
+			print("moved to crafting station")
+	else:
+		# Move from craft station -> inventory
+		if Globals.move_to_inventory(item, container_type, slot_index):
+			print("moved to inventory")
+	
+	# refresh ui
+	Globals.inventory_updated.emit()
+	Globals.crafting_updated.emit()
+
+func get_item_in_this_slot() -> Resource:
+	if container_type == "result":
+		return Globals.crafting_result
+	elif container_type == "crafting":
+		return Globals.crafting_slots[slot_index]
+	else:
+		return Globals.player_inventory[slot_index]

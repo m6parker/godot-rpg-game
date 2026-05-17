@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b63nqp4dmamqo"]
 
-[ext_resource type="Texture2D" uid="uid://cy0a30kj25qqi" path="res://assets/items/rose_petal.png" id="1_tohdo"]
+[ext_resource type="Texture2D" uid="uid://dmbev76iih4n3" path="res://assets/items/monarch_butterfly.png" id="1_tohdo"]
 [ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_k3cro"]
 
 [resource]
