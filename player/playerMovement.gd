@@ -31,6 +31,7 @@ func _on_item_collected(area: Area2D) -> void:
 	# Check if the thing hit is actually an inventory item
 	if area.has_method("get_item_data"):
 		var data = area.get_item_data()
+		print(data.quality)
 		
 		# try to add to inventory
 		var success = Globals.add_item(data)
@@ -41,7 +42,6 @@ func _on_item_collected(area: Area2D) -> void:
 		show_notification("+1 " + data.item_type)
 		Globals.increase_skill(data.item_type)
 		updateSkillsNotebook()
-		#print("item flamable: ", data.flamable)
 	
 func openNotebook() -> void:
 	if notebook.visible == false:

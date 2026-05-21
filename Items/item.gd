@@ -7,7 +7,7 @@ func _ready() -> void:
 	if data:
 		$Sprite2D.texture = data.item_texture
 	else:
-		print("WorldItem spawned without ItemData!")
+		print("worldItem spawned without item_data!")
 
 # called by the players CollectionArea
 func get_item_data() -> ItemData:
