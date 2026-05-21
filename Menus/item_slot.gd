@@ -19,6 +19,10 @@ func get_target_array() -> Array:
 		return Globals.player_inventory
 	elif container_type == "crafting":
 		return Globals.crafting_slots
+	elif container_type == "brewing":
+		return Globals.brewing_slots
+	elif container_type == "brewing_result":
+		return [Globals.brewing_result]
 	else: # "result"
 		return [Globals.crafting_result]
 
@@ -29,6 +33,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	var item_resource = null
 	if container_type == "result":
 		item_resource = Globals.crafting_result
+	if container_type == "brewing_result":
+		item_resource = Globals.brewing_result
 	else:
 		item_resource = current_array[slot_index]
 
@@ -57,7 +63,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if container_type == "result":
+	if container_type == "result" || container_type == "brewing_result":
 		return false
 		
 	var can_drop = data is Dictionary and data.has("origin_node")
@@ -75,7 +81,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var target_array = get_target_array()
 	var origin_array = origin_node.get_target_array()
 	
-	if container_type == "result":
+	if container_type == "result" || container_type == "brewing_result":
 		return
 
 	var item_already_here = target_array[slot_index]
@@ -84,6 +90,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	
 	if origin_node.container_type == "result":
 		Globals.crafting_result = null
+	elif origin_node.container_type == "brewing_result":
+		Globals.brewing_result = null
 	else:
 		origin_array[origin_node.slot_index] = item_already_here
 	
@@ -91,6 +99,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	Globals.inventory_updated.emit()
 	if Globals.has_signal("crafting_updated"):
 		Globals.crafting_updated.emit()
+	if Globals.has_signal("brewing_updated"):
+		Globals.brewing_updated.emit()
 	
 
 func _process(_delta: float) -> void:
@@ -133,6 +143,7 @@ func _gui_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and Input.is_key_pressed(KEY_SHIFT):
 			handle_shift_click()
 
+
 func handle_shift_click() -> void:
 	var item = get_item_in_this_slot()
 	if item == null: return
@@ -140,15 +151,23 @@ func handle_shift_click() -> void:
 	if container_type == "inventory":
 		# Move from inventory -> craft staion
 		if Globals.move_to_crafting(item, slot_index):
-			print("moved to crafting station")
+			print("Moved to crafting station")
 	else:
-		# Move from craft station -> inventory
+		# Move from inventory -> craft staion
 		if Globals.move_to_inventory(item, container_type, slot_index):
-			print("moved to inventory")
-	
+			print("Moved to inventory")
+			
 	# refresh ui
+	_update_all_systems()
+
+
+func _update_all_systems() -> void:
 	Globals.inventory_updated.emit()
-	Globals.crafting_updated.emit()
+	if Globals.has_signal("crafting_updated"):
+		Globals.crafting_updated.emit()
+	if Globals.has_signal("brewing_updated"):
+		Globals.brewing_updated.emit()
+		
 
 func get_item_in_this_slot() -> Resource:
 	if container_type == "result":

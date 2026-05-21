@@ -22,6 +22,9 @@ const OAK_LEAF = "oak_leaf"
 const PINECOMB = "pinecomb"
 const ROSE_PETAL = "rose_petal"
 
+const EMPTY_BOTTLE = "potion_bottle"
+const YELLOW_POTION = "yellow_potion"
+
 # keys gotta be alphetical and all items need to be lowercase strings
 # todo: will become recipes_level_one
 var recipes = {
@@ -39,6 +42,6 @@ var recipes = {
 #	 - get more complex as player levels up
 #	 - potion, elixir, brew, concoction, serum, tonic
 
-var item_recipes = {
-	
+var potion_recipes = {
+	OAK_LEAF + "," + EMPTY_BOTTLE + "," + ROSE_PETAL: YELLOW_POTION
 }

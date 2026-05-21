@@ -19,8 +19,11 @@ var playerSkills = {
 	}
 	
 var crafting_slots = []
+var brewing_slots = []
 var crafting_result = null
+var brewing_result = null
 signal crafting_updated
+signal brewing_updated
 
 func _ready():
 	player_inventory.resize(20)
@@ -29,6 +32,9 @@ func _ready():
 	# 2 slots to begin with, unlock more prolly
 	crafting_slots.resize(2)
 	crafting_slots.fill(null)
+	
+	brewing_slots.resize(3)
+	brewing_slots.fill(null)
 
 
 var player_inventory = []

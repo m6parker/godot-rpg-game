@@ -10,6 +10,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1383.0
+offset_bottom = -607.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_euycs")
@@ -32,10 +34,10 @@ texture = ExtResource("1_uun35")
 
 [node name="Label" type="Label" parent="Panel" unique_id=2111944626]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 82.0
-offset_right = 231.0
-offset_bottom = 105.0
+offset_left = 137.0
+offset_top = 84.0
+offset_right = 229.0
+offset_bottom = 107.0
 text = "ingredients:"
 
 [node name="Label2" type="Label" parent="Panel" unique_id=1670592959]
@@ -46,19 +48,28 @@ offset_right = 316.0
 offset_bottom = 324.0
 text = "result:"
 
+[node name="Label3" type="Label" parent="Panel" unique_id=1714983275]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 86.0
+offset_right = 373.0
+offset_bottom = 109.0
+text = "vessel:"
+
 [node name="ingredients_container" type="HBoxContainer" parent="Panel" unique_id=1057763985]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 113.0
 offset_right = 451.0
 offset_bottom = 186.0
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="ingredient_slot" type="Panel" parent="Panel/ingredients_container" unique_id=1297436189]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_euycs")
-container_type = "crafting"
+container_type = "brewing"
 slot_index = 0
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=1312210252]
@@ -77,7 +88,7 @@ texture = ExtResource("3_4m0i2")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_euycs")
-container_type = "crafting"
+container_type = "brewing"
 slot_index = 1
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=713304687]
@@ -96,8 +107,8 @@ texture = ExtResource("3_4m0i2")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_euycs")
-container_type = "crafting"
-slot_index = 1
+container_type = "brewing"
+slot_index = 2
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot3" unique_id=167200773]
 layout_mode = 0
@@ -123,7 +134,7 @@ alignment = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_euycs")
-container_type = "result"
+container_type = "brewing_result"
 slot_index = 0
 
 [node name="icon" type="TextureRect" parent="Panel/yeild_container/yield_slot" unique_id=928077710]

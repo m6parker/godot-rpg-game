@@ -78,8 +78,10 @@ func _physics_process(delta: float) -> void:
 		openInventory()
 	elif Input.is_action_just_pressed("interact") && Globals.can_craft:
 		toggleCraftStation()
+		print("toggle craft")
 	elif Input.is_action_just_pressed("interact") && Globals.can_brew:
 		toggleBrewStation()
+		print("toggle brew")
 		
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
