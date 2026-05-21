@@ -47,8 +47,9 @@ func add_item(item_resource: ItemData) -> bool:
 	return false
 	
 func increase_skill(skill_type):
-	playerSkills[skill_type]+=1
-	print(playerSkills)
+	if skill_type:
+		playerSkills[skill_type]+=1
+		print(playerSkills)
 	
 # --------- shift clicking ------------
 func move_to_crafting(item: Resource, inv_index: int) -> bool:

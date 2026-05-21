@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://qkga55hao352"]
 
-[ext_resource type="Texture2D" uid="uid://d0khclsqijt3f" path="res://assets/items/pinecomb.png" id="1_utmre"]
+[ext_resource type="Texture2D" uid="uid://d0khclsqijt3f" path="res://assets/items/pinecomb.png" id="1_2db6m"]
 [ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_2db6m"]
 
 [resource]
 script = ExtResource("2_2db6m")
 item_name = "pinecomb"
-item_texture = ExtResource("1_utmre")
+item_texture = ExtResource("1_2db6m")
 item_type = "Foraging"
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

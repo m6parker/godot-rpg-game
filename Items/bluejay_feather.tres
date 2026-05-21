@@ -1,12 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b4l2aag1ob1t"]
 
-[ext_resource type="Texture2D" uid="uid://cqtc5l46npvga" path="res://assets/items/bluejay_feather.png" id="1_7fifl"]
 [ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_opanx"]
 
 [resource]
 script = ExtResource("2_opanx")
-item_id = 7
-item_name = "bluejay_feather"
-item_texture = ExtResource("1_7fifl")
-item_type = "Foraging"
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

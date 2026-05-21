@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://bjhxnlmcp8srs"]
 
 [ext_resource type="Script" uid="uid://bf0qj7oqgl0ve" path="res://Items/item.gd" id="1_jtlqp"]
-[ext_resource type="Resource" uid="uid://b5h0yl0p2un0o" path="res://Items/rose_petal.tres" id="2_3dnog"]
-[ext_resource type="Texture2D" uid="uid://cy0a30kj25qqi" path="res://assets/items/rose_petal.png" id="3_3dnog"]
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_p2kau"]
+
+[sub_resource type="Resource" id="Resource_3dnog"]
+script = ExtResource("2_p2kau")
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k65w6"]
 size = Vector2(12, 13)
 
 [node name="WorldItem" type="Area2D" unique_id=833787009]
 script = ExtResource("1_jtlqp")
-data = ExtResource("2_3dnog")
+data = SubResource("Resource_3dnog")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379858094]
 position = Vector2(0.25000018, 0.25000018)
 scale = Vector2(0.609375, 0.609375)
-texture = ExtResource("3_3dnog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1898627962]
 shape = SubResource("RectangleShape2D_k65w6")

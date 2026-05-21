@@ -41,7 +41,7 @@ func _on_item_collected(area: Area2D) -> void:
 		show_notification("+1 " + data.item_type)
 		Globals.increase_skill(data.item_type)
 		updateSkillsNotebook()
-
+		#print("item flamable: ", data.flamable)
 	
 func openNotebook() -> void:
 	if notebook.visible == false:

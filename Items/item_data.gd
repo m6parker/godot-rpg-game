@@ -6,3 +6,5 @@ class_name ItemData
 @export var item_texture: Texture
 @export var description: String = ""
 @export var item_type: String = ""
+#@export var flamable: bool = false
+#@export var poisonous: bool = false

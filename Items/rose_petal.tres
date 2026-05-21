@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("2_r8lje")
-item_id = 3
 item_name = "rose_petal"
 item_texture = ExtResource("1_01lrw")
 item_type = "Foraging"
