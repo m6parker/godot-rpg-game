@@ -29,3 +29,16 @@ var recipes = {
 	OAK_LEAF + "," + ROSE_PETAL: MAPLE_LEAF,
 	BLUEJAY_FEATHER + "," + PINECOMB: MONARCH_BUTTERFLY
 }
+
+# item recipes 
+#    - hardcoded to create other existing items, attributes calculated (quality)
+#    - only ever two items together
+#    - natural items create crafted or enhanced items
+# potion recipes
+#    - calculated with items, given colors programatically
+#	 - get more complex as player levels up
+#	 - potion, elixir, brew, concoction, serum, tonic
+
+var item_recipes = {
+	
+}

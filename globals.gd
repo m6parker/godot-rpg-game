@@ -5,6 +5,7 @@ signal inventory_updated
 var player_name: String = "player_name"
 var level: String = "World"
 var can_craft: bool = false
+var can_brew: bool = false
 
 var playerStats = {
 	"health": 100, 

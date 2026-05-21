@@ -8,8 +8,10 @@ extends CharacterBody2D
 @onready var notification_scene = preload("res://Menus/skill_notification.tscn")
 @onready var foragingCount = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
 @onready var playerNameLabel = $CanvasLayer/notebook/player_name
-@onready var craft_station_scene = preload("res://Menus/crafting_menu.tscn") 
+@onready var craft_station_scene = preload("res://Menus/crafting_menu.tscn")
+@onready var brewing_station_scene = preload("res://Menus/brewing_menu.tscn")
 var craft_instance = null
+var brew_instance = null
 
 func _ready() -> void:
 	$CollectionArea.area_entered.connect(_on_item_collected)
@@ -61,6 +63,13 @@ func toggleCraftStation() -> void:
 		$CanvasLayer.add_child(craft_instance)
 	else:
 		craft_instance.visible = !craft_instance.visible
+						
+func toggleBrewStation() -> void:
+	if brew_instance == null:
+		brew_instance = brewing_station_scene.instantiate()
+		$CanvasLayer.add_child(brew_instance)
+	else:
+		brew_instance.visible = !brew_instance.visible
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("notebook"):
@@ -69,6 +78,8 @@ func _physics_process(delta: float) -> void:
 		openInventory()
 	elif Input.is_action_just_pressed("interact") && Globals.can_craft:
 		toggleCraftStation()
+	elif Input.is_action_just_pressed("interact") && Globals.can_brew:
+		toggleBrewStation()
 		
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),

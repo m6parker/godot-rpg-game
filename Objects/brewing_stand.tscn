@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dmo2mmdde35td"]
+
+[ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://Objects/brewing_stand.gd" id="1_767yw"]
+[ext_resource type="Texture2D" uid="uid://dmchf3e4o7a6h" path="res://assets/objects/brewing_stand.png" id="2_767yw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6esg2"]
+radius = 60.0
+
+[node name="brewing_stand" type="Node2D" unique_id=1234255753]
+script = ExtResource("1_767yw")
+
+[node name="icon" type="TextureRect" parent="." unique_id=1043699055]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_767yw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1420777920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=240909706]
+shape = SubResource("CircleShape2D_6esg2")

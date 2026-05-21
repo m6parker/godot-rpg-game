@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_3dnog"]
 script = ExtResource("2_p2kau")
+quality = null
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k65w6"]
