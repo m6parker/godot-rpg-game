@@ -63,16 +63,24 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	# cannot place items in yield slots
 	if container_type == "result" or container_type == "brewing_result":
 		return false
 		
-	var can_drop = data is Dictionary and data.has("origin_node")
-	# hover effect over slots
-	if can_drop:
-		if not is_hovered_with_drag:
-			_show_hover_visuals()
+	var valid_data = data is Dictionary and data.has("origin_node") and data.has("item_data")
+	if not valid_data:
+		return false
+		
+	if container_type == "brewing" and slot_index == 2:
+		var dragging_item = data["item_data"]
+		if not is_item_a_bottle(dragging_item):
+			return false
+			
+	# hover effect over valid slots
+	if not is_hovered_with_drag:
+		_show_hover_visuals()
 	
-	return can_drop
+	return true
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var origin_node = data["origin_node"]
@@ -144,41 +152,49 @@ func _gui_input(event: InputEvent) -> void:
 			handle_shift_click()
 
 
+#func handle_shift_click() -> void:
+	#var item = get_item_in_this_slot()
+	#if item == null: return
+#
+	#match container_type:
+		#"inventory":
+			## sorting from inventory depending which ui is open
+			#if Globals.get(&"brewing_open") and Globals.move_to_brewing(item, slot_index):
+				#print("moved to brewing station")
+			#elif Globals.get(&"crafting_open") and Globals.move_to_crafting(item, slot_index):
+				#print("moved to crafting station")
+			#else:
+				## other inventory
+				#pass
+		#"crafting", "brewing", "result", "brewing_result":
+			## back to inventory from result slot
+			#if Globals.move_to_inventory(item, container_type, slot_index):
+				#print("moved to inventory")
+				
 func handle_shift_click() -> void:
 	var item = get_item_in_this_slot()
 	if item == null: return
 
 	match container_type:
 		"inventory":
-			# sorting from inventory depending which ui is open
-			if Globals.get(&"brewing_open") and Globals.move_to_brewing(item, slot_index):
-				print("moved to brewing station")
+			if Globals.get(&"brewing_open"):
+				# if the brewing stand if full, and its not a bottle, leave it
+				if not is_item_a_bottle(item):
+					var slot1 = Globals.brewing_slots[0]
+					var slot2 = Globals.brewing_slots[1]
+					if slot1 != null and slot2 != null:
+						return 
+				
+				if Globals.move_to_brewing(item, slot_index):
+					print("moved to brewing station")
+					
 			elif Globals.get(&"crafting_open") and Globals.move_to_crafting(item, slot_index):
 				print("moved to crafting station")
-			else:
-				# other inventory
-				pass
+				
 		"crafting", "brewing", "result", "brewing_result":
-			# back to inventory from result slot
 			if Globals.move_to_inventory(item, container_type, slot_index):
 				print("moved to inventory")
 				
-	#if container_type == "inventory":
-	##if Globals.crafting_open:
-		## Move from inventory -> craft staion
-		#if Globals.move_to_crafting(item, slot_index):
-			#print("Moved to crafting station")
-	#elif container_type == "brewing":
-	##elif Globals.brewing_open:
-		## Move from inventory -> brewing staion
-		#if Globals.move_to_brewing(item, slot_index):
-			#print("Moved to brewing station")
-	#else:
-		## Move from craft staion -> inventory
-		#if Globals.move_to_inventory(item, container_type, slot_index):
-			#print("Moved to inventory")
-			
-	# refresh ui
 	_update_all_systems()
 
 
@@ -208,3 +224,10 @@ func get_item_in_this_slot() -> Resource:
 			return Globals.brewing_slots[slot_index]
 		_:
 			return Globals.player_inventory[slot_index]
+
+
+func is_item_a_bottle(item: Resource) -> bool:
+	if item == null: 
+		return false
+	var filename = item.resource_path.get_file().get_basename().to_lower()
+	return "bottle" in filename

@@ -79,12 +79,20 @@ func move_to_crafting(item: Resource, inv_index: int) -> bool:
 	return false
 
 
-func move_to_brewing(item: Resource, inv_index: int) -> bool:
+func move_to_brewing(item: Resource, inventory_index: int) -> bool:
+	# check if item is bottle
+	var filename = item.resource_path.get_file().get_basename().to_lower()
+	var is_bottle = "bottle" in filename
+
 	for i in range(brewing_slots.size()):
+		if i == 2 and not is_bottle:
+			continue
+			
 		if brewing_slots[i] == null:
 			brewing_slots[i] = item
-			player_inventory[inv_index] = null
+			player_inventory[inventory_index] = null
 			return true
+			
 	return false
 
 

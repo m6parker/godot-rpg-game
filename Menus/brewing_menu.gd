@@ -12,6 +12,14 @@ func _update_slots() -> void:
 	var slot2 = $Panel/ingredients_container/ingredient_slot2
 	var slot3 = $Panel/ingredients_container/ingredient_slot3
 	var res_slot = $Panel/yeild_container/yield_slot
+	
+	# --- UI PROTECTION FOR SLOT 3 ---
+	# If something got forced into slot 3 that isn't a bottle, spit it back out
+	var item3 = Globals.brewing_slots[2]
+	if item3 and not is_item_a_bottle(item3):
+		print("non vessel in third slot!")
+		Globals.brewing_slots[2] = null
+		Globals.inventory_updated.emit()
 
 	if slot1: slot1.display_item(Globals.brewing_slots[0])
 	if slot2: slot2.display_item(Globals.brewing_slots[1])
@@ -24,7 +32,12 @@ func _update_slots() -> void:
 
 
 func check_recipe() -> Resource:
-	var names = []
+	# check third item is a bottle
+	var slot3_item = Globals.brewing_slots[2]
+	if slot3_item == null or not is_item_a_bottle(slot3_item):
+		return null
+
+	var names: Array[String] = []
 	for item in Globals.brewing_slots:
 		if item != null:
 			var item_name = item.resource_path.get_file().get_basename().to_lower()
@@ -42,6 +55,13 @@ func check_recipe() -> Resource:
 		return load(full_path)
 	
 	return null
+	
+
+func is_item_a_bottle(item: Resource) -> bool:
+	if item == null: 
+		return false
+	var filename = item.resource_path.get_file().get_basename().to_lower()
+	return "bottle" in filename
 
 # simple potion brewing 
 #func _on_brew_button_pressed() -> void:
