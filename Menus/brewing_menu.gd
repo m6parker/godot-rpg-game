@@ -75,20 +75,23 @@ func _on_brew_button_pressed() -> void:
 		var ingredient_count: int = 0
 		
 		for item in Globals.brewing_slots:
+			print("item: ", item.quality)
 			if item != null:
-				# default to 1 if item missing attributes
-				total_quality += item.get("quality") if "quality" in item else 1.0
-				#total_potency += item.get("potency") if "potency" in item else 1.0
-				ingredient_count += 1
+				#if "quality" in item:
+				if item.quality > 0:
+					total_quality += item.quality
+					ingredient_count += 1
 		
-		# calculate average
 		if ingredient_count > 0:
-			finalized_potion.quality = total_quality / ingredient_count
+			# calculate the average
+			var avg_quality = total_quality / ingredient_count
 			#finalized_potion.potency = total_potency / ingredient_count
-			
 			# round values
-			finalized_potion.quality = snapped(finalized_potion.quality, 0.01)
+			finalized_potion.quality = snapped(avg_quality, 0.01)
 			#finalized_potion.potency = snapped(finalized_potion.potency, 0.01)
+		else:
+			finalized_potion.quality = 0
+			#finalized_potion.potency = 0
 		
 		# set global result to calculated potion
 		Globals.brewing_result = finalized_potion

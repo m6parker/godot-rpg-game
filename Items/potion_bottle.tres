@@ -8,5 +8,5 @@ script = ExtResource("2_wtgq5")
 item_name = "potion_bottle"
 item_texture = ExtResource("1_smnlo")
 item_type = "Brewing"
-quality = 0.5
+quality = 0.0
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"
