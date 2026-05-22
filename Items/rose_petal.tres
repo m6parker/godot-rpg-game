@@ -8,4 +8,5 @@ script = ExtResource("2_r8lje")
 item_name = "rose_petal"
 item_texture = ExtResource("1_01lrw")
 item_type = "Foraging"
+quality = 0.25
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

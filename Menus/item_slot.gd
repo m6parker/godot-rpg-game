@@ -2,11 +2,12 @@ extends Panel
 #
 @onready var icon: TextureRect = $icon if has_node("icon") else null
 @onready var hover_sprite: CanvasItem = $hover_sprite if has_node("hover_sprite") else null
-@export var container_type: String = "inventory" # Options: "inventory", "crafting", "result"
+# options: inventory, crafting, brewing, result, brewing_result
+@export var container_type: String = "inventory" 
+@export var slot_index: int = -1
 
 var is_dragging := false
 var is_hovered_with_drag := false
-@export var slot_index: int = -1
 
 
 func _ready() -> void:
@@ -29,11 +30,11 @@ func get_target_array() -> Array:
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	var current_array = get_target_array()
-	
 	var item_resource = null
+	
 	if container_type == "result":
 		item_resource = Globals.crafting_result
-	if container_type == "brewing_result":
+	elif container_type == "brewing_result":
 		item_resource = Globals.brewing_result
 	else:
 		item_resource = current_array[slot_index]
@@ -52,8 +53,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview_container.add_child(preview)
 	preview.position = -preview.size / 2
 	set_drag_preview(preview_container)
-
-	icon.modulate.a = 0.2 
+	icon.modulate.a = 0.2
 	
 	return { 
 		"origin_node": self, 
@@ -63,7 +63,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if container_type == "result" || container_type == "brewing_result":
+	if container_type == "result" or container_type == "brewing_result":
 		return false
 		
 	var can_drop = data is Dictionary and data.has("origin_node")
@@ -148,14 +148,35 @@ func handle_shift_click() -> void:
 	var item = get_item_in_this_slot()
 	if item == null: return
 
-	if container_type == "inventory":
-		# Move from inventory -> craft staion
-		if Globals.move_to_crafting(item, slot_index):
-			print("Moved to crafting station")
-	else:
-		# Move from inventory -> craft staion
-		if Globals.move_to_inventory(item, container_type, slot_index):
-			print("Moved to inventory")
+	match container_type:
+		"inventory":
+			# sorting from inventory depending which ui is open
+			if Globals.get(&"brewing_open") and Globals.move_to_brewing(item, slot_index):
+				print("moved to brewing station")
+			elif Globals.get(&"crafting_open") and Globals.move_to_crafting(item, slot_index):
+				print("moved to crafting station")
+			else:
+				# other inventory
+				pass
+		"crafting", "brewing", "result", "brewing_result":
+			# back to inventory from result slot
+			if Globals.move_to_inventory(item, container_type, slot_index):
+				print("moved to inventory")
+				
+	#if container_type == "inventory":
+	##if Globals.crafting_open:
+		## Move from inventory -> craft staion
+		#if Globals.move_to_crafting(item, slot_index):
+			#print("Moved to crafting station")
+	#elif container_type == "brewing":
+	##elif Globals.brewing_open:
+		## Move from inventory -> brewing staion
+		#if Globals.move_to_brewing(item, slot_index):
+			#print("Moved to brewing station")
+	#else:
+		## Move from craft staion -> inventory
+		#if Globals.move_to_inventory(item, container_type, slot_index):
+			#print("Moved to inventory")
 			
 	# refresh ui
 	_update_all_systems()
@@ -170,9 +191,20 @@ func _update_all_systems() -> void:
 		
 
 func get_item_in_this_slot() -> Resource:
-	if container_type == "result":
-		return Globals.crafting_result
-	elif container_type == "crafting":
-		return Globals.crafting_slots[slot_index]
-	else:
-		return Globals.player_inventory[slot_index]
+	#if container_type == "result":
+		#return Globals.crafting_result
+	#elif container_type == "crafting":
+		#return Globals.crafting_slots[slot_index]
+	#else:
+		#return Globals.player_inventory[slot_index]
+	match container_type:
+		"result":
+			return Globals.crafting_result
+		"brewing_result":
+			return Globals.brewing_result
+		"crafting":
+			return Globals.crafting_slots[slot_index]
+		"brewing":
+			return Globals.brewing_slots[slot_index]
+		_:
+			return Globals.player_inventory[slot_index]

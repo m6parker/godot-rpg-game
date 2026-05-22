@@ -57,19 +57,34 @@ func openInventory() -> void:
 	else:
 		inventory.visible = false
 				
+		
 func toggleCraftStation() -> void:
 	if craft_instance == null:
 		craft_instance = craft_station_scene.instantiate()
 		$CanvasLayer.add_child(craft_instance)
+		Globals.crafting_open = true 
 	else:
 		craft_instance.visible = !craft_instance.visible
+		Globals.crafting_open = craft_instance.visible
+		
+	# close brewing station when crafting station opens
+	if Globals.crafting_open and brew_instance:
+		brew_instance.hide()
+		Globals.brewing_open = false
 						
 func toggleBrewStation() -> void:
 	if brew_instance == null:
 		brew_instance = brewing_station_scene.instantiate()
 		$CanvasLayer.add_child(brew_instance)
+		Globals.brewing_open = true
 	else:
 		brew_instance.visible = !brew_instance.visible
+		Globals.brewing_open = brew_instance.visible
+
+	# close crafting station
+	if Globals.brewing_open and craft_instance:
+		craft_instance.hide()
+		Globals.crafting_open = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("notebook"):
