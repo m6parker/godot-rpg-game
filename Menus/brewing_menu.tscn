@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnxp75ypnrn74"]
 
 [ext_resource type="Script" uid="uid://b26e4armr0yge" path="res://Menus/brewing_menu.gd" id="1_euycs"]
-[ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="1_uun35"]
+[ext_resource type="Texture2D" uid="uid://dx4vtwxwn0jow" path="res://assets/ui/brewing_station.png" id="2_4m0i2"]
 [ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://Menus/item_slot.gd" id="2_euycs"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="3_4m0i2"]
 
@@ -18,19 +18,23 @@ script = ExtResource("1_euycs")
 
 [node name="Panel" type="Panel" parent="." unique_id=1261003735]
 self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -527.0
-offset_bottom = 484.0
+offset_left = -733.0
+offset_bottom = 613.0
 grow_horizontal = 0
 
 [node name="background" type="TextureRect" parent="Panel" unique_id=1192381531]
-layout_mode = 0
-offset_right = 523.0
-offset_bottom = 474.0
-texture = ExtResource("1_uun35")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4m0i2")
 
 [node name="Label" type="Label" parent="Panel" unique_id=2111944626]
 layout_mode = 0
@@ -56,18 +60,14 @@ offset_right = 373.0
 offset_bottom = 109.0
 text = "vessel:"
 
-[node name="ingredients_container" type="HBoxContainer" parent="Panel" unique_id=1057763985]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 113.0
-offset_right = 451.0
-offset_bottom = 186.0
-theme_override_constants/separation = 25
-alignment = 1
+[node name="ingredients_container" type="Node2D" parent="Panel" unique_id=2029156088]
 
 [node name="ingredient_slot" type="Panel" parent="Panel/ingredients_container" unique_id=1297436189]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+offset_left = 146.0
+offset_top = 161.0
+offset_right = 210.0
+offset_bottom = 234.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 0
@@ -86,7 +86,10 @@ texture = ExtResource("3_4m0i2")
 
 [node name="ingredient_slot2" type="Panel" parent="Panel/ingredients_container" unique_id=483247573]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+offset_left = 187.0
+offset_top = 302.0
+offset_right = 251.0
+offset_bottom = 375.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 1
@@ -105,7 +108,10 @@ texture = ExtResource("3_4m0i2")
 
 [node name="ingredient_slot3" type="Panel" parent="Panel/ingredients_container" unique_id=14325488]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+offset_left = 519.0
+offset_top = 320.0
+offset_right = 583.0
+offset_bottom = 393.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 2
@@ -122,17 +128,15 @@ offset_right = 63.0
 offset_bottom = 72.0
 texture = ExtResource("3_4m0i2")
 
-[node name="yeild_container" type="HBoxContainer" parent="Panel" unique_id=603281960]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 326.0
-offset_right = 418.0
-offset_bottom = 390.0
-alignment = 1
+[node name="yeild_container" type="Node2D" parent="Panel" unique_id=1533507354]
+position = Vector2(5, -102)
 
 [node name="yield_slot" type="Panel" parent="Panel/yeild_container" unique_id=295290123]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+offset_left = 515.0
+offset_top = 427.0
+offset_right = 579.0
+offset_bottom = 491.0
 script = ExtResource("2_euycs")
 container_type = "brewing_result"
 slot_index = 0
@@ -151,8 +155,8 @@ texture = ExtResource("3_4m0i2")
 
 [node name="brew_button" type="Button" parent="Panel" unique_id=941772364]
 layout_mode = 0
-offset_left = 196.0
-offset_top = 233.0
-offset_right = 321.0
-offset_bottom = 264.0
+offset_left = 492.0
+offset_top = 512.0
+offset_right = 617.0
+offset_bottom = 543.0
 text = "brew"
