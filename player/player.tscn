@@ -145,6 +145,7 @@ cache/0/16/0/scale = 1.0
 
 [node name="player" type="CharacterBody2D" unique_id=322231677 groups=["player"]]
 script = ExtResource("1_rkbax")
+move_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890922905]
 position = Vector2(0, -2.6417718)
