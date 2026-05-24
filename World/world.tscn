@@ -408,34 +408,34 @@ zoom = Vector2(4, 4)
 [node name="Grass4" type="Sprite2D" parent="." unique_id=883194381]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(22, -54)
+position = Vector2(3, -60)
 texture = ExtResource("9_w47uh")
 
 [node name="worldItems" type="Node2D" parent="." unique_id=120659679]
 z_index = 1
 
 [node name="WorldItem" parent="worldItems" unique_id=833787009 instance=ExtResource("4_k8do8")]
-position = Vector2(-319, -39)
+position = Vector2(-224, -58)
 data = ExtResource("4_bkhv4")
 
 [node name="WorldItem2" parent="worldItems" unique_id=1457551575 instance=ExtResource("4_k8do8")]
-position = Vector2(-236, -93)
+position = Vector2(-355, -49)
 data = ExtResource("5_eidgh")
 
 [node name="WorldItem3" parent="worldItems" unique_id=1573871554 instance=ExtResource("4_k8do8")]
-position = Vector2(-286, -73)
+position = Vector2(-312, -53)
 data = ExtResource("5_bkhv4")
 
 [node name="WorldItem4" parent="worldItems" unique_id=1617544305 instance=ExtResource("4_k8do8")]
-position = Vector2(-193, -90)
+position = Vector2(-291, -52)
 data = ExtResource("7_oe8m4")
 
 [node name="WorldItem5" parent="worldItems" unique_id=865067793 instance=ExtResource("4_k8do8")]
-position = Vector2(-232, -58)
+position = Vector2(-238, -25)
 data = ExtResource("5_yf0ba")
 
 [node name="WorldItem6" parent="worldItems" unique_id=1062292310 instance=ExtResource("4_k8do8")]
-position = Vector2(-227, -8)
+position = Vector2(-259, -57)
 data = ExtResource("9_lo5ox")
 
 [node name="worldObjects" type="Node2D" parent="." unique_id=1014251414]
@@ -444,10 +444,10 @@ y_sort_enabled = true
 script = ExtResource("10_0wqet")
 
 [node name="CraftingTable" parent="worldObjects" unique_id=342622994 instance=ExtResource("5_k8do8")]
-position = Vector2(-112, -29)
+position = Vector2(-268, 57)
 
 [node name="brewing_stand" parent="worldObjects" unique_id=1234255753 instance=ExtResource("12_awrha")]
-position = Vector2(-271, -10)
+position = Vector2(-49, 60)
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
 visible = false

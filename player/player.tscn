@@ -167,6 +167,7 @@ shape = SubResource("CircleShape2D_8t03j")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137896441]
 
 [node name="hotbar" type="Panel" parent="CanvasLayer" unique_id=560938128]
+visible = false
 custom_minimum_size = Vector2(224, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -311,6 +312,7 @@ offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
 [node name="health_stats" type="Panel" parent="CanvasLayer" unique_id=2031243829]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(50, 50)
 anchors_preset = 1
