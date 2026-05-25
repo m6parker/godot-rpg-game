@@ -7,6 +7,7 @@ signal brewing_updated
 # setup player
 var player_name: String = "player_name"
 var level: String = "World"
+var target_transition_marker: String = ""
 
 # ui state
 var can_craft: bool = false

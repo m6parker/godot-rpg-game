@@ -1,0 +1,107 @@
+[gd_scene format=4 uid="uid://co56donu2l1fh"]
+
+[ext_resource type="Texture2D" uid="uid://c57myrtjuq7p0" path="res://assets/tilesets/house_interior_tileset.png" id="1_cyjxu"]
+[ext_resource type="Texture2D" uid="uid://c8d1fcqvs23bp" path="res://assets/tilesets/shadow.png" id="2_a547g"]
+[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="2_psl7n"]
+[ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="3_26r2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl7n"]
+texture = ExtResource("1_cyjxu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:4/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+1:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mk2h5"]
+texture = ExtResource("2_a547g")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_26r2m"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_psl7n")
+sources/2 = SubResource("TileSetAtlasSource_mk2h5")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyjxu"]
+radius = 27.018513
+
+[node name="house" type="Node2D" unique_id=845502634]
+
+[node name="house_tilemap" type="Node2D" parent="." unique_id=1812892360]
+
+[node name="floor" type="TileMapLayer" parent="house_tilemap" unique_id=794305586]
+tile_map_data = PackedByteArray("AAAIAAMAAAAAAAAAAAAIAAQAAAAAAAEAAAAJAAMAAAACAAAAAAAJAAQAAAACAAEAAAAKAAMAAAADAAAAAAAKAAQAAAADAAEAAAALAAMAAAACAAAAAAALAAQAAAACAAEAAAAMAAMAAAABAAAAAAAMAAQAAAABAAEAAAANAAMAAAACAAAAAAANAAQAAAACAAEAAAAOAAMAAAABAAAAAAAOAAQAAAABAAEAAAAPAAMAAAABAAAAAAAPAAQAAAABAAEAAAAIAAUAAAABAAIAAAAIAAYAAAABAAIAAAAIAAcAAAABAAIAAAAIAAgAAAABAAIAAAAJAAUAAAABAAIAAAAJAAYAAAABAAIAAAAJAAcAAAABAAIAAAAJAAgAAAABAAIAAAAKAAUAAAABAAIAAAAKAAYAAAABAAIAAAAKAAcAAAABAAIAAAAKAAgAAAABAAIAAAALAAUAAAABAAIAAAALAAYAAAABAAIAAAALAAcAAAABAAIAAAALAAgAAAABAAIAAAAMAAUAAAABAAIAAAAMAAYAAAABAAIAAAAMAAcAAAABAAIAAAAMAAgAAAABAAIAAAANAAUAAAABAAIAAAANAAYAAAABAAIAAAANAAcAAAABAAIAAAANAAgAAAABAAIAAAAOAAUAAAABAAIAAAAOAAYAAAABAAIAAAAOAAcAAAABAAIAAAAOAAgAAAABAAIAAAAPAAUAAAABAAIAAAAPAAYAAAABAAIAAAAPAAcAAAABAAIAAAAPAAgAAAABAAIAAAAQAAYAAAAAAAYAAAAQAAcAAAABAAIAAAAQAAgAAAABAAIAAAARAAYAAAABAAEAAAARAAcAAAABAAIAAAASAAYAAAACAAEAAAASAAcAAAABAAIAAAATAAYAAAABAAEAAAATAAcAAAABAAIAAAAQAAMAAAAFAAAAAAAQAAQAAAAFAAEAAAAQAAUAAAAAAAUAAAARAAUAAAABAAAAAAASAAUAAAACAAAAAAATAAUAAAABAAAAAAAUAAUAAAAEAAAAAAAUAAYAAAAEAAEAAAAVAAUAAAAFAAAAAAAVAAYAAAAFAAEAAAAUAAcAAAABAAIAAAAVAAcAAAAFAAIAAAAVAAgAAAAFAAQAAAARAAgAAAABAAIAAAASAAgAAAABAAIAAAATAAgAAAABAAIAAAAUAAgAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_26r2m")
+rendering_quadrant_size = 32
+
+[node name="front_walls" type="TileMapLayer" parent="house_tilemap" unique_id=1807997097]
+tile_map_data = PackedByteArray("AAAIAAUAAAAAAAIAAAAIAAYAAAAAAAMAAAAIAAcAAAAAAAIAAAAIAAgAAAAAAAQAAAAJAAgAAAABAAQAAAAKAAgAAAACAAQAAAALAAgAAAACAAQAAAAMAAgAAAADAAQAAAANAAgAAAACAAQAAAAOAAgAAAACAAQAAAAPAAgAAAABAAQAAAAQAAgAAAACAAQAAAARAAgAAAACAAQAAAASAAgAAAACAAQAAAATAAgAAAABAAQAAAAUAAgAAAACAAQAAAANAAMAAAAEAAUAAAANAAQAAAAEAAYAAAARAAUAAAADAAAAAAARAAYAAAADAAEAAAAKAAYAAAABAAMAAAALAAYAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_26r2m")
+rendering_quadrant_size = 32
+
+[node name="shadows" type="TileMapLayer" parent="house_tilemap" unique_id=75506225]
+tile_map_data = PackedByteArray("AAAIAAMAAgAAAAAAAAAIAAQAAgAAAAEAAAAIAAUAAgAAAAIAAAAIAAYAAgAAAAMAAAAIAAcAAgAAAAIAAAAIAAgAAgAAAAQAAAA=")
+tile_set = SubResource("TileSet_26r2m")
+rendering_quadrant_size = 32
+
+[node name="door" type="Area2D" parent="." unique_id=595887440]
+script = ExtResource("2_psl7n")
+target_scene = "uid://pshgypporraf"
+target_spawn_marker = "spawnFromHouse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=1373172868]
+position = Vector2(400, 283)
+shape = SubResource("CircleShape2D_cyjxu")
+
+[node name="spawnFromWorld" type="Marker2D" parent="." unique_id=647271733]
+position = Vector2(402, 247)
+
+[node name="player" parent="." unique_id=322231677 instance=ExtResource("3_26r2m")]
+position = Vector2(402, 275)
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=846644107]
+position = Vector2(472, 202)
+zoom = Vector2(4, 4)
+
+[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

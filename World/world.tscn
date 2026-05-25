@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://pshgypporraf"]
 
+[ext_resource type="Script" uid="uid://k63dvu0owgq" path="res://World/world.gd" id="1_5xkvv"]
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="1_62w18"]
 [ext_resource type="Resource" uid="uid://hppnxuuypr7j" path="res://Items/maple_leaf.tres" id="4_bkhv4"]
 [ext_resource type="PackedScene" uid="uid://bjhxnlmcp8srs" path="res://Items/item.tscn" id="4_k8do8"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
+[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="16_oeat8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrha"]
 texture = ExtResource("13_0wqet")
@@ -717,9 +719,13 @@ sources/0 = SubResource("TileSetAtlasSource_awrha")
 sources/1 = SubResource("TileSetAtlasSource_f23eu")
 sources/2 = SubResource("TileSetAtlasSource_oeat8")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xkvv"]
+radius = 24.0
+
 [node name="world" type="Node2D" unique_id=1706235273]
 y_sort_enabled = true
 position = Vector2(122, -31)
+script = ExtResource("1_5xkvv")
 
 [node name="player" parent="." unique_id=1999436841 instance=ExtResource("1_62w18")]
 z_index = 1
@@ -862,3 +868,18 @@ tile_map_data = PackedByteArray("AADy//b/AQABAAEAAADz//X/AQACAAAAAAD0//X/AQADAAA
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
+
+[node name="house_door" type="Area2D" parent="." unique_id=1783236522]
+script = ExtResource("16_oeat8")
+target_scene = "uid://co56donu2l1fh"
+target_spawn_marker = "spawnFromWorld"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house_door" unique_id=660146676]
+position = Vector2(-384, -194)
+shape = SubResource("CircleShape2D_5xkvv")
+
+[node name="spawnFromHouse" type="Marker2D" parent="." unique_id=1748252664]
+position = Vector2(-385, -166)
+
+[connection signal="body_entered" from="house_door" to="house_door" method="_on_body_entered"]
+[connection signal="body_exited" from="house_door" to="house_door" method="_on_body_exited"]
