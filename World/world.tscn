@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://assets/plants/grass4.png" id="9_w47uh"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
+[ext_resource type="Texture2D" uid="uid://0wm0q7beh3td" path="res://assets/tilesets/tree1_spritesheet.png" id="14_oeat8"]
+[ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/tree2_spritesheet.png" id="15_5xkvv"]
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
 [ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="16_oeat8"]
 
@@ -769,6 +771,32 @@ texture_region_size = Vector2i(32, 64)
 2:0/0/y_sort_origin = 31
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.4608307, 25.80909, 5.4167213, 25.80909, 7.6471367, 31.544445, -7.6471386, 31.225815)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcyjf"]
+texture = ExtResource("14_oeat8")
+texture_region_size = Vector2i(32, 64)
+0:0/animation_columns = 4
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 29
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.372616, 21.666893, 4.4608307, 21.985523, 6.0539856, 28.358139, -2.2304153, 29.95129, -10.196184, 27.083614)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5lg"]
+texture = ExtResource("15_5xkvv")
+texture_region_size = Vector2i(32, 64)
+0:0/animation_columns = 4
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 30
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.098093, 22.622784, 4.4608307, 22.304153, 7.965767, 28.9954, -9.240292, 29.63266)
+
 [sub_resource type="TileSet" id="TileSet_f23eu"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -784,6 +812,8 @@ terrain_set_2/terrain_0/color = Color(2.0696223e-06, 0.64742464, 0.52008015, 1)
 sources/0 = SubResource("TileSetAtlasSource_awrha")
 sources/1 = SubResource("TileSetAtlasSource_f23eu")
 sources/2 = SubResource("TileSetAtlasSource_oeat8")
+sources/3 = SubResource("TileSetAtlasSource_kcyjf")
+sources/4 = SubResource("TileSetAtlasSource_xw5lg")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xkvv"]
 radius = 24.0
@@ -917,7 +947,7 @@ physics_quadrant_size = 32
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AADy//b/AQABAAEAAADz//X/AQACAAAAAAD0//X/AQADAAAAAAD3//7/AgAAAAAAAAD1/wAAAgABAAAAAAD7////AgACAAAAAAD9//7/AgACAAAAAAD4////AgACAAAAAAD7//v/AgABAAAAAAD9//v/AgABAAAAAAD/////AgABAAAAAAD5//v/AgAAAAAAAAD///r/AgAAAAAAAAAAAPv/AgAAAAAAAAD9//r/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADy//b/AQABAAEAAADz//X/AQACAAAAAAD0//X/AQADAAAAAAD3//7/AgAAAAAAAAD1/wAAAgABAAAAAAD7////AgACAAAAAAD9//7/AgACAAAAAAD4////AgACAAAAAAD7//v/AgABAAAAAAD9//v/AgABAAAAAAD/////AgABAAAAAAD5//v/AgAAAAAAAAD///r/AgAAAAAAAAAAAPv/AgAAAAAAAAD9//r/AgAAAAAAAAD0////BAAAAAAAAAABAPz/BAAAAAAAAAD3/wEABAAAAAAAAAD2//z/AwAAAAAAAAD8/wAAAwAAAAAAAAD+////AwAAAAAAAAD3//r/AwAAAAAAAAD+//z/AwAAAAAAAAABAPr/AwAAAAAAAAA=")
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
