@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c8d1fcqvs23bp" path="res://assets/tilesets/shadow.png" id="2_a547g"]
 [ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="2_psl7n"]
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="3_26r2m"]
+[ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://Objects/brewing_stand.gd" id="5_ko5vt"]
+[ext_resource type="PackedScene" uid="uid://c50gg3y7u2tcv" path="res://Objects/crafting_table.tscn" id="6_8dk0u"]
+[ext_resource type="PackedScene" uid="uid://dmo2mmdde35td" path="res://Objects/brewing_stand.tscn" id="7_mrv45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl7n"]
 texture = ExtResource("1_cyjxu")
@@ -103,5 +106,16 @@ position = Vector2(402, 275)
 [node name="Camera2D2" type="Camera2D" parent="." unique_id=846644107]
 position = Vector2(472, 202)
 zoom = Vector2(4, 4)
+
+[node name="worldObjects" type="Node2D" parent="." unique_id=882205653]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("5_ko5vt")
+
+[node name="CraftingTable" parent="worldObjects" unique_id=342622994 instance=ExtResource("6_8dk0u")]
+position = Vector2(351, 155)
+
+[node name="brewing_stand" parent="worldObjects" unique_id=1234255753 instance=ExtResource("7_mrv45")]
+position = Vector2(476, 153)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

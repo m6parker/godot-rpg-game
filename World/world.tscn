@@ -6,13 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bjhxnlmcp8srs" path="res://Items/item.tscn" id="4_k8do8"]
 [ext_resource type="Resource" uid="uid://qkga55hao352" path="res://Items/pinecomb.tres" id="5_bkhv4"]
 [ext_resource type="Resource" uid="uid://b63nqp4dmamqo" path="res://Items/monarch_butterfly.tres" id="5_eidgh"]
-[ext_resource type="PackedScene" uid="uid://c50gg3y7u2tcv" path="res://Objects/crafting_table.tscn" id="5_k8do8"]
 [ext_resource type="Resource" uid="uid://tl8e3v7suhor" path="res://Items/oak_leaf.tres" id="5_yf0ba"]
 [ext_resource type="Resource" uid="uid://b5h0yl0p2un0o" path="res://Items/rose_petal.tres" id="7_oe8m4"]
 [ext_resource type="Resource" uid="uid://c7qxfa5vi2ui" path="res://Items/potion_bottle.tres" id="9_lo5ox"]
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://assets/plants/grass4.png" id="9_w47uh"]
-[ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://Objects/brewing_stand.gd" id="10_0wqet"]
-[ext_resource type="PackedScene" uid="uid://dmo2mmdde35td" path="res://Objects/brewing_stand.tscn" id="12_awrha"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
@@ -840,17 +837,6 @@ data = ExtResource("5_yf0ba")
 [node name="WorldItem6" parent="worldItems" unique_id=1062292310 instance=ExtResource("4_k8do8")]
 position = Vector2(-139, -82)
 data = ExtResource("9_lo5ox")
-
-[node name="worldObjects" type="Node2D" parent="." unique_id=1014251414]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("10_0wqet")
-
-[node name="CraftingTable" parent="worldObjects" unique_id=342622994 instance=ExtResource("5_k8do8")]
-position = Vector2(-458, -94)
-
-[node name="brewing_stand" parent="worldObjects" unique_id=1234255753 instance=ExtResource("12_awrha")]
-position = Vector2(-305, -128)
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
 y_sort_enabled = true
