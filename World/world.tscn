@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dmo2mmdde35td" path="res://Objects/brewing_stand.tscn" id="12_awrha"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
+[ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrha"]
 texture = ExtResource("13_0wqet")
@@ -619,8 +620,11 @@ texture_region_size = Vector2i(32, 32)
 5:13/0 = 0
 6:13/0 = 0
 7:13/0 = 0
+7:13/0/y_sort_origin = 13
 8:13/0 = 0
+8:13/0/y_sort_origin = 13
 9:13/0 = 0
+9:13/0/y_sort_origin = 13
 10:13/0 = 0
 11:13/0 = 0
 12:13/0 = 0
@@ -688,6 +692,16 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 4:4/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oeat8"]
+texture = ExtResource("15_f23eu")
+texture_region_size = Vector2i(32, 64)
+0:0/0 = 0
+0:0/0/y_sort_origin = 31
+1:0/0 = 0
+1:0/0/y_sort_origin = 27
+2:0/0 = 0
+2:0/0/y_sort_origin = 31
+
 [sub_resource type="TileSet" id="TileSet_f23eu"]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
@@ -701,6 +715,7 @@ terrain_set_2/terrain_0/name = "path"
 terrain_set_2/terrain_0/color = Color(2.0696223e-06, 0.64742464, 0.52008015, 1)
 sources/0 = SubResource("TileSetAtlasSource_awrha")
 sources/1 = SubResource("TileSetAtlasSource_f23eu")
+sources/2 = SubResource("TileSetAtlasSource_oeat8")
 
 [node name="world" type="Node2D" unique_id=1706235273]
 y_sort_enabled = true
@@ -765,6 +780,7 @@ position = Vector2(-268, 57)
 position = Vector2(-49, 60)
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
+y_sort_enabled = true
 
 [node name="grass" type="TileMapLayer" parent="worldMap" unique_id=616479988]
 texture_filter = 1
@@ -834,6 +850,15 @@ physics_quadrant_size = 32
 z_index = 2
 texture_filter = 1
 tile_map_data = PackedByteArray("AADy//b/AQABAAEAAADy//f/AQABAAIAAADz//b/AQACAAEAAADz//f/AQACAAIAAAD0//b/AQADAAEAAAD0//f/AQADAAIAAAD1//b/AQAEAAEAAAD1//f/AQAEAAIAAADz//X/AQACAAAAAAD0//X/AQADAAAAAAA=")
+tile_set = SubResource("TileSet_f23eu")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32
+
+[node name="trees" type="TileMapLayer" parent="worldMap" unique_id=1985619779]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AADy//b/AQABAAEAAADz//X/AQACAAAAAAD0//X/AQADAAAAAAD3//7/AgAAAAAAAAD1/wAAAgABAAAAAAD7////AgACAAAAAAD9//7/AgACAAAAAAD4////AgACAAAAAAD7//v/AgABAAAAAAD9//v/AgABAAAAAAD/////AgABAAAAAAD5//v/AgAAAAAAAAD///r/AgAAAAAAAAAAAPv/AgAAAAAAAAD9//r/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
