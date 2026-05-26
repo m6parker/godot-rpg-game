@@ -17,8 +17,15 @@ offset_bottom = 244.0
 grow_horizontal = 0
 script = ExtResource("1_euycs")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2137450976]
+layout_mode = 0
+offset_left = -762.0
+offset_right = 40.0
+offset_bottom = 597.0
+color = Color(0.4627451, 0.4627451, 0.4627451, 0.7764706)
+
 [node name="Panel" type="Panel" parent="." unique_id=1261003735]
-self_modulate = Color(0.28235295, 0.28235295, 0.28235295, 0.90588236)
+self_modulate = Color(0.28235295, 0.28235295, 0.28235295, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1

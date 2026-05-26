@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://assets/plants/grass4.png" id="9_w47uh"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
-[ext_resource type="Texture2D" uid="uid://0wm0q7beh3td" path="res://assets/tilesets/tree1_spritesheet.png" id="14_oeat8"]
-[ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/tree2_spritesheet.png" id="15_5xkvv"]
+[ext_resource type="Texture2D" uid="uid://0wm0q7beh3td" path="res://assets/tilesets/animated_tilesets/tree1_spritesheet.png" id="14_oeat8"]
+[ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/animated_tilesets/tree2_spritesheet.png" id="15_5xkvv"]
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
 [ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="16_oeat8"]
 

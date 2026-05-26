@@ -4,23 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://tcbjjgjoe8ed" path="res://assets/objects/crafting_table.png" id="1_t8n58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hujbr"]
-radius = 60.0
+radius = 56.0
 
 [node name="CraftingTable" type="Node2D" unique_id=342622994]
+y_sort_enabled = true
 script = ExtResource("1_hujbr")
 
 [node name="icon" type="TextureRect" parent="." unique_id=880282918]
 texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -31.0
+offset_top = -53.0
+offset_right = 33.0
+offset_bottom = 11.0
 texture = ExtResource("1_t8n58")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=376680638]
+position = Vector2(0, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2076321274]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_hujbr")

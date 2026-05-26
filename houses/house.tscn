@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://co56donu2l1fh"]
 
 [ext_resource type="Texture2D" uid="uid://c57myrtjuq7p0" path="res://assets/tilesets/house_interior_tileset.png" id="1_cyjxu"]
+[ext_resource type="Texture2D" uid="uid://61lpgv0d6j8w" path="res://assets/tilesets/animated_tilesets/fireplace_spritesheet.png" id="2_8dk0u"]
 [ext_resource type="Texture2D" uid="uid://c8d1fcqvs23bp" path="res://assets/tilesets/shadow.png" id="2_a547g"]
 [ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="2_psl7n"]
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="3_26r2m"]
-[ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://Objects/brewing_stand.gd" id="5_ko5vt"]
 [ext_resource type="PackedScene" uid="uid://c50gg3y7u2tcv" path="res://Objects/crafting_table.tscn" id="6_8dk0u"]
 [ext_resource type="PackedScene" uid="uid://dmo2mmdde35td" path="res://Objects/brewing_stand.tscn" id="7_mrv45"]
 
@@ -12,45 +12,92 @@
 texture = ExtResource("1_cyjxu")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.63726044, -8.921661, 0.31863022, -8.921661, 16, -16, 16)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.63726044, -16, 0.63726044)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.63726044, -16, 0.63726044)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.63726044, -16, 0.63726044)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0.31863022, -16, 0.95589066)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8.284401, -16, -7.6471386, 16, -16, 16)
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8.603031, -16, -8.921661, 16, -16, 16)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -7.965769, -16, -7.965769, 16, -16, 16)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.470707, -5.4167233, 16, -5.4167233, 16, 8.284401, -11.470707, 8.284401)
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -5.4167233, -4.779461, -5.098091, -3.8235703, 1.9117851, -6.372616, 9.558922, -16, 9.877552)
 3:3/0 = 0
 4:3/0 = 0
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8.603031, -16, -8.921661, 16, -16, 16)
 0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8.603031, -16, -8.284401, 8.921661, 16, 8.603031, 16, 16, -16, 16)
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8.921661, 16, 9.240292, 16, 16, -16, 16)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8.921661, 16, 9.240292, 16, 16, -16, 16)
 0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:5/0 = 0
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 2.2304153, -16, 2.8676758)
 2:6/0 = 0
 3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 2.2304153, -16, 2.8676758)
 4:6/0 = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 2.2304153, -16, 2.8676758)
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8.921661, 16, 9.240292, 16, 16, -16, 16)
 4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8.603031, -16, -8.921661, 16, -16, 16)
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8.921661, 16, 9.240292, 16, 16, -16, 16)
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -7.965769, -16, -7.965769, 16, -16, 16)
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -8.921661, -8.603031, -8.603029, -7.6471386, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrv45"]
+texture = ExtResource("2_8dk0u")
+texture_region_size = Vector2i(32, 64)
+0:0/animation_columns = 6
+0:0/animation_speed = 7.0
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mk2h5"]
 texture = ExtResource("2_a547g")
@@ -63,28 +110,63 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_26r2m"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_psl7n")
 sources/2 = SubResource("TileSetAtlasSource_mk2h5")
+sources/1 = SubResource("TileSetAtlasSource_mrv45")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyjxu"]
 radius = 27.018513
 
+[sub_resource type="Gradient" id="Gradient_ko5vt"]
+offsets = PackedFloat32Array(0, 0.42087543, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.04905659, 0.04905659, 0.04905659, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8dk0u"]
+gradient = SubResource("Gradient_ko5vt")
+fill = 1
+fill_from = Vector2(0.48290598, 0.47863248)
+
+[sub_resource type="Gradient" id="Gradient_8dk0u"]
+offsets = PackedFloat32Array(0.107744105, 0.97643095)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mrv45"]
+gradient = SubResource("Gradient_8dk0u")
+fill_from = Vector2(0.55982906, 1)
+fill_to = Vector2(0.5854701, 0)
+
 [node name="house" type="Node2D" unique_id=845502634]
+y_sort_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1159340642]
+z_index = -2
+offset_left = 140.0
+offset_top = 54.0
+offset_right = 635.0
+offset_bottom = 344.0
+color = Color(0, 0, 0, 1)
 
 [node name="house_tilemap" type="Node2D" parent="." unique_id=1812892360]
+y_sort_enabled = true
 
 [node name="floor" type="TileMapLayer" parent="house_tilemap" unique_id=794305586]
-tile_map_data = PackedByteArray("AAAIAAMAAAAAAAAAAAAIAAQAAAAAAAEAAAAJAAMAAAACAAAAAAAJAAQAAAACAAEAAAAKAAMAAAADAAAAAAAKAAQAAAADAAEAAAALAAMAAAACAAAAAAALAAQAAAACAAEAAAAMAAMAAAABAAAAAAAMAAQAAAABAAEAAAANAAMAAAACAAAAAAANAAQAAAACAAEAAAAOAAMAAAABAAAAAAAOAAQAAAABAAEAAAAPAAMAAAABAAAAAAAPAAQAAAABAAEAAAAIAAUAAAABAAIAAAAIAAYAAAABAAIAAAAIAAcAAAABAAIAAAAIAAgAAAABAAIAAAAJAAUAAAABAAIAAAAJAAYAAAABAAIAAAAJAAcAAAABAAIAAAAJAAgAAAABAAIAAAAKAAUAAAABAAIAAAAKAAYAAAABAAIAAAAKAAcAAAABAAIAAAAKAAgAAAABAAIAAAALAAUAAAABAAIAAAALAAYAAAABAAIAAAALAAcAAAABAAIAAAALAAgAAAABAAIAAAAMAAUAAAABAAIAAAAMAAYAAAABAAIAAAAMAAcAAAABAAIAAAAMAAgAAAABAAIAAAANAAUAAAABAAIAAAANAAYAAAABAAIAAAANAAcAAAABAAIAAAANAAgAAAABAAIAAAAOAAUAAAABAAIAAAAOAAYAAAABAAIAAAAOAAcAAAABAAIAAAAOAAgAAAABAAIAAAAPAAUAAAABAAIAAAAPAAYAAAABAAIAAAAPAAcAAAABAAIAAAAPAAgAAAABAAIAAAAQAAYAAAAAAAYAAAAQAAcAAAABAAIAAAAQAAgAAAABAAIAAAARAAYAAAABAAEAAAARAAcAAAABAAIAAAASAAYAAAACAAEAAAASAAcAAAABAAIAAAATAAYAAAABAAEAAAATAAcAAAABAAIAAAAQAAMAAAAFAAAAAAAQAAQAAAAFAAEAAAAQAAUAAAAAAAUAAAARAAUAAAABAAAAAAASAAUAAAACAAAAAAATAAUAAAABAAAAAAAUAAUAAAAEAAAAAAAUAAYAAAAEAAEAAAAVAAUAAAAFAAAAAAAVAAYAAAAFAAEAAAAUAAcAAAABAAIAAAAVAAcAAAAFAAIAAAAVAAgAAAAFAAQAAAARAAgAAAABAAIAAAASAAgAAAABAAIAAAATAAgAAAABAAIAAAAUAAgAAAABAAIAAAA=")
+tile_map_data = PackedByteArray("AAAIAAMAAAAAAAAAAAAIAAQAAAAAAAEAAAAJAAMAAAABAAAAAAAJAAQAAAABAAEAAAAKAAMAAAADAAAAAAAKAAQAAAADAAEAAAALAAMAAAACAAAAAAALAAQAAAACAAEAAAAMAAMAAAABAAAAAAAMAAQAAAABAAEAAAANAAMAAAABAAAAAAANAAQAAAABAAEAAAAOAAMAAAABAAAAAAAOAAQAAAABAAEAAAAPAAMAAAABAAAAAAAPAAQAAAABAAEAAAAIAAUAAAABAAIAAAAIAAYAAAABAAIAAAAIAAcAAAABAAIAAAAIAAgAAAABAAIAAAAJAAUAAAABAAIAAAAJAAYAAAABAAIAAAAJAAcAAAABAAIAAAAJAAgAAAABAAIAAAAKAAUAAAABAAIAAAAKAAYAAAABAAIAAAAKAAcAAAABAAIAAAAKAAgAAAABAAIAAAALAAUAAAABAAIAAAALAAYAAAABAAIAAAALAAcAAAABAAIAAAALAAgAAAABAAIAAAAMAAUAAAABAAIAAAAMAAYAAAABAAIAAAAMAAcAAAABAAIAAAAMAAgAAAABAAIAAAANAAUAAAABAAIAAAANAAYAAAABAAIAAAANAAcAAAABAAIAAAANAAgAAAABAAIAAAAOAAUAAAABAAIAAAAOAAYAAAABAAIAAAAOAAcAAAABAAIAAAAOAAgAAAABAAIAAAAPAAUAAAABAAIAAAAPAAYAAAABAAIAAAAPAAcAAAABAAIAAAAPAAgAAAABAAIAAAAQAAMAAAAFAAAAAAAQAAQAAAAFAAEAAAAQAAUAAAAFAAIAAAAQAAYAAAAFAAMAAAAQAAcAAAAFAAIAAAAQAAgAAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_26r2m")
 rendering_quadrant_size = 32
 
 [node name="front_walls" type="TileMapLayer" parent="house_tilemap" unique_id=1807997097]
-tile_map_data = PackedByteArray("AAAIAAUAAAAAAAIAAAAIAAYAAAAAAAMAAAAIAAcAAAAAAAIAAAAIAAgAAAAAAAQAAAAJAAgAAAABAAQAAAAKAAgAAAACAAQAAAALAAgAAAACAAQAAAAMAAgAAAADAAQAAAANAAgAAAACAAQAAAAOAAgAAAACAAQAAAAPAAgAAAABAAQAAAAQAAgAAAACAAQAAAARAAgAAAACAAQAAAASAAgAAAACAAQAAAATAAgAAAABAAQAAAAUAAgAAAACAAQAAAANAAMAAAAEAAUAAAANAAQAAAAEAAYAAAARAAUAAAADAAAAAAARAAYAAAADAAEAAAAKAAYAAAABAAMAAAALAAYAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAIAAUAAAAAAAIAAAAIAAYAAAAAAAMAAAAIAAcAAAAAAAIAAAAIAAgAAAAAAAQAAAAJAAgAAAABAAQAAAAKAAgAAAACAAQAAAALAAgAAAACAAQAAAAMAAgAAAADAAQAAAANAAgAAAACAAQAAAAOAAgAAAACAAQAAAAPAAgAAAABAAQAAAANAAMAAAAEAAUAAAANAAQAAQAAAAAAAAAOAAMAAAACAAAAAAAOAAQAAAACAAEAAAAJAAMAAAACAAUAAAAJAAQAAAACAAYAAAA=")
 tile_set = SubResource("TileSet_26r2m")
 rendering_quadrant_size = 32
 
 [node name="shadows" type="TileMapLayer" parent="house_tilemap" unique_id=75506225]
 tile_map_data = PackedByteArray("AAAIAAMAAgAAAAAAAAAIAAQAAgAAAAEAAAAIAAUAAgAAAAIAAAAIAAYAAgAAAAMAAAAIAAcAAgAAAAIAAAAIAAgAAgAAAAQAAAA=")
+tile_set = SubResource("TileSet_26r2m")
+rendering_quadrant_size = 32
+
+[node name="furniture" type="TileMapLayer" parent="house_tilemap" unique_id=939985437]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAKAAcAAAABAAMAAAALAAcAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_26r2m")
 rendering_quadrant_size = 32
 
@@ -104,18 +186,48 @@ position = Vector2(402, 247)
 position = Vector2(402, 275)
 
 [node name="Camera2D2" type="Camera2D" parent="." unique_id=846644107]
-position = Vector2(472, 202)
+position = Vector2(389.99997, 196.00002)
+scale = Vector2(0.74022055, 0.9391944)
 zoom = Vector2(4, 4)
 
-[node name="worldObjects" type="Node2D" parent="." unique_id=882205653]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("5_ko5vt")
+[node name="CraftingTable" parent="." unique_id=342622994 instance=ExtResource("6_8dk0u")]
+position = Vector2(465, 224)
 
-[node name="CraftingTable" parent="worldObjects" unique_id=342622994 instance=ExtResource("6_8dk0u")]
-position = Vector2(351, 155)
+[node name="brewing_stand" parent="." unique_id=1234255753 instance=ExtResource("7_mrv45")]
+position = Vector2(310, 207)
 
-[node name="brewing_stand" parent="worldObjects" unique_id=1234255753 instance=ExtResource("7_mrv45")]
-position = Vector2(476, 153)
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=823622798]
+position = Vector2(444, 111)
+scale = Vector2(0.48437452, 0.5)
+color = Color(1, 1, 0.49803922, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_8dk0u")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=941853711]
+position = Vector2(420, 111)
+scale = Vector2(0.51562583, 0.5000001)
+color = Color(1, 1, 0.49803922, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_8dk0u")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=905618616]
+position = Vector2(424, 113)
+scale = Vector2(0.42187506, 0.421875)
+color = Color(1, 1, 0.49803922, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_8dk0u")
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1659492775]
+position = Vector2(434, 139)
+scale = Vector2(0.69531155, 0.6796875)
+color = Color(1, 0.64705884, 0.0627451, 1)
+energy = 2.3
+texture = SubResource("GradientTexture2D_8dk0u")
+
+[node name="window_light" type="PointLight2D" parent="." unique_id=265567820]
+position = Vector2(336.5, 151.98438)
+scale = Vector2(0.26562563, 1.4379882)
+color = Color(0.73333335, 0.70980394, 0.5372549, 1)
+texture = SubResource("GradientTexture2D_mrv45")
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
