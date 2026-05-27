@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2loae4vhnowa" path="res://assets/tilesets/furniture.png" id="4_8dk0u"]
 [ext_resource type="PackedScene" uid="uid://c50gg3y7u2tcv" path="res://Objects/crafting_table.tscn" id="6_8dk0u"]
 [ext_resource type="PackedScene" uid="uid://dmo2mmdde35td" path="res://Objects/brewing_stand.tscn" id="7_mrv45"]
+[ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="9_mrv45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl7n"]
 texture = ExtResource("1_cyjxu")
@@ -163,6 +164,9 @@ gradient = SubResource("Gradient_8dk0u")
 fill_from = Vector2(0.4957265, 1)
 fill_to = Vector2(0.43589744, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dk0u"]
+radius = 25.0
+
 [node name="house" type="Node2D" unique_id=845502634]
 y_sort_enabled = true
 
@@ -264,5 +268,12 @@ position = Vector2(336.5, 137.98438)
 scale = Vector2(0.26562563, 1.0004883)
 color = Color(0.73333335, 0.70980394, 0.5372549, 1)
 texture = SubResource("GradientTexture2D_mrv45")
+
+[node name="interactable" type="Area2D" parent="." unique_id=869633525]
+script = ExtResource("9_mrv45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=873458037]
+position = Vector2(400, 283)
+shape = SubResource("CircleShape2D_8dk0u")
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

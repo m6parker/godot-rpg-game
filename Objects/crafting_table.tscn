@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceikhg38uime3" path="res://Objects/crafting_table.gd" id="1_hujbr"]
 [ext_resource type="Texture2D" uid="uid://tcbjjgjoe8ed" path="res://assets/objects/crafting_table.png" id="1_t8n58"]
+[ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="3_g12rv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hujbr"]
 radius = 28.071337
@@ -22,9 +23,10 @@ texture = ExtResource("1_t8n58")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=376680638]
+[node name="interactable" type="Area2D" parent="." unique_id=376680638]
 position = Vector2(0, -14)
+script = ExtResource("3_g12rv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2076321274]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=2076321274]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_hujbr")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://Objects/brewing_stand.gd" id="1_767yw"]
 [ext_resource type="Texture2D" uid="uid://dmchf3e4o7a6h" path="res://assets/objects/brewing_stand.png" id="2_767yw"]
+[ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="3_k0hhu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6esg2"]
 radius = 23.021729
@@ -23,9 +24,10 @@ texture = ExtResource("2_767yw")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1420777920]
+[node name="interactable" type="Area2D" parent="." unique_id=1420777920]
 position = Vector2(0, -13)
+script = ExtResource("3_k0hhu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=240909706]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=240909706]
 position = Vector2(1, -8)
 shape = SubResource("CircleShape2D_6esg2")
