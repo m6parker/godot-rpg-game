@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dmchf3e4o7a6h" path="res://assets/objects/brewing_stand.png" id="2_767yw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6esg2"]
-radius = 43.0
+radius = 23.021729
 
 [node name="brewing_stand" type="Node2D" unique_id=1234255753]
 y_sort_enabled = true
 script = ExtResource("1_767yw")
 
 [node name="icon" type="TextureRect" parent="." unique_id=1043699055]
+visible = false
 y_sort_enabled = true
 texture_filter = 1
 custom_minimum_size = Vector2(64, 64)

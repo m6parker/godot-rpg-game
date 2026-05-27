@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dh13i4sw7fv1q"]
+
+[ext_resource type="Texture2D" uid="uid://udyd5asorlek" path="res://assets/ui/interact_bubble.png" id="1_y7vrd"]
+
+[node name="interact_bubble" type="Control" unique_id=616279305]
+top_level = true
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=1943763243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="Panel" unique_id=1015537366]
+z_index = 99
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_y7vrd")
+expand_mode = 1

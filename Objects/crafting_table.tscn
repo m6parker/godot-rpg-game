@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://tcbjjgjoe8ed" path="res://assets/objects/crafting_table.png" id="1_t8n58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hujbr"]
-radius = 56.0
+radius = 28.071337
 
 [node name="CraftingTable" type="Node2D" unique_id=342622994]
 y_sort_enabled = true
 script = ExtResource("1_hujbr")
 
 [node name="icon" type="TextureRect" parent="." unique_id=880282918]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 offset_left = -31.0

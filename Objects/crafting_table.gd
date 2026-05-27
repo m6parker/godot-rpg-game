@@ -1,6 +1,7 @@
 extends Node2D
 
 #@onready var icon:TextureRect = $TextureRect
+@onready var interact_bubble = preload("res://Menus/interact_bubble.tscn")
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(_on_enter_craft_station)
