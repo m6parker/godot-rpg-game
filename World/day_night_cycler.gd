@@ -1,24 +1,9 @@
-#extends CanvasModulate
-#
-#@export var day_duration: float = 60.0 #second
-#
-#@export var cycle_gradient: Gradient
-##current time
-#var time: float = 0.0
-#
-#func _process(delta: float) -> void:
-	#time += delta / day_duration
-	#if time >= 1.0:
-		#time = 0.0
-	#if cycle_gradient:
-		#color = cycle_gradient.sample(time)
-
 extends CanvasModulate
 
-@export var day_duration: float = 60.0 
+@export var day_duration: float = 120.0 #seconds
 @export var cycle_gradient: Gradient
 
-var time: float = 0.0
+var time: float = 0.5
 var is_night: bool = false 
 
 func _process(delta: float) -> void:

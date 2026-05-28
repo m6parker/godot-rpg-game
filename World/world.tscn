@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
 [ext_resource type="Texture2D" uid="uid://brmrv4p6blpt6" path="res://assets/tilesets/animated_tilesets/moths_spritesheet.png" id="16_5xkvv"]
 [ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="16_oeat8"]
+[ext_resource type="Texture2D" uid="uid://c3q33qnshdq53" path="res://assets/tilesets/animated_tilesets/bushes_spritesheet.png" id="17_26uyv"]
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="17_kcyjf"]
 [ext_resource type="Script" uid="uid://cock6xc1dahoc" path="res://World/nighttime_bugs.gd" id="18_0lysu"]
 [ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://World/day_night_cycler.gd" id="19_xw5lg"]
@@ -871,6 +872,96 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-14, 0)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqu5g"]
+texture = ExtResource("17_26uyv")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 2
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 5
+0:1/size_in_atlas = Vector2i(2, 1)
+0:1/animation_columns = 2
+0:1/animation_mode = 1
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(-16, 0)
+0:1/0/y_sort_origin = 5
+0:2/size_in_atlas = Vector2i(2, 1)
+0:2/animation_columns = 2
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(-16, 0)
+0:2/0/y_sort_origin = 5
+0:3/size_in_atlas = Vector2i(2, 1)
+0:3/animation_columns = 2
+0:3/animation_mode = 1
+0:3/animation_frame_0/duration = 1.0
+0:3/animation_frame_1/duration = 1.0
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(-16, 0)
+0:3/0/y_sort_origin = 5
+2:0/animation_columns = 2
+2:0/animation_mode = 1
+2:0/animation_frame_0/duration = 1.0
+2:0/animation_frame_1/duration = 1.0
+2:0/0 = 0
+2:0/0/y_sort_origin = 5
+4:0/animation_columns = 2
+4:0/animation_mode = 1
+4:0/animation_frame_0/duration = 1.0
+4:0/animation_frame_1/duration = 1.0
+4:0/0 = 0
+4:0/0/y_sort_origin = 5
+4:1/animation_columns = 2
+4:1/animation_mode = 1
+4:1/animation_frame_0/duration = 1.0
+4:1/animation_frame_1/duration = 1.0
+4:1/0 = 0
+4:1/0/y_sort_origin = 5
+4:2/animation_columns = 2
+4:2/animation_mode = 1
+4:2/animation_frame_0/duration = 1.0
+4:2/animation_frame_1/duration = 1.0
+4:2/0 = 0
+4:2/0/y_sort_origin = 5
+4:3/animation_columns = 2
+4:3/animation_mode = 1
+4:3/animation_frame_0/duration = 1.0
+4:3/animation_frame_1/duration = 1.0
+4:3/0 = 0
+4:3/0/y_sort_origin = 5
+6:3/size_in_atlas = Vector2i(2, 1)
+6:3/0 = 0
+6:3/0/texture_origin = Vector2i(-16, 0)
+6:3/0/y_sort_origin = 5
+6:2/size_in_atlas = Vector2i(2, 1)
+6:2/0 = 0
+6:2/0/texture_origin = Vector2i(-16, 0)
+6:2/0/y_sort_origin = 5
+6:1/size_in_atlas = Vector2i(2, 1)
+6:1/0 = 0
+6:1/0/texture_origin = Vector2i(-16, 0)
+6:1/0/y_sort_origin = 5
+6:0/0 = 0
+6:0/0/y_sort_origin = 5
+7:0/0 = 0
+7:0/0/y_sort_origin = 5
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(10, 10)
+8:0/0/y_sort_origin = 5
+8:1/0 = 0
+8:1/0/texture_origin = Vector2i(-10, -10)
+8:1/0/y_sort_origin = 23
+8:2/0 = 0
+8:2/0/y_sort_origin = 5
+8:3/0 = 0
+8:3/0/y_sort_origin = 12
+
 [sub_resource type="TileSet" id="TileSet_f23eu"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -889,6 +980,7 @@ sources/2 = SubResource("TileSetAtlasSource_oeat8")
 sources/3 = SubResource("TileSetAtlasSource_kcyjf")
 sources/4 = SubResource("TileSetAtlasSource_xw5lg")
 sources/5 = SubResource("TileSetAtlasSource_0lysu")
+sources/6 = SubResource("TileSetAtlasSource_dqu5g")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw5lg"]
 radius = 25.0
@@ -1035,18 +1127,29 @@ script = ExtResource("17_kcyjf")
 position = Vector2(-384, -194)
 shape = SubResource("CircleShape2D_xw5lg")
 
-[node name="walk_behind" type="TileMapLayer" parent="worldMap" unique_id=1490654055]
-z_index = 2
-texture_filter = 1
-tile_set = SubResource("TileSet_f23eu")
-rendering_quadrant_size = 32
-physics_quadrant_size = 32
-
 [node name="trees" type="TileMapLayer" parent="worldMap" unique_id=1985619779]
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AADy//b/AgACAAAAAAD1/wAAAgABAAAAAAD7////AgACAAAAAAD4////AgACAAAAAAD9//v/AgABAAAAAAD/////AgABAAAAAAAAAPv/AgAAAAAAAAD0////BAAAAAAAAAABAPz/BAAAAAAAAAD3/wEABAAAAAAAAAD2//z/AwAAAAAAAAD8/wAAAwAAAAAAAAD+////AwAAAAAAAAD3//r/AwAAAAAAAAD+//z/AwAAAAAAAAABAAMAAAADAAwAAAACAAMAAAAEAA0AAAADAAMAAAADAAsAAAADAAQAAAADAAoAAAADAAUAAAAEAA0AAAAEAAUAAAACAAsAAAAFAAUAAAADAAoAAAAGAAUAAAAEAAsAAAAHAAUAAAAEAAsAAAAIAAYAAAADAAoAAAAIAAcAAAACAAsAAAAJAAYAAAADAAoAAAAKAAYAAAADAAsAAAALAAYAAAADAAoAAAAMAAYAAAADAAsAAAAAAAgAAAADAAoAAAAAAAcAAAADAAoAAAD//wcAAAADAAsAAAD+/wcAAAAEAAsAAAD9/wcAAAADAAsAAAD9/wgAAAACAAsAAAD+/wgAAAACAAsAAAD//wgAAAADAAsAAAAAAAkAAAADAAwAAAABAAkAAAAEAA0AAAABAAoAAAADAAoAAAACAAoAAAAEAA0AAAACAAgAAAADAAoAAAAGAAoAAAADAA0AAAAGAAkAAAADAAwAAAAHAAkAAAADAAwAAAAHAAgAAAAEAAsAAAD1/wUAAAACAAsAAAD2/wUAAAADAAoAAAD3/wUAAAAEAAsAAAD3/wYAAAAEAA0AAAD2/wYAAAACAAsAAAD1/wYAAAAEAA0AAAD1/wcAAAADAAoAAAD2/wcAAAACAAsAAADz/wYAAAADAAoAAAAQAAUAAAAEAAsAAAAQAAQAAAAEAAsAAAAQAAMAAAADAAsAAAARAAMAAAAEAAsAAAASAAMAAAAEAAsAAAAUAAIAAAAEAA0AAAAUAAEAAAADAAoAAAAVAAEAAAAEAAsAAAAUAP3/AAAEAAsAAAAVAP3/AAADAA0AAAAVAPz/AAAEAA0AAAAVAPv/AAADAAoAAAAVAPr/AAADAAwAAAAVAAUAAAADAAsAAAAWAAUAAAAEAA0AAAAXAAUAAAAEAAsAAAAXAAYAAAADAAwAAAARAAoAAAADAAoAAAARAAkAAAACAAsAAAARAAgAAAADAA0AAAASAAgAAAADAA0AAAATAAgAAAAEAAsAAAATAAkAAAAEAA0AAAASAAkAAAADAAsAAAATAAoAAAADAAwAAAAUAAoAAAADAAoAAAAUAAsAAAADAAwAAAD6/wwAAAADAA0AAAD7/wwAAAADAAoAAAD7/wsAAAADAAoAAAD6/wsAAAADAAoAAAD5/wsAAAADAAoAAAD5/wwAAAADAAsAAAD4/wwAAAAEAA0AAAD4/wsAAAADAAoAAAD3/wsAAAAEAA0AAAD2/wsAAAADAAwAAAD5/woAAAADAAwAAAD6/woAAAACAAsAAADy//3/AwAAAAAAAADx//z/AwAAAAAAAADx//n/AwAAAAAAAAD2//j/AwAAAAAAAADw//3/BAAAAAAAAADx//j/AgACAAAAAAD2//f/AgACAAAAAAD0//b/AgABAAAAAAD1//f/BAAAAAAAAADw//f/BAAAAAAAAAABAP//AAAKAAgAAAAJAAAAAAAKAAgAAADz////AAAKAAgAAAD1//z/AAAJAAgAAAAKAP7/AAAJAAgAAAAGAP3/AgAAAAAAAAAHAAAAAgAAAAAAAAAIAAEAAgACAAAAAAALAP3/AgACAAAAAAAMAP7/AgACAAAAAAAMAAIAAgACAAAAAAANAAEABAAAAAAAAAAKAAIABAAAAAAAAAAGAAAABAAAAAAAAAAEAPv/AwAAAAAAAAACAAAAAwAAAAAAAAAQAP7/AwAAAAAAAAARAPz/AwAAAAAAAAAMAPf/BAAAAAAAAAAGAPj/BAAAAAAAAAALAPf/AgACAAAAAAAGAPX/AgACAAAAAAAOAPb/AgACAAAAAAAHAPf/AgABAAAAAAASAPr/AgABAAAAAADt//7/AgAAAAAAAADu//r/AgAAAAAAAADq//j/AgAAAAAAAADn//r/AgABAAAAAADs//f/AgABAAAAAADp//b/AgABAAAAAADq/wEAAgABAAAAAADv/wEAAgACAAAAAADq//7/AgACAAAAAADt//X/AgACAAAAAADn//P/AgACAAAAAADp//f/AgACAAAAAADv//f/AgACAAAAAADn//f/AgACAAAAAADo//b/AwAAAAAAAADr//T/AwAAAAAAAADs//n/AwAAAAAAAADu//j/AwAAAAAAAADo/wEAAwAAAAAAAADt/wEAAwAAAAAAAADs/wEABAAAAAAAAADv//7/BAAAAAAAAADw////BAAAAAAAAADu//b/BAAAAAAAAADr//L/BAAAAAAAAAA=")
+tile_set = SubResource("TileSet_f23eu")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32
+
+[node name="bushes" type="TileMapLayer" parent="worldMap" unique_id=1490654055]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AADn//7/BgAIAAEAAADo//7/BgAIAAEAAADo//3/BgAIAAAAAADo//z/BgAIAAEAAADo//v/BgAIAAEAAADp//v/BgAIAAAAAADq//v/BgAIAAEAAADq//r/BgAIAAEAAADq//z/BgAIAAAAAADr//z/BgAIAAEAAADr//3/BgAIAAAAAADs//3/BgAIAAEAAADr//7/BgAIAAEAAADs//7/BgAIAAEAAADs////BgAIAAAAAADt////BgAIAAEAAADt/wAABgAIAAAAAADt/wEABgAIAAEAAADu/wEABgAIAAAAAADs/wEABgAIAAEAAADr/wEABgAIAAAAAADq/wEABgAIAAAAAADp/wEABgAIAAEAAADp/wIABgAIAAEAAADo/wEABgAIAAEAAADn/wEABgAIAAEAAADm/wEABgAIAAEAAADl/wEABgAIAAAAAADn/wAABgAIAAAAAADn////BgAIAAAAAADm//7/BgAIAAAAAADm//3/BgAIAAAAAADn//3/BgAIAAAAAADn//z/BgAIAAAAAADm//z/BgAIAAEAAAD7//X/BgAIAAAAAAD8//X/BgAIAAEAAAD9//X/BgAIAAAAAAD+//X/BgAIAAAAAAD///X/BgAIAAEAAAD///b/BgAIAAAAAAAAAPX/BgAIAAEAAAABAPX/BgAIAAAAAAACAPX/BgAIAAAAAAADAPX/BgAIAAAAAAAEAPX/BgAIAAEAAAAAAPb/BgAIAAAAAAABAPT/BgAIAAEAAAAAAPT/BgAIAAEAAAAFAPX/BgAIAAAAAAAEAPb/BgAIAAAAAAAFAPb/BgAIAAAAAAAIAPf/BgAIAAEAAAAJAPf/BgAIAAEAAAAJAPj/BgAIAAAAAAAKAPj/BgAIAAAAAAALAPj/BgAIAAAAAAAMAPf/BgAIAAEAAAANAPf/BgAIAAAAAAAOAPf/BgAIAAAAAAAJAPP/BgAIAAAAAAAKAPP/BgAIAAAAAAAKAPL/BgAIAAEAAAALAPL/BgAIAAAAAAAMAPL/BgAIAAEAAAANAPL/BgAIAAEAAAANAPH/BgAIAAEAAAAKAPH/BgAIAAAAAAD1//H/BgAIAAEAAAD1//D/BgAIAAEAAAD0//D/BgAIAAAAAADz//D/BgAIAAAAAADy//D/BgAIAAEAAAD0//H/BgAIAAEAAADz//H/BgAIAAAAAAD5//j/BgAIAAAAAAD9/wEABgAIAAAAAAD9/wAABgAIAAAAAAD+/wAABgAIAAEAAAD//wAABgAIAAEAAAAAAAAABgAIAAAAAAAEAAAABgAIAAAAAAADAPz/BgAIAAAAAAAGAAEABgAIAAAAAAAHAAEABgAIAAAAAAAHAAIABgAIAAAAAAAIAAIABgAIAAAAAAAIAAEABgAIAAEAAAAJAAEABgAIAAEAAAAKAAEABgAIAAAAAADv//j/BgAIAAEAAADv//f/BgAIAAAAAADu//f/BgAIAAAAAADt//f/BgAIAAEAAADt//b/BgAIAAAAAADs//b/BgAIAAEAAADt//X/BgAIAAEAAADu//X/BgAIAAEAAADv//X/BgAIAAEAAADw//X/BgAIAAAAAADw//T/BgAIAAAAAADv//T/BgAIAAAAAADu//T/BgAIAAEAAADt//P/BgAIAAEAAADt//L/BgAIAAAAAADs//L/BgAIAAEAAADs//H/BgAIAAEAAADt//H/BgAIAAAAAADt//D/BgAIAAEAAADs//P/BgAIAAAAAADr//P/BgAIAAEAAADq//P/BgAIAAEAAADp//P/BgAIAAAAAADp//L/BgAIAAEAAADp//H/BgAIAAAAAADp//D/BgAIAAEAAADo//D/BgAIAAAAAADn//D/BgAIAAAAAAA=")
+tile_set = SubResource("TileSet_f23eu")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32
+
+[node name="bushes2" type="TileMapLayer" parent="worldMap" unique_id=1330972956]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AADo/wEABgAEAAMAAADo/wAABgAIAAEAAADo////BgAIAAEAAADn//7/BgAEAAMAAADn//3/BgAIAAAAAADo//3/BgAIAAEAAADo//z/BgAIAAEAAADo//v/BgAIAAAAAADp//v/BgAIAAEAAADq//v/BgAIAAAAAADq//r/BgAEAAMAAADq//z/BgAIAAAAAADr//z/BgAIAAEAAADs//z/BgAIAAAAAADs//3/BgAIAAEAAADs//7/BgAIAAEAAADs////BgAIAAAAAADs/wAABgAIAAEAAADr/wAABgAIAAAAAADr/wEABgAIAAEAAADs/wEABgAIAAAAAADt/wEABgAIAAEAAADt/wIABgAEAAMAAADs/wIABgAIAAAAAADs/wMABgAIAAAAAADt/wMABgAIAAEAAADt/wQABgAIAAAAAADu/wQABgAIAAEAAADv/wQABgAIAAEAAADv/wMABgAIAAAAAADv/wIABgAEAAMAAADu/wIABgAEAAMAAADu/wEABgAIAAAAAADv/wAABgAIAAAAAADv////BgAIAAAAAADu////BgAIAAEAAADu//7/BgAIAAEAAADu//3/BgAIAAAAAADu//z/BgAIAAAAAADv//z/BgAIAAEAAADw//z/BgAIAAEAAADw//3/BgAIAAEAAADx//3/BgAIAAEAAADx//7/BgAIAAEAAADy//7/BgAIAAEAAADx////BgAIAAAAAADx/wAABgAIAAAAAADy/wAABgAIAAEAAADz/wAABgAIAAAAAADz////BgAIAAAAAADz/wEABgAIAAAAAAD0/wEABgAEAAMAAAD1/wEABgAIAAEAAAD1/wAABgAIAAAAAAD2/wAABgAIAAEAAAD2////BgAIAAEAAAD3////BgAIAAAAAAD3//7/BgAIAAEAAADr//L/BgAIAAAAAADs//L/BgAIAAEAAADs//P/BgAIAAEAAADt//T/BgAIAAAAAADu//T/BgAIAAAAAADu//X/BgAIAAEAAADu//b/BgAIAAEAAADv//b/BgAIAAEAAADz//D/BgAIAAAAAAD0//D/BgAIAAEAAAD1//D/BgAEAAMAAAD1//H/BgAIAAEAAAD2//H/BgAEAAMAAAD3//H/BgAIAAAAAAD9//X/BgAIAAEAAAD+//X/BgAIAAEAAAD///X/BgAIAAAAAAAAAPX/BgAEAAMAAAABAPX/BgAEAAMAAAD///T/BgAIAAEAAAAAAPT/BgAIAAEAAAAJAPP/BgAIAAEAAAAKAPL/BgAIAAAAAAALAPL/BgAIAAAAAAAMAPL/BgAIAAEAAAANAPL/BgAIAAEAAAAMAPf/BgAIAAAAAAAOAPf/BgAIAAAAAAD+/wEABgAIAAAAAAD+/wAABgAIAAEAAAD//wAABgAIAAEAAAD9/wEABgAIAAAAAAAHAAEABgAIAAAAAAAIAAEABgAIAAEAAAAJAAEABgAIAAEAAAAKAAEABgAIAAAAAAACAPv/BgAIAAAAAAD8/wQABgAEAAAAAAD9/wQABgAEAAAAAAD2/wIABgAEAAEAAADo/wIABgAEAAMAAADn/wEABgAEAAMAAADn/wAABgAEAAMAAADn////BgAEAAMAAADo//7/BgAEAAMAAADp//7/BgAEAAMAAADq//7/BgAEAAMAAADo//r/BgAEAAMAAADp//r/BgAEAAMAAADr//r/BgAEAAMAAADr//v/BgAEAAMAAADw/wIABgAEAAMAAADw/wEABgAEAAMAAADw/wAABgAEAAMAAADz/wIABgAEAAMAAAD8//X/BgAEAAMAAAADAPX/BgAEAAMAAAADAPT/BgAEAAMAAAD3//D/BgAEAAMAAADr//H/BgAEAAMAAADo//L/BgAEAAMAAADp//D/BgAEAAMAAADn//D/BgAEAAMAAADp//H/BgAEAAMAAAAKAPP/BgAEAAMAAAAIAPL/BgAEAAMAAAAKAPH/BgAEAAMAAAD+/wQABgACAAAAAAD5/wQABgAAAAAAAAD7//z/BgAAAAMAAADv//r/BgAAAAIAAADq//n/BgAAAAEAAAD1//r/BgAIAAIAAAD4//n/BgAIAAMAAAA=")
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
@@ -1113,7 +1216,6 @@ shape = SubResource("CircleShape2D_5xkvv")
 position = Vector2(-385, -166)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1938458969]
-color = Color(0.16635433, 0.27957845, 0.5973654, 1)
 script = ExtResource("19_xw5lg")
 cycle_gradient = SubResource("Gradient_xw5lg")
 
