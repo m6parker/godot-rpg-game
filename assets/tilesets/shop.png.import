@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1pgkpunvneby"
-path="res://.godot/imported/wildberries.png-91028ce7434f910b653da3858b5bfc77.ctex"
+uid="uid://owwgnwkakuwi"
+path="res://.godot/imported/shop.png-bb327ed1ba147fe5df2774ab1b91c47f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/animated_tilesets/wildberries.png"
-dest_files=["res://.godot/imported/wildberries.png-91028ce7434f910b653da3858b5bfc77.ctex"]
+source_file="res://assets/tilesets/shop.png"
+dest_files=["res://.godot/imported/shop.png-bb327ed1ba147fe5df2774ab1b91c47f.ctex"]
 
 [params]
 

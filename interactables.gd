@@ -50,8 +50,10 @@ func _show_interact_bubble(show: bool) -> void:
 			active_bubble = bubble_instance as Control
 			if active_bubble:
 				active_bubble.top_level = true
+				active_bubble.z_index = 999
 				active_bubble.scale = bubble_scale
 				active_bubble.z_index = 10
+				print("bubble showing")
 			
 			add_child(active_bubble)
 	else:

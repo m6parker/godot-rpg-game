@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="17_kcyjf"]
 [ext_resource type="Script" uid="uid://cock6xc1dahoc" path="res://World/nighttime_bugs.gd" id="18_0lysu"]
 [ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://World/day_night_cycler.gd" id="19_xw5lg"]
+[ext_resource type="PackedScene" uid="uid://ehcxh3hyyqrj" path="res://player/npc.tscn" id="22_dqu5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrha"]
 texture = ExtResource("13_0wqet")
@@ -1212,6 +1213,18 @@ scale = Vector2(0.7578125, 0.796875)
 color = Color(1, 0.8352941, 0.3882353, 1)
 texture = SubResource("GradientTexture2D_5xkvv")
 
+[node name="PointLight2D6" type="PointLight2D" parent="worldMap/fences" unique_id=1537709174]
+position = Vector2(-384.00003, -241)
+scale = Vector2(0.7578125, 0.796875)
+color = Color(1, 0.8352941, 0.3882353, 1)
+texture = SubResource("GradientTexture2D_5xkvv")
+
+[node name="PointLight2D7" type="PointLight2D" parent="worldMap/fences" unique_id=664654606]
+position = Vector2(-384.00003, -215.00002)
+scale = Vector2(0.7578125, 0.40234357)
+color = Color(1, 0.8352941, 0.3882353, 1)
+texture = SubResource("GradientTexture2D_5xkvv")
+
 [node name="house_door" type="Area2D" parent="." unique_id=1783236522]
 script = ExtResource("16_oeat8")
 target_scene = "uid://co56donu2l1fh"
@@ -1227,6 +1240,9 @@ position = Vector2(-385, -166)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1938458969]
 script = ExtResource("19_xw5lg")
 cycle_gradient = SubResource("Gradient_xw5lg")
+
+[node name="NPC" parent="." unique_id=1473429294 instance=ExtResource("22_dqu5g")]
+position = Vector2(-103, 97)
 
 [connection signal="body_entered" from="house_door" to="house_door" method="_on_body_entered"]
 [connection signal="body_exited" from="house_door" to="house_door" method="_on_body_exited"]

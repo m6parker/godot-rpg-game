@@ -5,12 +5,12 @@ extends Area2D
 
 var can_interact: bool = false
 
-func _on_body_entered(body: CharacterBody2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player" or body.is_in_group("player"):
 		can_interact = true
 	
 
-func _on_body_exited(body: CharacterBody2D) -> void:
+func _on_body_exited(body: Node2D) -> void:
 	if body.name == "player" or body.is_in_group("player"):
 		can_interact = false
 
@@ -20,5 +20,6 @@ func _process(_delta: float) -> void:
 		for body in get_overlapping_bodies():
 			if body.name == "player" or body.is_in_group("player"):
 				Globals.target_transition_marker = target_spawn_marker
+				print('going to ', Globals.target_transition_marker)
 				get_tree().change_scene_to_file(target_scene)
 				break
