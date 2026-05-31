@@ -14,6 +14,7 @@ const REGROW_TIME = 10.0 #seconds - todo make global
 var regrow_timers: Dictionary = {}
 
 func _ready() -> void:
+	#if the player is comming from another location or being loaded in 
 	if Globals.target_transition_marker != "":
 		var spawn_point = find_child(Globals.target_transition_marker)
 		

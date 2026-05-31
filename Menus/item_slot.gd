@@ -135,6 +135,10 @@ func _hide_hover_visuals() -> void:
 
 func display_item(data: Variant) -> void:
 	if icon == null: return
+	
+	if data != null:
+		print("Slot received data: ", data, " | Class matches ItemData? ", data is ItemData)
+		
 	if data is ItemData:
 		icon.texture = data.item_texture
 		icon.modulate.a = 1.0 

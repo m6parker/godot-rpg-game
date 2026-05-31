@@ -3,6 +3,8 @@ extends Node
 signal inventory_updated
 signal crafting_updated
 signal brewing_updated
+signal gold_changed(new_amount: int)
+
 
 # setup player
 var player_name: String = "player_name"
@@ -19,7 +21,8 @@ var brewing_open: bool = false
 # todo: for saving / loading game
 var playerStats = {
 	"health": 100, 
-	"level": 1
+	"level": 1,
+	"gold": 10
 }
 	
 var playerSkills = {
@@ -68,6 +71,18 @@ func increase_skill(skill_type: String) -> void:
 		playerSkills[skill_type] += 1
 		print(playerSkills)
 
+
+# ------------------ store ----------------------------
+
+func can_afford(amount: int) -> bool:
+	return playerStats.get("gold", 0) >= amount
+
+func deduct_gold(amount: int) -> void:
+	playerStats["gold"] = playerStats.get("gold", 0) - amount
+	gold_changed.emit(playerStats["gold"])
+
+func has_empty_inventory_slot() -> bool:
+	return player_inventory.find(null) != -1
 
 # ------------- shift clicking -----------------------
 
