@@ -1,0 +1,38 @@
+[
+	{
+		"id": "item_01",
+		"name": "swiss roll",
+		"price": 2,
+		"description": "yummy"
+	},
+	{
+		"id": "item_02",
+		"name": "test item name",
+		"price": 24,
+		"description": "item description"
+	},
+	{
+		"id": "item_03",
+		"name": "test item name",
+		"price": 53,
+		"description": "item description"
+	},
+	{
+		"id": "item_04",
+		"name": "test item name",
+		"price": 22,
+		"description": "item description"
+	},
+	{
+		"id": "item_05",
+		"name": "test item name",
+		"price": 31,
+		"description": "item description"
+	},
+	{
+		"id": "item_06",
+		"name": "test item name",
+		"price": 32,
+		"description": "item description"
+	}
+]

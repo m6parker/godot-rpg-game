@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://6sngm571et58"]
+
+[ext_resource type="Script" uid="uid://ccqbcap6q4edf" path="res://shop_item.gd" id="1_1mr6w"]
+[ext_resource type="Texture2D" uid="uid://udyd5asorlek" path="res://assets/ui/interact_bubble.png" id="2_54rkp"]
+
+[node name="shop_item" type="Panel" unique_id=931062270]
+clip_contents = true
+custom_minimum_size = Vector2(320, 32)
+offset_right = 324.0
+offset_bottom = 42.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_1mr6w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=686100442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="HBoxContainer" unique_id=1726413426]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_54rkp")
+expand_mode = 3
+
+[node name="name_label" type="Label" parent="HBoxContainer" unique_id=322341473]
+layout_mode = 2
+text = "name_label"
+
+[node name="price_label" type="Label" parent="HBoxContainer" unique_id=1156572872]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "price_label"
+
+[node name="desc_label" type="Label" parent="HBoxContainer" unique_id=523570695]
+visible = false
+layout_mode = 2
+text = "description"
+
+[node name="add_button" type="Button" parent="HBoxContainer" unique_id=1428629832]
+custom_minimum_size = Vector2(32, 32)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+text = "+"
