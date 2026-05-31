@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Globals="*uid://js3gn0hk6hk4"
 Recipes="*uid://bsrew02x4p53d"
+DialogueManager="*uid://cb8hwasd6wx6b"
 
 [display]
 

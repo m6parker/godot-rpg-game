@@ -1123,6 +1123,9 @@ radius = 25.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wyst0"]
 radius = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8i2yk"]
+radius = 24.0
+
 [node name="town" type="Node2D" unique_id=2122076680]
 y_sort_enabled = true
 script = ExtResource("1_f75s5")
@@ -1192,5 +1195,28 @@ shape = SubResource("CircleShape2D_wyst0")
 [node name="spawnFromShop" type="Marker2D" parent="." unique_id=519291564]
 position = Vector2(-90, -24)
 
+[node name="spawnFromWorld2" type="Marker2D" parent="." unique_id=944805063]
+position = Vector2(-97, 83)
+
+[node name="world_door" type="Area2D" parent="." unique_id=247280012]
+position = Vector2(288, 306)
+script = ExtResource("10_5q1sm")
+target_scene = "uid://pshgypporraf"
+target_spawn_marker = "spawnFromTown"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world_door" unique_id=272481727]
+position = Vector2(-384, -194)
+shape = SubResource("CircleShape2D_8i2yk")
+
+[node name="interactable" type="Area2D" parent="." unique_id=578440717]
+z_index = 1
+position = Vector2(-96, 110)
+script = ExtResource("10_wyst0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=1736887516]
+shape = SubResource("CircleShape2D_f75s5")
+
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]
+[connection signal="body_entered" from="world_door" to="world_door" method="_on_body_entered"]
+[connection signal="body_exited" from="world_door" to="world_door" method="_on_body_exited"]

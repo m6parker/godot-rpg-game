@@ -1002,6 +1002,9 @@ radius = 24.0
 offsets = PackedFloat32Array(0, 0.24137932, 0.5015674, 0.7429467, 1)
 colors = PackedColorArray(0, 0.20784314, 0.43529412, 1, 0.47843137, 0.21568628, 0.13725491, 1, 1, 1, 1, 1, 1, 0.47259527, 0.5524737, 1, 0, 0.20784314, 0.43529412, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqu5g"]
+radius = 25.0
+
 [node name="world" type="Node2D" unique_id=1706235273]
 y_sort_enabled = true
 position = Vector2(122, -31)
@@ -1244,5 +1247,28 @@ cycle_gradient = SubResource("Gradient_xw5lg")
 [node name="NPC" parent="." unique_id=1473429294 instance=ExtResource("22_dqu5g")]
 position = Vector2(-103, 97)
 
+[node name="spawnFromTown" type="Marker2D" parent="." unique_id=587978310]
+position = Vector2(892, -1)
+
+[node name="town_door" type="Area2D" parent="." unique_id=582117494]
+position = Vector2(1315, 195)
+script = ExtResource("16_oeat8")
+target_scene = "uid://c5q2juhbrim8r"
+target_spawn_marker = "spawnFromWorld2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="town_door" unique_id=216189814]
+position = Vector2(-384, -194)
+shape = SubResource("CircleShape2D_5xkvv")
+
+[node name="interactable" type="Area2D" parent="." unique_id=1925907212]
+z_index = 1
+position = Vector2(933, 1)
+script = ExtResource("17_kcyjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=1331328247]
+shape = SubResource("CircleShape2D_dqu5g")
+
 [connection signal="body_entered" from="house_door" to="house_door" method="_on_body_entered"]
 [connection signal="body_exited" from="house_door" to="house_door" method="_on_body_exited"]
+[connection signal="body_entered" from="town_door" to="town_door" method="_on_body_entered"]
+[connection signal="body_exited" from="town_door" to="town_door" method="_on_body_exited"]

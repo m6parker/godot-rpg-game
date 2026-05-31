@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cb8hwasd6wx6b"]
+
+[ext_resource type="Script" uid="uid://dcpk1hvluoxam" path="res://dialogue_manager.gd" id="1_meld6"]
+[ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="2_34ips"]
+[ext_resource type="Texture2D" uid="uid://udyd5asorlek" path="res://assets/ui/interact_bubble.png" id="3_34ips"]
+
+[node name="DialogueManager" type="CanvasLayer" unique_id=101226511]
+script = ExtResource("1_meld6")
+
+[node name="Panel" type="Panel" parent="." unique_id=196425075]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.5
+offset_top = -120.0
+offset_right = 204.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="background" type="NinePatchRect" parent="Panel" unique_id=233693014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_34ips")
+patch_margin_left = 32
+patch_margin_right = 32
+
+[node name="dialogue_text" type="Label" parent="Panel" unique_id=1784097892]
+layout_mode = 0
+offset_left = 131.5
+offset_top = 20.0
+offset_right = 361.5
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test dialogue test dialogue test dialogue test dialogue"
+autowrap_mode = 2
+
+[node name="profile" type="TextureRect" parent="Panel" unique_id=433115075]
+layout_mode = 0
+offset_left = 28.5
+offset_top = 18.0
+offset_right = 110.5
+offset_bottom = 101.0
+texture = ExtResource("3_34ips")
