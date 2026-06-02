@@ -314,39 +314,44 @@ offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
 [node name="health_stats" type="Panel" parent="CanvasLayer" unique_id=2031243829]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(50, 50)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 64.0
+offset_left = -348.0
+offset_bottom = 114.0
 grow_horizontal = 0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/health_stats" unique_id=1606607615]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 64.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="heart" type="TextureRect" parent="CanvasLayer/health_stats/HBoxContainer" unique_id=1060189928]
 texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("8_ebec5")
+expand_mode = 3
 stretch_mode = 4
 
 [node name="heart2" type="TextureRect" parent="CanvasLayer/health_stats/HBoxContainer" unique_id=599255559]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("8_ebec5")
+expand_mode = 3
 stretch_mode = 4
 
 [node name="heart3" type="TextureRect" parent="CanvasLayer/health_stats/HBoxContainer" unique_id=1297372637]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("8_ebec5")
+expand_mode = 3
 stretch_mode = 4
 
 [node name="notebook" type="Panel" parent="CanvasLayer" unique_id=1225059618]
@@ -618,3 +623,18 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
+
+[node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 229.0
+offset_bottom = 73.0
+
+[node name="gold_count" type="Label" parent="CanvasLayer/gold" unique_id=1412347302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "gold:"

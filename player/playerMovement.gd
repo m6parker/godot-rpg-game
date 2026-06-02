@@ -3,11 +3,12 @@ extends CharacterBody2D
 
 @export var move_speed: float = 150
 
-@onready var animatedSprite = $AnimatedSprite2D
+@onready var animatedSprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var notebook: Panel = $CanvasLayer/notebook
 @onready var inventory: Panel = $CanvasLayer/inventory
-@onready var foragingCount = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
-@onready var playerNameLabel = $CanvasLayer/notebook/player_name
+@onready var foragingCount: Label = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
+@onready var playerNameLabel: Label = $CanvasLayer/notebook/player_name
+@onready var goldCountLabel: Label = $CanvasLayer/gold/gold_count
 
 @onready var notification_scene = preload("res://Menus/skill_notification.tscn")
 @onready var craft_station_scene = preload("res://Menus/crafting_menu.tscn")
@@ -20,6 +21,14 @@ var brew_instance = null
 func _ready() -> void:
 	$CollectionArea.area_entered.connect(_on_item_collected)
 	playerNameLabel.text = Globals.player_name
+	
+	Globals.gold_changed.connect(update_gold_ui)
+	update_gold_ui()
+	
+
+func update_gold_ui(new_amount: int = -1) -> void:
+	var current_gold = new_amount if new_amount != -1 else Globals.playerStats["gold"]
+	goldCountLabel.text = "gold: " + str(current_gold)
 	
 
 # prevents menus from going out of sync

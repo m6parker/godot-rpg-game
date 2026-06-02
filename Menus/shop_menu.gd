@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @export var item_ui_scene: PackedScene 
-@onready var list_container: VBoxContainer = $ScrollContainer/VBoxContainer
+@onready var list_container: VBoxContainer = $Panel/ScrollContainer/VBoxContainer
+#@onready var gold_count_lebel: Label = $Panel/background/gold_count
 
 const JSON_PATH = "res://items.json"
 
@@ -31,10 +32,11 @@ func load_shop_items() -> void:
 	for item in items_data:
 		if item is Dictionary:
 			create_item_element(item)
+			
+	#gold_count_lebel.text = str(Globals.playerStats["gold"])
 
 func create_item_element(data: Dictionary) -> void:
 	var item_element = item_ui_scene.instantiate()
 	list_container.add_child(item_element)
-	print(item_element)
 	if item_element.has_method("setup"):
 		item_element.setup(data)

@@ -40,26 +40,30 @@ offset_right = 348.5
 offset_bottom = 122.0
 text = "shop inventory"
 
-[node name="item_list" type="VBoxContainer" parent="Panel" unique_id=961106994]
+[node name="gold_count" type="Label" parent="Panel/background" unique_id=1328976740]
 visible = false
 layout_mode = 0
-offset_left = 109.5
-offset_top = 153.0
-offset_right = 411.5
-offset_bottom = 411.0
+offset_left = 112.5
+offset_top = 30.0
+offset_right = 348.5
+offset_bottom = 53.0
+text = "gold:"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1169677141]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1169677141]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.0
+offset_left = -186.0
 offset_top = -147.0
-offset_right = 187.0
+offset_right = 197.0
 offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=764015540]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=764015540]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

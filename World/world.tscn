@@ -1245,6 +1245,7 @@ script = ExtResource("19_xw5lg")
 cycle_gradient = SubResource("Gradient_xw5lg")
 
 [node name="NPC" parent="." unique_id=1473429294 instance=ExtResource("22_dqu5g")]
+z_index = 1
 position = Vector2(-103, 97)
 
 [node name="spawnFromTown" type="Marker2D" parent="." unique_id=587978310]
