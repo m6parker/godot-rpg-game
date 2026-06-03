@@ -1,23 +1,17 @@
 [
 	{
-		"id": "bluejay_feather",
-		"name": "bluejay feather",
+		"name": "acorn",
 		"price": 2,
 		"description": "test",
-		"resource_path": "res://Items/bluejay_feather.tres"
 	},
 	{
-		"id": "bumblebee",
 		"name": "bumblebee",
 		"price": 1,
 		"description": "item description",
-		"resource_path": "res://Items/bumblebee.tres"
 	},
 	{
-		"id": "monarch_butterfly",
-		"name": "monarch butterfly",
+		"name": "fly_argaric_mushroom",
 		"price": 1,
 		"description": "item description",
-		"resource_path": "res://Items/monarch_butterfly.tres"
 	},
 ]

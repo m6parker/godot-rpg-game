@@ -15,8 +15,8 @@ func setup(data: Dictionary) -> void:
 	item_data = data
 	
 	# get info from json file
-	var id = item_data.get("id", "error")
-	var image_path = "res://assets/items/" + id + ".png"
+	var name = item_data.get("name", "error")
+	var image_path = "res://assets/items/" + name + ".png"
 	
 	if ResourceLoader.exists(image_path):
 		icon.texture = load(image_path)
@@ -27,7 +27,9 @@ func setup(data: Dictionary) -> void:
 
 func _on_buy_button_pressed() -> void:
 	var price = item_data.get("price", 0)
-	var res_path = item_data.get("resource_path", "")
+	var name = item_data.get("name", "error")
+	#var res_path = item_data.get("resource_path", "")
+	var res_path = "res://Items/"+name+".tres"
 	
 	if not Globals.can_afford(price):
 		print("not enough gold!")
