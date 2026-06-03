@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $player
 @onready var tile_map_layer: TileMapLayer = $worldMap/harvestables
-@export var berry_resource: Resource = preload("res://Items/wildberries.tres")
+@export var berry_resource: Resource = preload("res://Items/wild_berries.tres")
 @export var berry_amount: int = 1
 
 #hover tileset to see id - bushes tileset

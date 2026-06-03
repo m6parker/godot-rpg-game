@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cde0a2f5q7kwe"]
+
+[ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="1_28xr0"]
+
+[sub_resource type="Resource" id="Resource_yvj34"]
+metadata/__load_path__ = "res://assets/items/bluejay_feather.png"
+
+[resource]
+script = ExtResource("1_28xr0")
+item_texture = SubResource("Resource_yvj34")
+quality = null
+metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

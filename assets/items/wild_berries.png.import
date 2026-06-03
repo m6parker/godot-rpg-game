@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqtc5l46npvga"
-path="res://.godot/imported/bluejay_feather.png-d2f25667a0f5dee9fa0757ccd4d5598a.ctex"
+uid="uid://bj3cddxmn3ecf"
+path="res://.godot/imported/wild_berries.png-6f7e2178292078c6b1e4cc436266ce9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/bluejay_feather.png"
-dest_files=["res://.godot/imported/bluejay_feather.png-d2f25667a0f5dee9fa0757ccd4d5598a.ctex"]
+source_file="res://assets/items/wild_berries.png"
+dest_files=["res://.godot/imported/wild_berries.png-6f7e2178292078c6b1e4cc436266ce9b.ctex"]
 
 [params]
 

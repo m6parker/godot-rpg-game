@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("2_rvtoo")
+item_id = null
 item_name = "oak_leaf"
 item_texture = ExtResource("1_xh7ni")
+description = null
 item_type = "Foraging"
 quality = 0.4
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"

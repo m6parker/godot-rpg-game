@@ -1,10 +1,10 @@
 extends Control
 
-@onready var icon: TextureRect = $NinePatchRect/icon
-@onready var name_label: Label = $NinePatchRect/name_label
-@onready var price_label: Label = $NinePatchRect/price_label
-@onready var desc_label: Label = $NinePatchRect/desc_label
-@onready var buy_button: TextureButton = $NinePatchRect/buy_button
+@onready var icon: TextureRect = $TextureRect/icon_background/icon
+@onready var name_label: Label = $TextureRect/name_label
+@onready var price_label: Label = $TextureRect/price_label
+@onready var desc_label: Label = $TextureRect/desc_label
+@onready var buy_button: TextureButton = $TextureRect/buy_button
 
 var item_data: Dictionary 
 

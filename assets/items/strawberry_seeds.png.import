@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck8rkmh0bpgkc"
-path="res://.godot/imported/honey_mushrrom.png-add1288a2d41d3d89d5ecd96e26de541.ctex"
+uid="uid://dwmpcqxjqf1ux"
+path="res://.godot/imported/strawberry_seeds.png-d194c2d8abfc98a473e21f611a940fba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/honey_mushrrom.png"
-dest_files=["res://.godot/imported/honey_mushrrom.png-add1288a2d41d3d89d5ecd96e26de541.ctex"]
+source_file="res://assets/items/strawberry_seeds.png"
+dest_files=["res://.godot/imported/strawberry_seeds.png-d194c2d8abfc98a473e21f611a940fba.ctex"]
 
 [params]
 

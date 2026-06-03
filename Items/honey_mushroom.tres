@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://10615w5pyjmg"]
 
-[ext_resource type="Texture2D" uid="uid://ck8rkmh0bpgkc" path="res://assets/items/honey_mushrrom.png" id="1_b5rv2"]
+[ext_resource type="Texture2D" uid="uid://ccep1t81cq5dw" path="res://assets/items/honey_mushroom.png" id="1_b5rv2"]
 [ext_resource type="Script" uid="uid://bjqvfqmwh32dx" path="res://Items/item_data.gd" id="2_7ca4n"]
 
 [resource]
@@ -9,4 +9,5 @@ item_id = 2
 item_name = "honey_mushroom"
 item_texture = ExtResource("1_b5rv2")
 item_type = "Foraging"
+quality = null
 metadata/_custom_type_script = "uid://bjqvfqmwh32dx"
