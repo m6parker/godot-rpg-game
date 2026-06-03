@@ -3,7 +3,7 @@ extends HBoxContainer
 @export var start_index: int = 0
 
 func _ready() -> void:
-	# Wait for Globals to initialize its array
+	# wait for globals to initialize its array
 	await get_tree().process_frame
 	
 	Globals.inventory_updated.connect(_on_inventory_refresh)

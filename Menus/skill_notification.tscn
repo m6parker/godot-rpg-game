@@ -2,19 +2,29 @@
 
 [ext_resource type="Script" uid="uid://jtign2bl3gw3" path="res://Menus/skill_notification.gd" id="1_xnend"]
 
-[node name="SkillNotification" type="CanvasLayer" unique_id=1920841739]
+[node name="PanelContainer" type="PanelContainer" unique_id=297483655]
+offset_right = 395.0
+offset_bottom = 100.0
 script = ExtResource("1_xnend")
 
 [node name="Panel" type="Panel" parent="." unique_id=203393381]
-offset_right = 367.0
-offset_bottom = 109.0
+custom_minimum_size = Vector2(64, 100)
+layout_mode = 2
 
 [node name="description" type="Label" parent="Panel" unique_id=200283737]
 custom_minimum_size = Vector2(200, 75)
-layout_mode = 0
-offset_top = 17.0
-offset_right = 347.0
-offset_bottom = 92.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -37.5
+offset_right = 173.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "+1 Forraging"
 horizontal_alignment = 1

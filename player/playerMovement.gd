@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var foragingCount: Label = $CanvasLayer/notebook/SkillsGrid/ForagingPanel/count
 @onready var playerNameLabel: Label = $CanvasLayer/notebook/player_name
 @onready var goldCountLabel: Label = $CanvasLayer/gold/gold_count
-
+@onready var notification_container: VBoxContainer = $CanvasLayer/NotificationContainer
 @onready var notification_scene = preload("res://Menus/skill_notification.tscn")
 @onready var craft_station_scene = preload("res://Menus/crafting_menu.tscn")
 @onready var brewing_station_scene = preload("res://Menus/brewing_menu.tscn")
@@ -69,7 +69,7 @@ func _physics_process(_delta: float) -> void:
 func show_notification(text: String):
 	var instance = notification_scene.instantiate()
 	instance.get_node("Panel/description").text = text
-	add_child(instance)
+	notification_container.add_child(instance)
 	
 func updateSkillsNotebook():
 	print(foragingCount.text)

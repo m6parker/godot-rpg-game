@@ -14,5 +14,5 @@ func get_item_data() -> ItemData:
 	return data
 
 func collect() -> void:
-	# sound or particle effect here later
+	# todo: sound or particle effect here later
 	queue_free()

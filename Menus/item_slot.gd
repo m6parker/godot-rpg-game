@@ -14,7 +14,7 @@ func _ready() -> void:
 	if icon:
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-# Helper to get the correct data source
+# get the correct data source
 func get_target_array() -> Array:
 	if container_type == "inventory":
 		return Globals.player_inventory
