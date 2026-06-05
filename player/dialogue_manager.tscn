@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb8hwasd6wx6b"]
 
-[ext_resource type="Script" uid="uid://dcpk1hvluoxam" path="res://dialogue_manager.gd" id="1_meld6"]
+[ext_resource type="Script" uid="uid://dcpk1hvluoxam" path="res://src/systems/dialogue_manager.gd" id="1_meld6"]
 [ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="2_34ips"]
 [ext_resource type="Texture2D" uid="uid://udyd5asorlek" path="res://assets/ui/interact_bubble.png" id="3_34ips"]
 

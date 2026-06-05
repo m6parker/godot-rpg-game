@@ -10,7 +10,7 @@
 		"description": "item description",
 	},
 	{
-		"name": "fly_argaric_mushroom",
+		"name": "fly_agaric_mushroom",
 		"price": 1,
 		"description": "item description",
 	},
@@ -20,13 +20,18 @@
 		"description": "item description",
 	},
 	{
-		"name": "oal_leaf",
+		"name": "oak_leaf",
 		"price": 1,
 		"description": "item description",
 	},
 	{
 		"name": "yellow_potion",
 		"price": 7,
+		"description": "item description",
+	},
+	{
+		"name": "blueberries",
+		"price": 3,
 		"description": "item description",
 	},
 ]

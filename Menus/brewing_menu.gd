@@ -42,14 +42,20 @@ func check_recipe() -> ItemData:
 	current_ingredients.sort()
 	print("current ingredients: ", current_ingredients)
 
-	for recipe in RecipeManager.recipes:
+	for recipe in RecipeManager.potion_recipes:
 		print("recipe: ", recipe.ingredients)
 		if current_ingredients == recipe.ingredients:
 			var result_name = recipe.result_item_name
 			print("result name: ", result_name)
-			print("ItemDatabase.items.get(result_name): ", ItemDatabase.items.get(result_name))
 			
-			return ItemDatabase.items.get(result_name)
+			var exact_db_key = result_name
+			for key in ItemDatabase.items.keys():
+				if key.to_lower() == result_name:
+					exact_db_key = key
+					break
+			
+			print("ItemDatabase.items.get(exact_db_key): ", ItemDatabase.items.get(exact_db_key))
+			return ItemDatabase.items.get(exact_db_key)
 			
 	return null
 
