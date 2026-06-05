@@ -6,30 +6,29 @@ extends Control
 @onready var desc_label: Label = $TextureRect/desc_label
 @onready var buy_button: TextureButton = $TextureRect/buy_button
 
-var item_data: Dictionary 
+var current_item: ItemData 
 
 func _ready() -> void:
 	buy_button.pressed.connect(_on_buy_button_pressed)
 
-func setup(data: Dictionary) -> void:
-	item_data = data
+func setup(item: ItemData) -> void:
+	current_item = item 
 	
-	# get info from json file
-	var name = item_data.get("name", "error")
-	var image_path = "res://assets/items/" + name + ".png"
+	name_label.text = item.item_name
+	desc_label.text = item.description
+	icon.texture = item.item_texture
 	
-	if ResourceLoader.exists(image_path):
-		icon.texture = load(image_path)
-		
-	name_label.text = item_data.get("name", "error")
-	price_label.text = str(item_data.get("price", 0)) + " gold"
-	desc_label.text = item_data.get("description", "")
+	if "price" in item:
+		price_label.text = str(item.price) + " Gold"
+
 
 func _on_buy_button_pressed() -> void:
-	var price = item_data.get("price", 0)
-	var name = item_data.get("name", "error")
-	#var res_path = item_data.get("resource_path", "")
-	var res_path = "res://Items/"+name+".tres"
+	if current_item == null: 
+		return
+		
+	var price = 0
+	if "price" in current_item:
+		price = current_item.price
 	
 	if not Globals.can_afford(price):
 		print("not enough gold!")
@@ -39,13 +38,6 @@ func _on_buy_button_pressed() -> void:
 		print("inventory is full!")
 		return
 		
-	if ResourceLoader.exists(res_path):
-		var item_resource = load(res_path) as ItemData
-		
-		if item_resource == null:
-			push_error("error " + res_path)
-			return
-			
-		Globals.deduct_gold(price)
-		Globals.add_item(item_resource)
-		
+	Globals.deduct_gold(price)
+	Globals.add_item(current_item)
+	print("Successfully bought: ", current_item.item_name)

@@ -1,42 +1,28 @@
 extends CanvasLayer
 
-@export var item_ui_scene: PackedScene 
+const ITEM_UI_SCENE = preload("res://Menus/shop_item.tscn")
 @onready var list_container: VBoxContainer = $Panel/ScrollContainer/VBoxContainer
-#@onready var gold_count_lebel: Label = $Panel/background/gold_count
-
-const JSON_PATH = "res://data/items.json"
 
 func _ready() -> void:
 	load_shop_items()
 
+
 func load_shop_items() -> void:
-	if not FileAccess.file_exists(JSON_PATH):
-		push_error("missing json file: " + JSON_PATH)
+	if ITEM_UI_SCENE == null:
+		push_error("item ui error")
 		return
-	var file = FileAccess.open(JSON_PATH, FileAccess.READ)
-	var json_string = file.get_as_text()
-	file.close()
-	
-	# parsing
-	var items_data = JSON.parse_string(json_string)
-	
-	if items_data == null:
-		push_error("failed to parse json string")
-		return
-		
-	# clear ui
+
 	for child in list_container.get_children():
 		child.queue_free()
 		
-	# loop thru and create ui elements
-	for item in items_data:
-		if item is Dictionary:
-			create_item_element(item)
-			
-	#gold_count_lebel.text = str(Globals.playerStats["gold"])
+	for item_name in ItemDatabase.items:
+		var item_data = ItemDatabase.items[item_name]
+		create_item_element(item_data)
 
-func create_item_element(data: Dictionary) -> void:
-	var item_element = item_ui_scene.instantiate()
+
+func create_item_element(item_data: ItemData) -> void:
+	var item_element = ITEM_UI_SCENE.instantiate() 
 	list_container.add_child(item_element)
+	
 	if item_element.has_method("setup"):
-		item_element.setup(data)
+		item_element.setup(item_data)

@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://iwnxpprwov21"]
 
 [ext_resource type="Script" uid="uid://ck1nbnetcjcjc" path="res://Menus/shop_menu.gd" id="1_8xh8k"]
-[ext_resource type="PackedScene" uid="uid://6sngm571et58" path="res://Menus/shop_item.tscn" id="2_0rp7m"]
 [ext_resource type="Texture2D" uid="uid://bxt5g8jfbuatp" path="res://assets/ui/store_ui/general_store_panel.png" id="3_8xh8k"]
 
 [node name="shop_menu" type="CanvasLayer" unique_id=1146838422]
 script = ExtResource("1_8xh8k")
-item_ui_scene = ExtResource("2_0rp7m")
 
 [node name="Panel" type="Panel" parent="." unique_id=929170599]
 self_modulate = Color(1, 1, 1, 0)

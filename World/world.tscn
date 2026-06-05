@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c3q33qnshdq53" path="res://assets/tilesets/animated_tilesets/bushes_spritesheet.png" id="17_26uyv"]
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="17_kcyjf"]
 [ext_resource type="Script" uid="uid://cock6xc1dahoc" path="res://World/nighttime_bugs.gd" id="18_0lysu"]
-[ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://World/day_night_cycler.gd" id="19_xw5lg"]
+[ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://src/systems/day_night_cycler.gd" id="19_xw5lg"]
 [ext_resource type="PackedScene" uid="uid://ehcxh3hyyqrj" path="res://player/npc.tscn" id="22_dqu5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrha"]

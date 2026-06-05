@@ -25,6 +25,7 @@ func load_items_from_json(file_path: String) -> void:
 		
 		new_item.item_name = item_data["name"]
 		new_item.description = item_data["description"]
+		new_item.price = item_data.get("price", 0)
 		
 		if item_data.has("type"):
 			new_item.item_type = item_data["type"]
