@@ -10,6 +10,7 @@ signal gold_changed(new_amount: int)
 var player_name: String = "player_name"
 var level: String = "World"
 var target_transition_marker: String = ""
+var PLAYER_INVENTORY_SIZE = 7 #ui slots in basket
 
 # ui state
 var can_craft: bool = false
@@ -41,7 +42,7 @@ var brewing_result: Resource = null
 
 
 func _ready() -> void:
-	_setup_inventory(20)
+	_setup_inventory(PLAYER_INVENTORY_SIZE)
 	
 	# 2 crafting slots, maybe add more later
 	crafting_slots.resize(2)

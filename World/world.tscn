@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k63dvu0owgq" path="res://World/world.gd" id="1_5xkvv"]
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="1_62w18"]
-[ext_resource type="Resource" uid="uid://hppnxuuypr7j" path="res://Items/maple_leaf.tres" id="4_bkhv4"]
 [ext_resource type="PackedScene" uid="uid://bjhxnlmcp8srs" path="res://Items/item.tscn" id="4_k8do8"]
-[ext_resource type="Resource" uid="uid://qkga55hao352" path="res://Items/pinecomb.tres" id="5_bkhv4"]
-[ext_resource type="Resource" uid="uid://b63nqp4dmamqo" path="res://Items/monarch_butterfly.tres" id="5_eidgh"]
-[ext_resource type="Resource" uid="uid://tl8e3v7suhor" path="res://Items/oak_leaf.tres" id="5_yf0ba"]
-[ext_resource type="Resource" uid="uid://b5h0yl0p2un0o" path="res://Items/rose_petal.tres" id="7_oe8m4"]
-[ext_resource type="Resource" uid="uid://c7qxfa5vi2ui" path="res://Items/potion_bottle.tres" id="9_lo5ox"]
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://assets/plants/grass4.png" id="9_w47uh"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
@@ -1032,28 +1026,32 @@ texture = ExtResource("9_w47uh")
 z_index = 1
 
 [node name="WorldItem" parent="worldItems" unique_id=833787009 instance=ExtResource("4_k8do8")]
-position = Vector2(-104, -83)
-data = ExtResource("4_bkhv4")
+position = Vector2(-230, -97)
+item_key_name = "acorn"
 
-[node name="WorldItem2" parent="worldItems" unique_id=1457551575 instance=ExtResource("4_k8do8")]
-position = Vector2(-235, -74)
-data = ExtResource("5_eidgh")
+[node name="WorldItem2" parent="worldItems" unique_id=1307559933 instance=ExtResource("4_k8do8")]
+position = Vector2(-161, -81)
+item_key_name = "fly_agaric_mushroom"
 
-[node name="WorldItem3" parent="worldItems" unique_id=1573871554 instance=ExtResource("4_k8do8")]
-position = Vector2(-192, -78)
-data = ExtResource("5_bkhv4")
+[node name="WorldItem3" parent="worldItems" unique_id=1566624110 instance=ExtResource("4_k8do8")]
+position = Vector2(-259, -82)
+item_key_name = "pinecomb"
 
-[node name="WorldItem4" parent="worldItems" unique_id=1617544305 instance=ExtResource("4_k8do8")]
-position = Vector2(-171, -77)
-data = ExtResource("7_oe8m4")
+[node name="WorldItem4" parent="worldItems" unique_id=1050230059 instance=ExtResource("4_k8do8")]
+position = Vector2(-213, -72)
+item_key_name = "oak_leaf"
 
-[node name="WorldItem5" parent="worldItems" unique_id=865067793 instance=ExtResource("4_k8do8")]
-position = Vector2(-118, -50)
-data = ExtResource("5_yf0ba")
+[node name="WorldItem5" parent="worldItems" unique_id=590295513 instance=ExtResource("4_k8do8")]
+position = Vector2(-184, -74)
+item_key_name = "blueberries"
 
-[node name="WorldItem6" parent="worldItems" unique_id=1062292310 instance=ExtResource("4_k8do8")]
-position = Vector2(-139, -82)
-data = ExtResource("9_lo5ox")
+[node name="WorldItem6" parent="worldItems" unique_id=690125601 instance=ExtResource("4_k8do8")]
+position = Vector2(-125, -83)
+item_key_name = "empty_bottle"
+
+[node name="WorldItem7" parent="worldItems" unique_id=1290974351 instance=ExtResource("4_k8do8")]
+position = Vector2(-102, -74)
+item_key_name = "bumblebee"
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
 y_sort_enabled = true

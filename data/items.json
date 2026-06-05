@@ -34,4 +34,14 @@
 		"price": 3,
 		"description": "item description",
 	},
+	{
+		"name": "wild_berries",
+		"price": 1,
+		"description": "item description",
+	},
+	{
+		"name": "empty_bottle",
+		"price": 1,
+		"description": "item description",
+	},
 ]
