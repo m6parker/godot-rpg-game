@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var list_container: VBoxContainer = $Panel/ScrollContainer/VBoxContainer
 #@onready var gold_count_lebel: Label = $Panel/background/gold_count
 
-const JSON_PATH = "res://items.json"
+const JSON_PATH = "res://data/items.json"
 
 func _ready() -> void:
 	load_shop_items()

@@ -37,7 +37,7 @@ func end_dialogue() -> void:
 	dialogue_finished.emit()
 
 func get_dialogue_by_id(npc_id: String) -> Array[String]:
-	var file_path = "res://player/npc_dialogue.json"
+	var file_path = "res://data/npc_dialogue.json"
 	
 	if not FileAccess.file_exists(file_path):
 		push_error("npc dialogue json file not found at: " + file_path)

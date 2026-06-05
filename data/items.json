@@ -1,0 +1,32 @@
+[
+	{
+		"name": "acorn",
+		"price": 2,
+		"description": "test",
+	},
+	{
+		"name": "bumblebee",
+		"price": 1,
+		"description": "item description",
+	},
+	{
+		"name": "fly_argaric_mushroom",
+		"price": 1,
+		"description": "item description",
+	},
+	{
+		"name": "rose_petal",
+		"price": 1,
+		"description": "item description",
+	},
+	{
+		"name": "oal_leaf",
+		"price": 1,
+		"description": "item description",
+	},
+	{
+		"name": "yellow_potion",
+		"price": 7,
+		"description": "item description",
+	},
+]

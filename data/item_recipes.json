@@ -1,0 +1,29 @@
+[
+	{
+		"ingredients": [
+			"bumblebee",
+			"mushroom"
+		],
+		"result": [
+			"honey_mushroom"
+		]
+	},
+	{
+		"ingredients": [
+			"oak_leaf",
+			"fly_agaric_mushroom"
+		],
+		"result": [
+			"maple_leaf"
+		]
+	},
+	{
+		"ingredients": [
+			"pinecomb",
+			"wild_berries"
+		],
+		"result": [
+			"blueberries"
+		]
+	}
+]
