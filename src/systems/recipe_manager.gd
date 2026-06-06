@@ -49,7 +49,7 @@ func load_item_recipes_from_json(file_path: String) -> void:
 		
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var json_string = file.get_as_text()
-	file.close() # Good practice to close the file handler
+	file.close()
 	
 	var json = JSON.new()
 	var error = json.parse(json_string)
@@ -62,11 +62,9 @@ func load_item_recipes_from_json(file_path: String) -> void:
 				var result = recipe.get("result", [])
 				
 				if ingredients.size() >= 2 and result.size() > 0:
-					# Sort ingredients so the order in the JSON doesn't matter
 					ingredients.sort()
 					var recipe_key = ",".join(ingredients)
 					
-					# Store the result item name (taking the first one)
 					item_recipes[recipe_key] = result[0]
 		else:
 			push_error("JSON data is not a list/array!")

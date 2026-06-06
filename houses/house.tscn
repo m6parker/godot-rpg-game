@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c57myrtjuq7p0" path="res://assets/tilesets/house_interior_tileset.png" id="1_cyjxu"]
 [ext_resource type="Texture2D" uid="uid://61lpgv0d6j8w" path="res://assets/tilesets/animated_tilesets/fireplace_spritesheet.png" id="2_8dk0u"]
 [ext_resource type="Texture2D" uid="uid://c8d1fcqvs23bp" path="res://assets/tilesets/shadow.png" id="2_a547g"]
-[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="2_psl7n"]
+[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://src/common/door.gd" id="2_psl7n"]
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://player/player.tscn" id="3_26r2m"]
 [ext_resource type="Texture2D" uid="uid://2loae4vhnowa" path="res://assets/tilesets/furniture.png" id="4_8dk0u"]
 [ext_resource type="PackedScene" uid="uid://c50gg3y7u2tcv" path="res://Objects/crafting_table.tscn" id="6_8dk0u"]

@@ -11,3 +11,4 @@ class_name ItemData
 
 func _init() -> void:
 	quality = snapped(randf(), 0.01)
+	

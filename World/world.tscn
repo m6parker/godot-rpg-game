@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/animated_tilesets/tree2_spritesheet.png" id="15_5xkvv"]
 [ext_resource type="Texture2D" uid="uid://daajqfpjb268t" path="res://assets/tilesets/trees.png" id="15_f23eu"]
 [ext_resource type="Texture2D" uid="uid://brmrv4p6blpt6" path="res://assets/tilesets/animated_tilesets/moths_spritesheet.png" id="16_5xkvv"]
-[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="16_oeat8"]
+[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://src/common/door.gd" id="16_oeat8"]
 [ext_resource type="Texture2D" uid="uid://c3q33qnshdq53" path="res://assets/tilesets/animated_tilesets/bushes_spritesheet.png" id="17_26uyv"]
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="17_kcyjf"]
 [ext_resource type="Script" uid="uid://cock6xc1dahoc" path="res://World/nighttime_bugs.gd" id="18_0lysu"]
@@ -1098,7 +1098,7 @@ tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
 
-[node name="bridge_front_ropw" type="TileMapLayer" parent="worldMap" unique_id=520598416]
+[node name="bridge_front_rope" type="TileMapLayer" parent="worldMap" unique_id=520598416]
 z_index = 2
 texture_filter = 1
 tile_map_data = PackedByteArray("AAATAAAAAAAFAAcAAAAUAAAAAAAGAAcAAAAVAAAAAAAHAAcAAAAWAAAAAAAIAAcAAAA=")

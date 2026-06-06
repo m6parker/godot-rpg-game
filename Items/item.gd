@@ -39,9 +39,12 @@ func _update_sprite_preview() -> void:
 	var sprite = get_node_or_null("Sprite2D")
 	if sprite == null:
 		return
+		
+	# todo - eventually separate the items by categories for organization
 	var expected_path = "res://assets/items/" + item_key_name.to_lower().strip_edges() + ".png"
 	if ResourceLoader.exists(expected_path):
 		sprite.texture = load(expected_path)
 	else:
+		# default to the acorn image if something goes wrong and the image cannot be found
 		if ResourceLoader.exists("res://assets/items/acorn.png"):
 			sprite.texture = load("res://assets/items/acorn.png")

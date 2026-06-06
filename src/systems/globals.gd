@@ -1,10 +1,10 @@
 extends Node
 
+# link signals
 signal inventory_updated
 signal crafting_updated
 signal brewing_updated
 signal gold_changed(new_amount: int)
-
 
 # setup player
 var player_name: String = "player_name"
@@ -27,9 +27,9 @@ var playerStats = {
 }
 	
 var playerSkills = {
-	"Foraging": 0, 
-	"Combat": 0, 
-	"Brewing": 0
+	"FORAGING": 0, 
+	"COMBAT": 0, 
+	"BREWING": 0
 }
 
 # inv, craft, brew arrays
@@ -44,7 +44,8 @@ var brewing_result: Resource = null
 func _ready() -> void:
 	_setup_inventory(PLAYER_INVENTORY_SIZE)
 	
-	# 2 crafting slots, maybe add more later
+	# 2 crafting slots, maybe add more later, 
+	# todo - i dont know if this 2 does anything anymore since its always changing
 	crafting_slots.resize(2)
 	crafting_slots.fill(null)
 	
@@ -59,8 +60,11 @@ func _setup_inventory(size: int) -> void:
 
 
 func add_item(item_resource: Resource) -> bool:
+	# loop thru the player inventory 
 	for i in range(player_inventory.size()):
+		# check for empty slot
 		if player_inventory[i] == null:
+			#add the new item intothe slot and update ui
 			player_inventory[i] = item_resource
 			inventory_updated.emit()
 			return true
@@ -68,9 +72,10 @@ func add_item(item_resource: Resource) -> bool:
 	
 	
 func increase_skill(skill_type: String) -> void:
-	if playerSkills.has(skill_type):
-		playerSkills[skill_type] += 1
-		print(playerSkills)
+	#check if the skill exists and increment the level
+	if playerSkills.has(skill_type.to_upper()):
+		playerSkills[skill_type.to_upper()] += 1
+		#print(playerSkills)
 
 
 # ------------------ store ----------------------------

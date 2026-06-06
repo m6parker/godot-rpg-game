@@ -22,10 +22,10 @@ func _on_inventory_refresh() -> void:
 	var slot_count = 0
 	for child in children:
 		if child.has_method("display_item"):
-			var global_idx = start_index + slot_count
+			var global_index = start_index + slot_count
 			
-			if global_idx < Globals.player_inventory.size():
-				child.display_item(Globals.player_inventory[global_idx])
+			if global_index < Globals.player_inventory.size():
+				child.display_item(Globals.player_inventory[global_index])
 			else:
 				child.display_item(null)
 				

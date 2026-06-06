@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/animated_tilesets/tree2_spritesheet.png" id="6_f75s5"]
 [ext_resource type="Texture2D" uid="uid://brmrv4p6blpt6" path="res://assets/tilesets/animated_tilesets/moths_spritesheet.png" id="7_8i2yk"]
 [ext_resource type="Texture2D" uid="uid://c3q33qnshdq53" path="res://assets/tilesets/animated_tilesets/bushes_spritesheet.png" id="8_xddqh"]
-[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://houses/door.gd" id="10_5q1sm"]
+[ext_resource type="Script" uid="uid://3cighwu2rp6t" path="res://src/common/door.gd" id="10_5q1sm"]
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://interactables.gd" id="10_wyst0"]
 [ext_resource type="Texture2D" uid="uid://ds7htatox5evm" path="res://assets/tilesets/town_buildings.png" id="11_8i2yk"]
 

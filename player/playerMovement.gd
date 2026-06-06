@@ -73,8 +73,8 @@ func show_notification(text: String):
 	
 func updateSkillsNotebook():
 	print(foragingCount.text)
-	print(Globals.playerSkills["Foraging"])
-	foragingCount.text = str(Globals.playerSkills["Foraging"])
+	print(Globals.playerSkills["FORAGING"])
+	foragingCount.text = str(Globals.playerSkills["FORAGING"])
 
 
 func _on_item_collected(area: Area2D) -> void:
@@ -88,9 +88,12 @@ func _on_item_collected(area: Area2D) -> void:
 		if success:
 			area.collect()
 			
+		#print("data: ", data)
+		print("datatype: ", data.item_type)
 		show_notification("+1 " + data.item_type)
 		Globals.increase_skill(data.item_type)
 		updateSkillsNotebook()
+		print("skills: ", Globals.playerSkills)
 	
 	
 func openNotebook() -> void:

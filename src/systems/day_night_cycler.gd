@@ -16,4 +16,8 @@ func _process(delta: float) -> void:
 	
 	var new_night_state = (time < 0.2 or time > 0.8)
 	if new_night_state != is_night:
+		# allows certain event to only happen at night / during the day
+		# bugs / moth layer is visible at night
 		is_night = new_night_state
+		
+		

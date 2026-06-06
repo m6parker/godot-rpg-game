@@ -3,45 +3,72 @@
 		"name": "acorn",
 		"price": 2,
 		"description": "test",
+		"type": "foraging"
+	},
+	{
+		"name": "pinecomb",
+		"price": 2,
+		"description": "test",
+		"type": "foraging"
 	},
 	{
 		"name": "bumblebee",
 		"price": 1,
 		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "fly_agaric_mushroom",
 		"price": 1,
 		"description": "item description",
+		"type": "foraging"
+	},
+	{
+		"name": "honey_mushroom",
+		"price": 1,
+		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "rose_petal",
 		"price": 1,
 		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "oak_leaf",
 		"price": 1,
 		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "yellow_potion",
 		"price": 7,
 		"description": "item description",
+		"type": "brewing"
+	},
+	{
+		"name": "red_potion",
+		"price": 8,
+		"description": "item description",
+		"type": "brewing"
 	},
 	{
 		"name": "blueberries",
 		"price": 3,
 		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "wild_berries",
 		"price": 1,
 		"description": "item description",
+		"type": "foraging"
 	},
 	{
 		"name": "empty_bottle",
 		"price": 1,
 		"description": "item description",
+		"type": "brewing"
 	},
 ]

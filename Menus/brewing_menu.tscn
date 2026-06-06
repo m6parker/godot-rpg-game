@@ -141,10 +141,10 @@ position = Vector2(5, -102)
 
 [node name="yield_slot" type="Panel" parent="Panel/yeild_container" unique_id=295290123]
 custom_minimum_size = Vector2(64, 64)
-offset_left = 515.0
-offset_top = 427.0
-offset_right = 579.0
-offset_bottom = 491.0
+offset_left = 514.0
+offset_top = 505.0
+offset_right = 578.0
+offset_bottom = 569.0
 script = ExtResource("2_euycs")
 container_type = "brewing_result"
 slot_index = 0
