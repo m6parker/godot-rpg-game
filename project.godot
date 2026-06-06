@@ -32,10 +32,6 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://assets/": "pink",
 "res://assets/entities/": "pink",
-"res://assets/items/": "purple",
-"res://assets/plants/": "green",
-"res://assets/tilesets/": "teal",
-"res://assets/ui/": "blue",
 "res://data/": "teal",
 "res://src/": "teal",
 "res://src/entities/": "red",
