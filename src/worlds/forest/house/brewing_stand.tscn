@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dmo2mmdde35td"]
+
+[ext_resource type="Script" uid="uid://dnkjbpusakl4n" path="res://src/worlds/forest/house/brewing_stand.gd" id="1_767yw"]
+[ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://src/common/interactables.gd" id="3_k0hhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6esg2"]
+radius = 23.021729
+
+[node name="brewing_stand" type="Node2D" unique_id=1234255753]
+y_sort_enabled = true
+script = ExtResource("1_767yw")
+
+[node name="interactable" type="Area2D" parent="." unique_id=1420777920]
+position = Vector2(0, -13)
+script = ExtResource("3_k0hhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=240909706]
+position = Vector2(1, -8)
+shape = SubResource("CircleShape2D_6esg2")

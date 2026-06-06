@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c50gg3y7u2tcv"]
+
+[ext_resource type="Script" uid="uid://ceikhg38uime3" path="res://src/worlds/forest/house/crafting_table.gd" id="1_hujbr"]
+[ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://src/common/interactables.gd" id="3_g12rv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hujbr"]
+radius = 28.071337
+
+[node name="CraftingTable" type="Node2D" unique_id=342622994]
+y_sort_enabled = true
+script = ExtResource("1_hujbr")
+
+[node name="interactable" type="Area2D" parent="." unique_id=376680638]
+position = Vector2(0, -14)
+script = ExtResource("3_g12rv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=2076321274]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_hujbr")

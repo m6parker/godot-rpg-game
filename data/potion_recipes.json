@@ -1,0 +1,20 @@
+[
+	{
+		"ingredients": [
+			"oak_leaf",
+			"fly_agaric_mushroom"
+		],
+		"result": [
+			"yellow_potion"
+		]
+	},
+	{
+		"ingredients": [
+			"bumblebee",
+			"fly_agaric_mushroom"
+		],
+		"result": [
+			"red_potion"
+		]
+	}
+]

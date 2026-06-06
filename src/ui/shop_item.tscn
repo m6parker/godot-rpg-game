@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://6sngm571et58"]
+
+[ext_resource type="Script" uid="uid://ccqbcap6q4edf" path="res://src/ui/shop_item.gd" id="1_6qbc0"]
+[ext_resource type="Texture2D" uid="uid://dp86taie7x10j" path="res://assets/ui/store_ui/item_slot.png" id="2_abdid"]
+[ext_resource type="Texture2D" uid="uid://cdmalm4wsc6ub" path="res://assets/ui/store_ui/store_icon.png" id="3_acn0q"]
+[ext_resource type="Texture2D" uid="uid://xeunoxa3xk0j" path="res://assets/ui/store_ui/buy_button.png" id="4_musq8"]
+[ext_resource type="Texture2D" uid="uid://syq61m4evxdh" path="res://assets/ui/store_ui/buy_button_pressed.png" id="5_lbevl"]
+[ext_resource type="Texture2D" uid="uid://dnhqhwlis61g6" path="res://assets/ui/store_ui/buy_button_hovered.png" id="6_khbdo"]
+
+[node name="shop_item" type="Panel" unique_id=931062270]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 100)
+offset_right = 568.0
+offset_bottom = 100.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_6qbc0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1643633293]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 0
+offset_right = 530.39996
+offset_bottom = 2.0
+texture = ExtResource("2_abdid")
+expand_mode = 3
+
+[node name="icon_background" type="TextureRect" parent="TextureRect" unique_id=938405056]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 36.0
+grow_vertical = 2
+texture = ExtResource("3_acn0q")
+
+[node name="icon" type="TextureRect" parent="TextureRect/icon_background" unique_id=1726413426]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 66.0
+offset_bottom = 66.0
+
+[node name="name_label" type="Label" parent="TextureRect" unique_id=322341473]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 34.0
+offset_right = 227.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 24
+text = "name_label"
+vertical_alignment = 1
+
+[node name="price_label" type="Label" parent="TextureRect" unique_id=1156572872]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 34.0
+offset_right = 436.0
+offset_bottom = 68.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "$_label"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="desc_label" type="Label" parent="TextureRect" unique_id=523570695]
+visible = false
+layout_mode = 0
+offset_left = -26.0
+offset_top = 20.5
+offset_right = 62.0
+offset_bottom = 43.5
+text = "description"
+
+[node name="buy_button" type="TextureButton" parent="TextureRect" unique_id=472353328]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -82.39996
+offset_top = -24.0
+offset_right = -18.399963
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_musq8")
+texture_pressed = ExtResource("5_lbevl")
+texture_hover = ExtResource("6_khbdo")
+stretch_mode = 5
