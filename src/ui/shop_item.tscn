@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://6sngm571et58"]
 
-[ext_resource type="Script" uid="uid://ccqbcap6q4edf" path="res://src/ui/shop_item.gd" id="1_1mr6w"]
-[ext_resource type="Texture2D" uid="uid://dp86taie7x10j" path="res://assets/ui/store_ui/item_slot.png" id="2_nlmpp"]
-[ext_resource type="Texture2D" uid="uid://cdmalm4wsc6ub" path="res://assets/ui/store_ui/store_icon.png" id="3_hcbqb"]
-[ext_resource type="Texture2D" uid="uid://xeunoxa3xk0j" path="res://assets/ui/store_ui/buy_button.png" id="4_rrkmt"]
-[ext_resource type="Texture2D" uid="uid://syq61m4evxdh" path="res://assets/ui/store_ui/buy_button_pressed.png" id="5_x364m"]
-[ext_resource type="Texture2D" uid="uid://dnhqhwlis61g6" path="res://assets/ui/store_ui/buy_button_hovered.png" id="6_viapx"]
+[ext_resource type="Script" uid="uid://ccqbcap6q4edf" path="res://src/ui/shop_item.gd" id="1_6qbc0"]
+[ext_resource type="Texture2D" uid="uid://dp86taie7x10j" path="res://assets/ui/store_ui/item_slot.png" id="2_abdid"]
+[ext_resource type="Texture2D" uid="uid://cdmalm4wsc6ub" path="res://assets/ui/store_ui/store_icon.png" id="3_acn0q"]
+[ext_resource type="Texture2D" uid="uid://xeunoxa3xk0j" path="res://assets/ui/store_ui/buy_button.png" id="4_musq8"]
+[ext_resource type="Texture2D" uid="uid://syq61m4evxdh" path="res://assets/ui/store_ui/buy_button_pressed.png" id="5_lbevl"]
+[ext_resource type="Texture2D" uid="uid://dnhqhwlis61g6" path="res://assets/ui/store_ui/buy_button_hovered.png" id="6_khbdo"]
 
 [node name="shop_item" type="Panel" unique_id=931062270]
 self_modulate = Color(1, 1, 1, 0)
@@ -13,14 +13,14 @@ custom_minimum_size = Vector2(400, 100)
 offset_right = 568.0
 offset_bottom = 100.0
 mouse_default_cursor_shape = 2
-script = ExtResource("1_1mr6w")
+script = ExtResource("1_6qbc0")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1643633293]
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 0
 offset_right = 530.39996
 offset_bottom = 2.0
-texture = ExtResource("2_nlmpp")
+texture = ExtResource("2_abdid")
 expand_mode = 3
 
 [node name="icon_background" type="TextureRect" parent="TextureRect" unique_id=938405056]
@@ -33,7 +33,7 @@ offset_top = -37.0
 offset_right = 87.0
 offset_bottom = 36.0
 grow_vertical = 2
-texture = ExtResource("3_hcbqb")
+texture = ExtResource("3_acn0q")
 
 [node name="icon" type="TextureRect" parent="TextureRect/icon_background" unique_id=1726413426]
 layout_mode = 0
@@ -88,7 +88,7 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_rrkmt")
-texture_pressed = ExtResource("5_x364m")
-texture_hover = ExtResource("6_viapx")
+texture_normal = ExtResource("4_musq8")
+texture_pressed = ExtResource("5_lbevl")
+texture_hover = ExtResource("6_khbdo")
 stretch_mode = 5

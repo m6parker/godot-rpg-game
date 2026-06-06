@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bycsrbkybcswi"
-path="res://.godot/imported/acorn.png-e60afb076648bc7902383d4deca7f80d.ctex"
+uid="uid://deaabrpcf2fdn"
+path="res://.godot/imported/maple_leaf.png-5a9ba9c0bfc9d100a57805e3dc4a58dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/acorn.png"
-dest_files=["res://.godot/imported/acorn.png-e60afb076648bc7902383d4deca7f80d.ctex"]
+source_file="res://assets/items/foraging/maple_leaf.png"
+dest_files=["res://.godot/imported/maple_leaf.png-5a9ba9c0bfc9d100a57805e3dc4a58dc.ctex"]
 
 [params]
 

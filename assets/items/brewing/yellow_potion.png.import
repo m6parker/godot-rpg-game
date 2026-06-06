@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj3cddxmn3ecf"
-path="res://.godot/imported/wild_berries.png-6f7e2178292078c6b1e4cc436266ce9b.ctex"
+uid="uid://bcc05kcc566er"
+path="res://.godot/imported/yellow_potion.png-1123d98e42bb5042896e796c83133219.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/wild_berries.png"
-dest_files=["res://.godot/imported/wild_berries.png-6f7e2178292078c6b1e4cc436266ce9b.ctex"]
+source_file="res://assets/items/brewing/yellow_potion.png"
+dest_files=["res://.godot/imported/yellow_potion.png-1123d98e42bb5042896e796c83133219.ctex"]
 
 [params]
 

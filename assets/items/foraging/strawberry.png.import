@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmchf3e4o7a6h"
-path="res://.godot/imported/brewing_stand.png-5bd3121e0d2fe6d405c7888cf1976ee7.ctex"
+uid="uid://qckq6rd1q7q3"
+path="res://.godot/imported/strawberry.png-4b4b788a3d0213e4712c7201de884650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/brewing_stand.png"
-dest_files=["res://.godot/imported/brewing_stand.png-5bd3121e0d2fe6d405c7888cf1976ee7.ctex"]
+source_file="res://assets/items/foraging/strawberry.png"
+dest_files=["res://.godot/imported/strawberry.png-4b4b788a3d0213e4712c7201de884650.ctex"]
 
 [params]
 

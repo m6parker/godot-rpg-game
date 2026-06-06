@@ -32,11 +32,13 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://assets/": "pink",
 "res://assets/entities/": "pink",
-"res://data/": "teal",
+"res://data/": "purple",
 "res://src/": "teal",
-"res://src/entities/": "red",
-"res://src/systems/": "orange",
-"res://src/worlds/": "yellow"
+"res://src/common/": "red",
+"res://src/entities/": "orange",
+"res://src/systems/": "yellow",
+"res://src/ui/": "green",
+"res://src/worlds/": "blue"
 }
 
 [global_group]

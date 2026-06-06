@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chc683pn1rog6"
-path="res://.godot/imported/bumblebee.png-224de3888f88ed507e94a27651dc2a95.ctex"
+uid="uid://cpytto1yw8ec6"
+path="res://.godot/imported/blueberries.png-cb7f42dee559c6d05981b65558397e66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/bumblebee.png"
-dest_files=["res://.godot/imported/bumblebee.png-224de3888f88ed507e94a27651dc2a95.ctex"]
+source_file="res://assets/items/foraging/blueberries.png"
+dest_files=["res://.godot/imported/blueberries.png-cb7f42dee559c6d05981b65558397e66.ctex"]
 
 [params]
 

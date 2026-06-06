@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://loqhdgviop2l"
-path="res://.godot/imported/red_potion.png-99d110c0929cd70fb2bd02f45606212f.ctex"
+uid="uid://dmbev76iih4n3"
+path="res://.godot/imported/monarch_butterfly.png-403184d7dd4e96447b9a68442eed131a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/potions/red_potion.png"
-dest_files=["res://.godot/imported/red_potion.png-99d110c0929cd70fb2bd02f45606212f.ctex"]
+source_file="res://assets/items/foraging/monarch_butterfly.png"
+dest_files=["res://.godot/imported/monarch_butterfly.png-403184d7dd4e96447b9a68442eed131a.ctex"]
 
 [params]
 

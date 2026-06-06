@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0khclsqijt3f"
-path="res://.godot/imported/pinecomb.png-6f051faaebe814184abe7ea3c09a6e84.ctex"
+uid="uid://ccep1t81cq5dw"
+path="res://.godot/imported/honey_mushroom.png-0bcc195d18ac7112a92d12bb4f9d8a7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/pinecomb.png"
-dest_files=["res://.godot/imported/pinecomb.png-6f051faaebe814184abe7ea3c09a6e84.ctex"]
+source_file="res://assets/items/foraging/honey_mushroom.png"
+dest_files=["res://.godot/imported/honey_mushroom.png-0bcc195d18ac7112a92d12bb4f9d8a7a.ctex"]
 
 [params]
 

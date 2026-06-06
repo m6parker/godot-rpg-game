@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwmpcqxjqf1ux"
-path="res://.godot/imported/strawberry_seeds.png-d194c2d8abfc98a473e21f611a940fba.ctex"
+uid="uid://chc683pn1rog6"
+path="res://.godot/imported/bumblebee.png-164241378a5808a5b17e967c6f85ab5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/strawberry_seeds.png"
-dest_files=["res://.godot/imported/strawberry_seeds.png-d194c2d8abfc98a473e21f611a940fba.ctex"]
+source_file="res://assets/items/foraging/bumblebee.png"
+dest_files=["res://.godot/imported/bumblebee.png-164241378a5808a5b17e967c6f85ab5c.ctex"]
 
 [params]
 

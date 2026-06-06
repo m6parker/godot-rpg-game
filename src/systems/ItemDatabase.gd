@@ -39,8 +39,10 @@ func load_items_from_json(file_path: String) -> void:
 		
 		# potions are organized in a seperate file,
 		# check what type of item, if potion relate, check potion folder
-		if "potion" in clean_file_name:
-			expected_path = "res://assets/potions/" + clean_file_name + ".png"
+		#if "potion" in clean_file_name:
+			#expected_path = "res://assets/potions/" + clean_file_name + ".png"
+		expected_path = "res://assets/items/" +  new_item.item_type.to_lower() + "/" + clean_file_name + ".png"
+			
 		print("expected path: ", expected_path)
 		
 		if ResourceLoader.exists(expected_path):

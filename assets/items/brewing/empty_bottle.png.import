@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy0a30kj25qqi"
-path="res://.godot/imported/rose_petal.png-9ceae64b4ca4e7e7465e67ecfac66bac.ctex"
+uid="uid://b172qgkdglf3j"
+path="res://.godot/imported/empty_bottle.png-16b6f99df3fab7dc7779cc773118ac57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/rose_petal.png"
-dest_files=["res://.godot/imported/rose_petal.png-9ceae64b4ca4e7e7465e67ecfac66bac.ctex"]
+source_file="res://assets/items/brewing/empty_bottle.png"
+dest_files=["res://.godot/imported/empty_bottle.png-16b6f99df3fab7dc7779cc773118ac57.ctex"]
 
 [params]
 

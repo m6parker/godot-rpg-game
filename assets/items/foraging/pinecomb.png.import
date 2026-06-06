@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxof4qpqknb7t"
-path="res://.godot/imported/fly_agaric_mushroom.png-de3e5efb0da1ba4d08d1a923391ab614.ctex"
+uid="uid://d0khclsqijt3f"
+path="res://.godot/imported/pinecomb.png-c498fb94a1c4ec8c7ad140d57ede7469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/fly_agaric_mushroom.png"
-dest_files=["res://.godot/imported/fly_agaric_mushroom.png-de3e5efb0da1ba4d08d1a923391ab614.ctex"]
+source_file="res://assets/items/foraging/pinecomb.png"
+dest_files=["res://.godot/imported/pinecomb.png-c498fb94a1c4ec8c7ad140d57ede7469.ctex"]
 
 [params]
 

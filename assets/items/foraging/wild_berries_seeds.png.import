@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpytto1yw8ec6"
-path="res://.godot/imported/blueberries.png-25f8c538e5cc99e36c88a5c3bbee1a96.ctex"
+uid="uid://duglpl70edp0l"
+path="res://.godot/imported/wild_berries_seeds.png-76654e63b70b228df0915c6c6aa963f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/blueberries.png"
-dest_files=["res://.godot/imported/blueberries.png-25f8c538e5cc99e36c88a5c3bbee1a96.ctex"]
+source_file="res://assets/items/foraging/wild_berries_seeds.png"
+dest_files=["res://.godot/imported/wild_berries_seeds.png-76654e63b70b228df0915c6c6aa963f5.ctex"]
 
 [params]
 

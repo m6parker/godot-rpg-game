@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tcbjjgjoe8ed"
-path="res://.godot/imported/crafting_table.png-4deb55925bc3590de5da6d82d3d4b695.ctex"
+uid="uid://brepcganiqq5d"
+path="res://.godot/imported/birch_leaf.png-4d58c7235cbdf777909c2b26488a3f0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/crafting_table.png"
-dest_files=["res://.godot/imported/crafting_table.png-4deb55925bc3590de5da6d82d3d4b695.ctex"]
+source_file="res://assets/items/foraging/birch_leaf.png"
+dest_files=["res://.godot/imported/birch_leaf.png-4d58c7235cbdf777909c2b26488a3f0f.ctex"]
 
 [params]
 

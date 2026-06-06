@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xufouy1c6qn"
-path="res://.godot/imported/blueberries_seeds.png-c1095d4ec16f58e7305714cb782a03e6.ctex"
+uid="uid://bea4bkf64eh50"
+path="res://.godot/imported/chilli_pepper_seeds.png-8b7716de9d14be1ab57a3a04eca489b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/blueberries_seeds.png"
-dest_files=["res://.godot/imported/blueberries_seeds.png-c1095d4ec16f58e7305714cb782a03e6.ctex"]
+source_file="res://assets/items/foraging/chilli_pepper_seeds.png"
+dest_files=["res://.godot/imported/chilli_pepper_seeds.png-8b7716de9d14be1ab57a3a04eca489b6.ctex"]
 
 [params]
 

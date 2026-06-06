@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bea4bkf64eh50"
-path="res://.godot/imported/chilli_pepper_seeds.png-cde6980135e426917ff4c85a5c8c3401.ctex"
+uid="uid://loqhdgviop2l"
+path="res://.godot/imported/red_potion.png-37cfe87bc83c90b8c62d75a400335871.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/chilli_pepper_seeds.png"
-dest_files=["res://.godot/imported/chilli_pepper_seeds.png-cde6980135e426917ff4c85a5c8c3401.ctex"]
+source_file="res://assets/items/brewing/red_potion.png"
+dest_files=["res://.godot/imported/red_potion.png-37cfe87bc83c90b8c62d75a400335871.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmbev76iih4n3"
-path="res://.godot/imported/monarch_butterfly.png-75c64259d47289c9dce52d7870ed881c.ctex"
+uid="uid://burt6jc7mbero"
+path="res://.godot/imported/oak_leaf.png-e7e2d92368c2c39f028008d8e0b00838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/monarch_butterfly.png"
-dest_files=["res://.godot/imported/monarch_butterfly.png-75c64259d47289c9dce52d7870ed881c.ctex"]
+source_file="res://assets/items/foraging/oak_leaf.png"
+dest_files=["res://.godot/imported/oak_leaf.png-e7e2d92368c2c39f028008d8e0b00838.ctex"]
 
 [params]
 
