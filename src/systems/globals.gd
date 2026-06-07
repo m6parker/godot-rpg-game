@@ -64,10 +64,12 @@ func add_item(item_resource: Resource) -> bool:
 	for i in range(player_inventory.size()):
 		# check for empty slot
 		if player_inventory[i] == null:
+			print("adding ", item_resource)
 			#add the new item intothe slot and update ui
 			player_inventory[i] = item_resource
 			inventory_updated.emit()
 			return true
+	print("item not added")
 	return false
 	
 	

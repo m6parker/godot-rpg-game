@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bta4oxeuiks27"]
 
-[ext_resource type="Script" uid="uid://dcooutv0b2k86" path="res://src/entities/player/playerMovement.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://dcooutv0b2k86" path="res://src/entities/player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://8nd5hnkjpubx" path="res://assets/entities/idle.png" id="2_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://edfe8xsufhla" path="res://assets/entities/player_spritesheet.png" id="3_8t03j"]
+[ext_resource type="Script" uid="uid://btaq5h4vlkwrl" path="res://src/ui/ui_manager.gd" id="4_kc3pt"]
 [ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://src/ui/item_slot.gd" id="5_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://chc683pn1rog6" path="res://assets/items/foraging/bumblebee.png" id="7_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
@@ -167,6 +168,7 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_8t03j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137896441]
+script = ExtResource("4_kc3pt")
 
 [node name="hotbar" type="Panel" parent="CanvasLayer" unique_id=560938128]
 visible = false
