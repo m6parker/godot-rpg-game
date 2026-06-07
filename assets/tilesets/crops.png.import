@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djfgxeh7emauh"
-path="res://.godot/imported/chilli_pepper.png-bac6a373af81cc419274bca7b943e522.ctex"
+uid="uid://d2mx3yc2no4yq"
+path="res://.godot/imported/crops.png-ec535cad1059490e20b848d2098eca7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/foraging/chilli_pepper.png"
-dest_files=["res://.godot/imported/chilli_pepper.png-bac6a373af81cc419274bca7b943e522.ctex"]
+source_file="res://assets/tilesets/crops.png"
+dest_files=["res://.godot/imported/crops.png-ec535cad1059490e20b848d2098eca7c.ctex"]
 
 [params]
 

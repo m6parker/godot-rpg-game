@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpytto1yw8ec6"
-path="res://.godot/imported/blueberries.png-cb7f42dee559c6d05981b65558397e66.ctex"
+uid="uid://xufouy1c6qn"
+path="res://.godot/imported/blueberries_seeds.png-fa508e052ac76d2e6ae8b64720f420d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/foraging/blueberries.png"
-dest_files=["res://.godot/imported/blueberries.png-cb7f42dee559c6d05981b65558397e66.ctex"]
+source_file="res://assets/items/farming/blueberries_seeds.png"
+dest_files=["res://.godot/imported/blueberries_seeds.png-fa508e052ac76d2e6ae8b64720f420d3.ctex"]
 
 [params]
 

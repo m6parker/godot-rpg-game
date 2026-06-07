@@ -29,7 +29,8 @@ var playerStats = {
 var playerSkills = {
 	"FORAGING": 0, 
 	"COMBAT": 0, 
-	"BREWING": 0
+	"BREWING": 0,
+	"FARMING": 0
 }
 
 # inv, craft, brew arrays

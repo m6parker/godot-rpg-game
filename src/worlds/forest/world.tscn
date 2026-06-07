@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bta4oxeuiks27" path="res://src/entities/player/player.tscn" id="1_62w18"]
 [ext_resource type="PackedScene" uid="uid://bjhxnlmcp8srs" path="res://src/entities/items/item.tscn" id="4_k8do8"]
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://old/plant_images/grass4.png" id="9_w47uh"]
+[ext_resource type="Texture2D" uid="uid://d2mx3yc2no4yq" path="res://assets/tilesets/crops.png" id="12_c00qs"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
 [ext_resource type="Texture2D" uid="uid://0wm0q7beh3td" path="res://assets/tilesets/animated_tilesets/tree1_spritesheet.png" id="14_oeat8"]
@@ -957,6 +958,26 @@ texture_region_size = Vector2i(32, 32)
 8:3/0 = 0
 8:3/0/y_sort_origin = 12
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13eng"]
+texture = ExtResource("12_c00qs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/y_sort_origin = 4
+1:0/0 = 0
+1:0/0/y_sort_origin = 4
+0:1/0 = 0
+0:1/0/y_sort_origin = 6
+1:1/0 = 0
+1:1/0/y_sort_origin = 6
+1:2/0 = 0
+1:2/0/y_sort_origin = 6
+0:2/0 = 0
+0:2/0/y_sort_origin = 6
+0:3/0 = 0
+0:3/0/y_sort_origin = 6
+1:3/0 = 0
+1:3/0/y_sort_origin = 6
+
 [sub_resource type="TileSet" id="TileSet_f23eu"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -976,6 +997,7 @@ sources/3 = SubResource("TileSetAtlasSource_kcyjf")
 sources/4 = SubResource("TileSetAtlasSource_xw5lg")
 sources/5 = SubResource("TileSetAtlasSource_0lysu")
 sources/6 = SubResource("TileSetAtlasSource_dqu5g")
+sources/7 = SubResource("TileSetAtlasSource_13eng")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw5lg"]
 radius = 25.0
@@ -1159,7 +1181,7 @@ physics_quadrant_size = 32
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD8/wQABgAEAAAAAAD9/wQABgAEAAAAAAD+/wQABgACAAAAAAD//wQABgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wQABgAEAAAAAAD9/wQABgAEAAAAAAD+/wQABgACAAAAAAD//wQABgAAAAAAAADu/wYABgAGAAEAAAD5/wQABwAAAAAAAAD9/wIABwAAAAEAAAD4/wIABwAAAAIAAAD//wIABwAAAAMAAAA=")
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32

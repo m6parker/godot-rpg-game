@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bea4bkf64eh50"
-path="res://.godot/imported/chilli_pepper_seeds.png-8b7716de9d14be1ab57a3a04eca489b6.ctex"
+uid="uid://csa27rowbv825"
+path="res://.godot/imported/carrot.png-392ee36bc00c929e312c42092c9a148a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/foraging/chilli_pepper_seeds.png"
-dest_files=["res://.godot/imported/chilli_pepper_seeds.png-8b7716de9d14be1ab57a3a04eca489b6.ctex"]
+source_file="res://assets/items/farming/carrot.png"
+dest_files=["res://.godot/imported/carrot.png-392ee36bc00c929e312c42092c9a148a.ctex"]
 
 [params]
 

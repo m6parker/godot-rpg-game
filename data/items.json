@@ -57,7 +57,7 @@
 		"name": "blueberries",
 		"price": 3,
 		"description": "item description",
-		"type": "foraging"
+		"type": "farming"
 	},
 	{
 		"name": "wild_berries",
@@ -70,5 +70,53 @@
 		"price": 1,
 		"description": "item description",
 		"type": "brewing"
+	},
+	{
+		"name": "carrot_seeds",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "blueberries_seeds",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "chilli_peppers_seeds",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "wild_berries_seeds",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "strawberry_seeds",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "strawberry",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "carrot",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
+	},
+	{
+		"name": "chilli_pepper",
+		"price": 1,
+		"description": "item description",
+		"type": "farming"
 	},
 ]
