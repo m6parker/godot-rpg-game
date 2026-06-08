@@ -49,7 +49,7 @@ func load_items_from_json(file_path: String) -> void:
 			new_item.item_texture = load(expected_path)
 		else:
 			# default to acorn image if the png image cannot be found
-			new_item.item_texture = load("res://assets/items/acorn.png")
+			new_item.item_texture = load("res://assets/items/foraging/acorn.png")
 			print("failed to find path '", expected_path, "' for item: '", new_item.item_name, "'")
 			
 		items[item_data["name"]] = new_item

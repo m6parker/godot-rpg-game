@@ -10,7 +10,7 @@ signal gold_changed(new_amount: int)
 var player_name: String = "player_name"
 var level: String = "World"
 var target_transition_marker: String = ""
-var PLAYER_INVENTORY_SIZE = 7 #ui slots in basket
+var PLAYER_INVENTORY_SIZE = 9 #ui slots in basket
 
 # ui state
 var can_craft: bool = false
@@ -37,6 +37,7 @@ var playerSkills = {
 var player_inventory: Array = []
 var crafting_slots: Array = []
 var brewing_slots: Array = []
+var hotbar_slots: Array = []
 
 var crafting_result: Resource = null
 var brewing_result: Resource = null
@@ -45,14 +46,16 @@ var brewing_result: Resource = null
 func _ready() -> void:
 	_setup_inventory(PLAYER_INVENTORY_SIZE)
 	
-	# 2 crafting slots, maybe add more later, 
-	# todo - i dont know if this 2 does anything anymore since its always changing
+	# 2 crafting slots, maybe add more later
 	crafting_slots.resize(2)
 	crafting_slots.fill(null)
 	
 	# 3 slots for brewing station
 	brewing_slots.resize(3)
 	brewing_slots.fill(null)
+	
+	hotbar_slots.resize(4)
+	hotbar_slots.fill(null)
 
 
 func _setup_inventory(size: int) -> void:
