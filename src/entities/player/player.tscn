@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
 [ext_resource type="Texture2D" uid="uid://ctt7w847pupde" path="res://assets/ui/notebook.png" id="9_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://dpfqpvtd1gyji" path="res://assets/ui/skillIcons/foragingIcon.png" id="10_2ieo8"]
-[ext_resource type="Texture2D" uid="uid://bpd6k84geluqo" path="res://assets/ui/basket.png" id="11_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
+[ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="12_kc3pt"]
 [ext_resource type="Script" uid="uid://dbm7b3y5uh5ni" path="res://src/ui/inventory.gd" id="12_yllr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
@@ -486,9 +486,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_2ieo8")
+texture = ExtResource("12_kc3pt")
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory/inv_background" unique_id=1713086370]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory" unique_id=1713086370]
 layout_mode = 0
 offset_left = 65.65277
 offset_top = 118.5
@@ -497,21 +497,21 @@ offset_bottom = 315.0
 columns = 3
 script = ExtResource("12_yllr7")
 
-[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1591176059]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1591176059]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 0
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot" unique_id=1304965243]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=1304965243]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot" unique_id=605839483]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=605839483]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -519,21 +519,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1542478168]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1542478168]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 1
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot2" unique_id=283825232]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=283825232]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot2" unique_id=1576410405]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=1576410405]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -541,21 +541,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=820120319]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=820120319]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 2
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot3" unique_id=1031705166]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=1031705166]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot3" unique_id=219843534]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=219843534]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -563,21 +563,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1712741286]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1712741286]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 3
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot4" unique_id=1122843554]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1122843554]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot4" unique_id=1549311944]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1549311944]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -585,21 +585,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1023734546]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1023734546]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 4
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot5" unique_id=1731568845]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=1731568845]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot5" unique_id=1909086310]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=1909086310]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -607,21 +607,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1531857010]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1531857010]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 5
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot6" unique_id=353923126]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=353923126]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot6" unique_id=1109524706]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=1109524706]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -629,21 +629,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1243689147]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1243689147]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 6
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot7" unique_id=1737973896]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=1737973896]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot7" unique_id=444952046]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=444952046]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -651,21 +651,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=2113873614]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2113873614]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 7
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot8" unique_id=952452444]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=952452444]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot8" unique_id=1228020279]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=1228020279]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
@@ -673,21 +673,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
 
-[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/inv_background/GridContainer" unique_id=1821830100]
-self_modulate = Color(1, 1, 1, 0)
+[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1821830100]
+self_modulate = Color(1, 1, 1, 0.27450982)
 custom_minimum_size = Vector2(54, 60)
 layout_mode = 2
 script = ExtResource("5_hg6s5")
 slot_index = 8
 
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot9" unique_id=1865058195]
+[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=1865058195]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_right = 33.0
 offset_bottom = 32.0
 mouse_filter = 2
 
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/inv_background/GridContainer/item_slot9" unique_id=924628360]
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=924628360]
 visible = false
 custom_minimum_size = Vector2(54, 51)
 layout_mode = 0
