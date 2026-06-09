@@ -207,3 +207,8 @@ func get_item_in_this_slot() -> Resource:
 			return Globals.player_inventory[slot_index] if slot_index < Globals.player_inventory.size() else null
 		_:
 			return null
+			
+# shows which hotbar slot is equipped
+func set_equipped_visual(is_equipped: bool) -> void:
+	if hover_sprite:
+		hover_sprite.visible = is_equipped

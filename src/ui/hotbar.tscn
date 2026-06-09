@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://ek1s8kcdc4wo"]
+
+[ext_resource type="Texture2D" uid="uid://dl0r77t88cssd" path="res://assets/ui/hotbar.png" id="1_803dx"]
+[ext_resource type="Script" uid="uid://dvuhg2u6r7eyr" path="res://src/ui/hotbar.gd" id="2_803dx"]
+[ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://src/ui/item_slot.gd" id="3_tsqsx"]
+[ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="4_r6dh6"]
+
+[node name="Hotbar" type="CanvasLayer" unique_id=2035730686]
+
+[node name="hotbar" type="Panel" parent="." unique_id=1864421057]
+custom_minimum_size = Vector2(224, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -92.0
+offset_right = 170.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="hotbar" unique_id=1679108759]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_803dx")
+
+[node name="MarginContainer" type="MarginContainer" parent="hotbar" unique_id=310062091]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="hotbar" type="GridContainer" parent="hotbar/MarginContainer" unique_id=469719440]
+layout_mode = 2
+columns = 4
+script = ExtResource("2_803dx")
+
+[node name="hotbar_slot" type="Panel" parent="hotbar/MarginContainer/hotbar" unique_id=246166336]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("3_tsqsx")
+container_type = "hotbar"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot" unique_id=1440721811]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -2.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="hover_sprite" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot" unique_id=1645057222]
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r6dh6")
+
+[node name="hotbar_slot2" type="Panel" parent="hotbar/MarginContainer/hotbar" unique_id=1275260271]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("3_tsqsx")
+container_type = "hotbar"
+slot_index = 1
+
+[node name="icon" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot2" unique_id=1692059638]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.101266064
+anchor_top = 0.10465145
+anchor_right = 0.9493673
+anchor_bottom = 0.906977
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="hover_sprite" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot2" unique_id=644743822]
+visible = false
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r6dh6")
+
+[node name="hotbar_slot3" type="Panel" parent="hotbar/MarginContainer/hotbar" unique_id=301524759]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("3_tsqsx")
+container_type = "hotbar"
+slot_index = 2
+
+[node name="icon" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot3" unique_id=1939943635]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.98734194
+anchor_bottom = 0.9302328
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="hover_sprite" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot3" unique_id=224036563]
+visible = false
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r6dh6")
+
+[node name="hotbar_slot4" type="Panel" parent="hotbar/MarginContainer/hotbar" unique_id=310382799]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(79, 85)
+layout_mode = 2
+script = ExtResource("3_tsqsx")
+container_type = "hotbar"
+slot_index = 3
+
+[node name="icon" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot4" unique_id=918757896]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.1
+anchor_right = 0.98734194
+anchor_bottom = 0.8953491
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="hover_sprite" type="TextureRect" parent="hotbar/MarginContainer/hotbar/hotbar_slot4" unique_id=1795468328]
+visible = false
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r6dh6")

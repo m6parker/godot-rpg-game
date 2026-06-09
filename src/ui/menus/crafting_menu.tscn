@@ -46,7 +46,7 @@ offset_right = 316.0
 offset_bottom = 324.0
 text = "result:"
 
-[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=759378471]
+[node name="ingredients_container" type="GridContainer" parent="Panel" unique_id=759378471]
 layout_mode = 0
 offset_left = 191.0
 offset_top = 110.0
@@ -54,38 +54,38 @@ offset_right = 323.0
 offset_bottom = 177.0
 columns = 2
 
-[node name="ingredient_slot" type="Panel" parent="Panel/GridContainer" unique_id=175100610]
+[node name="ingredient_slot" type="Panel" parent="Panel/ingredients_container" unique_id=175100610]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_hys6y")
 container_type = "crafting"
 slot_index = 0
 
-[node name="icon" type="TextureRect" parent="Panel/GridContainer/ingredient_slot" unique_id=20815536]
+[node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=20815536]
 layout_mode = 0
 offset_right = 63.0
 offset_bottom = 72.0
 
-[node name="hover_sprite" type="TextureRect" parent="Panel/GridContainer/ingredient_slot" unique_id=2142864472]
+[node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=2142864472]
 visible = false
 layout_mode = 0
 offset_right = 63.0
 offset_bottom = 72.0
 texture = ExtResource("3_781xm")
 
-[node name="ingredient_slot2" type="Panel" parent="Panel/GridContainer" unique_id=1115420385]
+[node name="ingredient_slot2" type="Panel" parent="Panel/ingredients_container" unique_id=1115420385]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_hys6y")
 container_type = "crafting"
 slot_index = 1
 
-[node name="icon" type="TextureRect" parent="Panel/GridContainer/ingredient_slot2" unique_id=313705927]
+[node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=313705927]
 layout_mode = 0
 offset_right = 63.0
 offset_bottom = 72.0
 
-[node name="hover_sprite" type="TextureRect" parent="Panel/GridContainer/ingredient_slot2" unique_id=38331358]
+[node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=38331358]
 visible = false
 layout_mode = 0
 offset_right = 63.0

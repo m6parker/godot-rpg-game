@@ -16,5 +16,14 @@
 		"result": [
 			"red_potion"
 		]
+	},
+	{
+		"ingredients": [
+			"blueberries",
+			"acorn"
+		],
+		"result": [
+			"red_potion"
+		]
 	}
 ]

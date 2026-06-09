@@ -40,4 +40,4 @@ func _on_buy_button_pressed() -> void:
 		
 	Globals.deduct_gold(price)
 	Globals.add_item(current_item)
-	print("Successfully bought: ", current_item.item_name)
+	#print("successfully bought: ", current_item.item_name)

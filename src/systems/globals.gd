@@ -84,6 +84,12 @@ func increase_skill(skill_type: String) -> void:
 		#print(playerSkills)
 
 
+func equip_item(item: Resource) -> void:
+	if item:
+		print("using item ", item.item_name)
+	else:
+		print("empty hotbar slot")
+
 # ------------------ store ----------------------------
 
 func can_afford(amount: int) -> bool:

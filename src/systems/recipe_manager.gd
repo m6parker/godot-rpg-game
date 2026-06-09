@@ -39,8 +39,6 @@ func load_potion_recipes_from_json(file_path: String) -> void:
 			
 		potion_recipes.append(new_recipe)
 		
-	print("Successfully loaded ", potion_recipes.size(), " recipes into the cooking database!")
-	
 
 func load_item_recipes_from_json(file_path: String) -> void:
 	if not FileAccess.file_exists(file_path):
