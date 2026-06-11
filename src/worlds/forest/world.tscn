@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cuakcfksv7c4r" path="res://old/plant_images/grass4.png" id="9_w47uh"]
 [ext_resource type="Texture2D" uid="uid://d2mx3yc2no4yq" path="res://assets/tilesets/crops.png" id="12_c00qs"]
 [ext_resource type="Texture2D" uid="uid://bt34i6qvtdfcm" path="res://assets/tilesets/forest_tileset_32x32.png" id="13_0wqet"]
+[ext_resource type="Texture2D" uid="uid://dae2b2xj01j7s" path="res://assets/tilesets/decor.png" id="13_13eng"]
 [ext_resource type="Texture2D" uid="uid://d4lbtfxmqb1i7" path="res://assets/tilesets/house.png" id="14_awrha"]
 [ext_resource type="Texture2D" uid="uid://0wm0q7beh3td" path="res://assets/tilesets/animated_tilesets/tree1_spritesheet.png" id="14_oeat8"]
 [ext_resource type="Texture2D" uid="uid://c3tdt2h4577vt" path="res://assets/tilesets/animated_tilesets/tree2_spritesheet.png" id="15_5xkvv"]
@@ -969,14 +970,30 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/y_sort_origin = 6
 1:1/0 = 0
 1:1/0/y_sort_origin = 6
-1:2/0 = 0
-1:2/0/y_sort_origin = 6
-0:2/0 = 0
-0:2/0/y_sort_origin = 6
-0:3/0 = 0
-0:3/0/y_sort_origin = 6
-1:3/0 = 0
-1:3/0/y_sort_origin = 6
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p50tr"]
+texture = ExtResource("13_13eng")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(2, 1)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-16, 0)
+0:0/0/y_sort_origin = 6
+0:1/size_in_atlas = Vector2i(2, 1)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(-16, 0)
+0:1/0/y_sort_origin = 6
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_f23eu"]
 tile_size = Vector2i(32, 32)
@@ -998,6 +1015,7 @@ sources/4 = SubResource("TileSetAtlasSource_xw5lg")
 sources/5 = SubResource("TileSetAtlasSource_0lysu")
 sources/6 = SubResource("TileSetAtlasSource_dqu5g")
 sources/7 = SubResource("TileSetAtlasSource_13eng")
+sources/8 = SubResource("TileSetAtlasSource_p50tr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw5lg"]
 radius = 25.0
@@ -1073,6 +1091,22 @@ item_key_name = "empty_bottle"
 [node name="WorldItem7" parent="worldItems" unique_id=1290974351 instance=ExtResource("4_k8do8")]
 position = Vector2(-102, -74)
 item_key_name = "bumblebee"
+
+[node name="WorldItem8" parent="worldItems" unique_id=2072107114 instance=ExtResource("4_k8do8")]
+position = Vector2(-193, 0)
+item_key_name = "chilli_pepper_seeds"
+
+[node name="WorldItem9" parent="worldItems" unique_id=1628584562 instance=ExtResource("4_k8do8")]
+position = Vector2(-195, 23)
+item_key_name = "blueberries_seeds"
+
+[node name="WorldItem10" parent="worldItems" unique_id=358279231 instance=ExtResource("4_k8do8")]
+position = Vector2(-192, 46)
+item_key_name = "strawberry_seeds"
+
+[node name="WorldItem11" parent="worldItems" unique_id=928150935 instance=ExtResource("4_k8do8")]
+position = Vector2(-192, 68)
+item_key_name = "carrot_seeds"
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
 y_sort_enabled = true
@@ -1177,11 +1211,18 @@ tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
 
+[node name="crops" type="TileMapLayer" parent="worldMap" unique_id=1684192110]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_f23eu")
+rendering_quadrant_size = 32
+physics_quadrant_size = 32
+
 [node name="harvestables" type="TileMapLayer" parent="worldMap" unique_id=1092033507]
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD8/wQABgAEAAAAAAD9/wQABgAEAAAAAAD+/wQABgACAAAAAAD//wQABgAAAAAAAADu/wYABgAGAAEAAAD5/wQABwAAAAAAAAD9/wIABwAAAAEAAAD4/wIABwAAAAIAAAD//wIABwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD8/wQABgAEAAAAAAD9/wQABgAEAAAAAAD+/wQABgACAAAAAAD//wQABgAAAAAAAADu/wYABgAGAAEAAAA=")
 tile_set = SubResource("TileSet_f23eu")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32

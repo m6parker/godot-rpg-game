@@ -42,6 +42,8 @@ var hotbar_slots: Array = []
 var crafting_result: Resource = null
 var brewing_result: Resource = null
 
+var equipped_item: Resource = null
+
 
 func _ready() -> void:
 	_setup_inventory(PLAYER_INVENTORY_SIZE)
@@ -87,8 +89,14 @@ func increase_skill(skill_type: String) -> void:
 func equip_item(item: Resource) -> void:
 	if item:
 		print("using item ", item.item_name)
+		equipped_item = item
 	else:
 		print("empty hotbar slot")
+		equipped_item = null
+		
+
+func get_equipped_item() -> Resource:
+	return equipped_item
 
 # ------------------ store ----------------------------
 
@@ -103,6 +111,13 @@ func has_empty_inventory_slot() -> bool:
 	return player_inventory.find(null) != -1
 
 # ------------- shift clicking -----------------------
+func move_to_hotbar(item: Resource, inv_index: int) -> bool:
+	for i in range(hotbar_slots.size()):
+		if hotbar_slots[i] == null:
+			hotbar_slots[i] = item
+			player_inventory[inv_index] = null
+			return true
+	return false
 
 func move_to_crafting(item: Resource, inv_index: int) -> bool:
 	for i in range(crafting_slots.size()):

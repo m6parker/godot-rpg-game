@@ -175,6 +175,8 @@ func handle_shift_click() -> void:
 					print("moved to brewing station")
 			elif Globals.get(&"crafting_open") and Globals.move_to_crafting(item, slot_index):
 				print("moved to crafting station")
+			else:
+				Globals.move_to_hotbar(item, slot_index)
 				
 		"crafting", "brewing", "result", "brewing_result":
 			if Globals.move_to_inventory(item, container_type, slot_index):
