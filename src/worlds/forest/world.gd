@@ -3,6 +3,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $player
 @onready var harvestables_tile_map_layer: TileMapLayer = $worldMap/harvestables
 @onready var crops_tile_map_layer: TileMapLayer = $worldMap/crops
+@onready var soil_tile_map_layer: TileMapLayer = $worldMap/soil
 
 # tileset ids
 const BUSHES_TILESET_SOURCE_ID = 6
@@ -157,6 +158,14 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 	
 func try_plant(crop_info: Dictionary) -> void:
 	var player_cell = crops_tile_map_layer.local_to_map(player.global_position - crops_tile_map_layer.global_position)
+	var ground_data = soil_tile_map_layer.get_cell_tile_data(player_cell)
+	var is_soil_tile = false
+	if ground_data != null:
+		is_soil_tile = ground_data.get_custom_data("is_soil")
+		
+	if not is_soil_tile:
+		print("not soil!")
+		return
 	var current_tile_coords = crops_tile_map_layer.get_cell_atlas_coords(player_cell)
 	
 	if current_tile_coords != Vector2i(-1, -1) or regrow_timers.has(player_cell):
@@ -175,7 +184,7 @@ func try_plant(crop_info: Dictionary) -> void:
 	}
 	
 	# remove seeds from inventory
-	# Globals.remove_equipped_item()
+	Globals.remove_equipped_item()
 	print("planted ", crop_info["seed_name"], " at ", player_cell)
 
 func advance_growth_stage(cell_coords: Vector2i) -> void:

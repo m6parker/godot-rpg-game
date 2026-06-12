@@ -55,7 +55,7 @@ func equip_slot(index: int) -> void:
 	var equipped_item = Globals.hotbar_slots[currently_equipped_index] if currently_equipped_index != -1 else null
 	# Globals.change_held_item(equipped_item)
 	#print("equipped: ", equipped_item.item_name)
-	Globals.equip_item(equipped_item)
+	Globals.equip_item(equipped_item, currently_equipped_index)
 
 func _update_equipped_highlights() -> void:
 	var children = get_children()

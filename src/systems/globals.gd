@@ -2,6 +2,7 @@ extends Node
 
 # link signals
 signal inventory_updated
+signal hotbar_updated
 signal crafting_updated
 signal brewing_updated
 signal gold_changed(new_amount: int)
@@ -43,6 +44,7 @@ var crafting_result: Resource = null
 var brewing_result: Resource = null
 
 var equipped_item: Resource = null
+var equipped_slot_index: int = -1
 
 
 func _ready() -> void:
@@ -86,10 +88,11 @@ func increase_skill(skill_type: String) -> void:
 		#print(playerSkills)
 
 
-func equip_item(item: Resource) -> void:
+func equip_item(item: Resource, currently_equipped_index:int) -> void:
 	if item:
 		print("using item ", item.item_name)
 		equipped_item = item
+		equipped_slot_index = currently_equipped_index
 	else:
 		print("empty hotbar slot")
 		equipped_item = null
@@ -97,6 +100,10 @@ func equip_item(item: Resource) -> void:
 
 func get_equipped_item() -> Resource:
 	return equipped_item
+	
+func remove_equipped_item() -> void:
+	equipped_item = null
+	hotbar_slots[equipped_slot_index] = null
 
 # ------------------ store ----------------------------
 
