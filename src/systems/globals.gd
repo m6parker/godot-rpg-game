@@ -104,6 +104,7 @@ func get_equipped_item() -> Resource:
 func remove_equipped_item() -> void:
 	equipped_item = null
 	hotbar_slots[equipped_slot_index] = null
+	Globals.inventory_updated.emit()
 
 # ------------------ store ----------------------------
 
