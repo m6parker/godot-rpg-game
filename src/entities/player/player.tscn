@@ -289,6 +289,27 @@ offset_right = 98.0
 offset_bottom = 95.0
 texture = ExtResource("10_2ieo8")
 
+[node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 229.0
+offset_bottom = 73.0
+
+[node name="gold_count" type="Label" parent="CanvasLayer/gold" unique_id=1412347302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 48
+text = "gold:"
+
+[node name="NotificationContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=373873064]
+offset_right = 480.0
+offset_bottom = 1067.0
+
 [node name="inventory" type="Panel" parent="CanvasLayer" unique_id=2025456491]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
@@ -299,10 +320,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -374.65277
-offset_top = -207.5
-offset_right = 4.6575317
-offset_bottom = 155.0
+offset_left = -727.0
+offset_top = -119.0
+offset_right = -448.0
+offset_bottom = 135.625
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -317,11 +338,18 @@ grow_vertical = 2
 texture = ExtResource("12_kc3pt")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory" unique_id=1713086370]
-layout_mode = 0
-offset_left = 65.65277
-offset_top = 118.5
-offset_right = 308.65277
-offset_bottom = 315.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -100.375
+offset_right = 85.0
+offset_bottom = 100.375
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 script = ExtResource("12_yllr7")
 
@@ -522,25 +550,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_ebec5")
-
-[node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
-self_modulate = Color(1, 1, 1, 0)
-offset_right = 229.0
-offset_bottom = 73.0
-
-[node name="gold_count" type="Label" parent="CanvasLayer/gold" unique_id=1412347302]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_p2qdy")
-theme_override_font_sizes/font_size = 48
-text = "gold:"
-
-[node name="NotificationContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=373873064]
-offset_right = 480.0
-offset_bottom = 1067.0
 
 [node name="Hotbar" parent="." unique_id=619510317 instance=ExtResource("12_3c4mh")]

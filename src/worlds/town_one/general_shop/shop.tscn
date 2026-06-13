@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://edfe8xsufhla" path="res://assets/entities/player_spritesheet.png" id="11_odgep"]
 [ext_resource type="PackedScene" uid="uid://iwnxpprwov21" path="res://src/ui/menus/shop_menu.tscn" id="12_owidf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uv6kv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jn4cn"]
 texture = ExtResource("1_jn4cn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -89,7 +89,7 @@ texture_region_size = Vector2i(32, 32)
 1:6/0 = 0
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -8.921661, -8.603031, -8.603029, -7.6471386, 16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jk8tx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfu7n"]
 texture = ExtResource("2_nfu7n")
 texture_region_size = Vector2i(32, 64)
 0:0/animation_columns = 6
@@ -104,7 +104,7 @@ texture_region_size = Vector2i(32, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yg78"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_byuqe"]
 texture = ExtResource("3_byuqe")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -113,7 +113,7 @@ texture_region_size = Vector2i(32, 32)
 0:3/0 = 0
 0:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2u4ug"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eif0s"]
 texture = ExtResource("4_eif0s")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -230,7 +230,7 @@ texture_region_size = Vector2i(32, 32)
 12:6/0 = 0
 13:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8l2j"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4thjw"]
 texture = ExtResource("5_4thjw")
 texture_region_size = Vector2i(32, 32)
 5:1/0 = 0
@@ -260,11 +260,11 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_0kkpg"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_uv6kv")
-sources/2 = SubResource("TileSetAtlasSource_5yg78")
-sources/1 = SubResource("TileSetAtlasSource_jk8tx")
-sources/4 = SubResource("TileSetAtlasSource_x8l2j")
-sources/3 = SubResource("TileSetAtlasSource_2u4ug")
+sources/0 = SubResource("TileSetAtlasSource_jn4cn")
+sources/2 = SubResource("TileSetAtlasSource_byuqe")
+sources/1 = SubResource("TileSetAtlasSource_nfu7n")
+sources/4 = SubResource("TileSetAtlasSource_4thjw")
+sources/3 = SubResource("TileSetAtlasSource_eif0s")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ty2y0"]
 radius = 25.0
@@ -389,6 +389,7 @@ offset_top = 54.0
 offset_right = 635.0
 offset_bottom = 344.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="house_tilemap" type="Node2D" parent="." unique_id=2120655512]
 y_sort_enabled = true

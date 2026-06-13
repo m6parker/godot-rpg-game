@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://du1tq7cqw643w"]
+
+[ext_resource type="Script" uid="uid://bw1femqq0qdvp" path="res://src/ui/menus/farm_shop_menu.gd" id="1_2yuce"]
+[ext_resource type="Texture2D" uid="uid://cqd48uf8aogb6" path="res://assets/ui/panel.png" id="1_yfrux"]
+[ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="2_0ef6r"]
+
+[node name="farm_shop_menu" type="CanvasLayer" unique_id=1686990860]
+script = ExtResource("1_2yuce")
+
+[node name="background" type="NinePatchRect" parent="." unique_id=861372644]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 649.0
+offset_top = 143.0
+offset_right = -1140.8
+offset_bottom = -804.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("1_yfrux")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="gold_count" type="Label" parent="background" unique_id=1443156817]
+visible = false
+layout_mode = 0
+offset_left = 112.5
+offset_top = 30.0
+offset_right = 348.5
+offset_bottom = 53.0
+text = "gold:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=977396982]
+offset_left = 679.0
+offset_top = 246.0
+offset_right = 1270.0
+offset_bottom = 730.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2099383314]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="." unique_id=1592897498]
+offset_left = 890.0
+offset_top = 160.0
+offset_right = 1082.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.45882353, 0.41960785, 0.30980393, 1)
+theme_override_fonts/font = ExtResource("2_0ef6r")
+theme_override_font_sizes/font_size = 50
+text = "farm shop"
