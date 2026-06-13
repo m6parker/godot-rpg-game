@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var shop_menu: CanvasLayer
 @export var npc_id: String = ""
 var player_in_range: bool = false
 
 func _ready() -> void:
+	animated_sprite.play("idle")
 	interaction_area.body_entered.connect(_on_player_entered)
 	interaction_area.body_exited.connect(_on_player_exited)
 	DialogueManager.dialogue_finished.connect(_on_dialogue_finished)

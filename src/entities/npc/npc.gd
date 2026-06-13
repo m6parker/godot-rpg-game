@@ -9,6 +9,7 @@ var is_wandering: bool = false
 var player_in_range: bool = false
 
 @onready var interaction_area: Area2D = $interaction_zone
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D 
 
 func _ready() -> void:
 	starting_position = global_position
@@ -28,6 +29,9 @@ func _physics_process(_delta: float) -> void:
 		# stop if idle or at destination
 		velocity = Vector2.ZERO
 		is_wandering = false
+	
+	# update the animations every frame
+	_update_animations()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# player presses e
@@ -54,6 +58,21 @@ func _get_random_target() -> void:
 	)
 	target_position = starting_position + random_offset
 
+# handle sprite animations and flipping
+func _update_animations() -> void:
+	if velocity.length() > 0:
+		animated_sprite.play("walk")
+		
+		# flip left or right
+		if velocity.x > 0:
+			#face right
+			animated_sprite.flip_h = false
+		elif velocity.x < 0:
+			#face left
+			animated_sprite.flip_h = true
+	else:
+		animated_sprite.play("idle")
+
 func _interact() -> void:
 	print("npc speaking")
 
@@ -63,6 +82,5 @@ func _on_player_entered(body: Node2D) -> void:
 		print("can interact with npc")
 
 func _on_player_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("player"): 
 		player_in_range = false
-		print("Player left.")
