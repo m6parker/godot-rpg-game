@@ -1217,19 +1217,33 @@ script = ExtResource("10_wyst0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="town_tileset/shop/interactable" unique_id=678243820]
 shape = SubResource("CircleShape2D_f75s5")
 
-[node name="door" type="Area2D" parent="." unique_id=845919702]
+[node name="general_shop_door" type="Area2D" parent="." unique_id=845919702]
 position = Vector2(-89, -59)
 script = ExtResource("10_5q1sm")
 target_scene = "uid://c3cdfskowqknp"
 target_spawn_marker = "spawnFromTown"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=2004531604]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="general_shop_door" unique_id=2004531604]
+z_index = 2
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_wyst0")
+
+[node name="farm_shop_door" type="Area2D" parent="." unique_id=721470940]
+position = Vector2(-256, -189)
+script = ExtResource("10_5q1sm")
+target_scene = "uid://dj34fm0rx8s7p"
+target_spawn_marker = "spawnFromTown"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="farm_shop_door" unique_id=1242269448]
 z_index = 2
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_wyst0")
 
 [node name="spawnFromShop" type="Marker2D" parent="." unique_id=519291564]
 position = Vector2(-90, -24)
+
+[node name="spawnFromFarmShop" type="Marker2D" parent="." unique_id=1344993408]
+position = Vector2(-255, -171)
 
 [node name="spawnFromWorld2" type="Marker2D" parent="." unique_id=944805063]
 position = Vector2(-97, 83)
@@ -1252,11 +1266,21 @@ script = ExtResource("10_wyst0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=1736887516]
 shape = SubResource("CircleShape2D_f75s5")
 
+[node name="interactable2" type="Area2D" parent="." unique_id=350595103]
+z_index = 1
+position = Vector2(-255, -187)
+script = ExtResource("10_wyst0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable2" unique_id=517606421]
+shape = SubResource("CircleShape2D_f75s5")
+
 [node name="day_night_cycle" type="CanvasModulate" parent="." unique_id=484595586]
 script = ExtResource("15_8iv4t")
 cycle_gradient = SubResource("Gradient_lwwxs")
 
-[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
-[connection signal="body_exited" from="door" to="door" method="_on_body_exited"]
+[connection signal="body_entered" from="general_shop_door" to="general_shop_door" method="_on_body_entered"]
+[connection signal="body_exited" from="general_shop_door" to="general_shop_door" method="_on_body_exited"]
+[connection signal="body_entered" from="farm_shop_door" to="farm_shop_door" method="_on_body_entered"]
+[connection signal="body_exited" from="farm_shop_door" to="farm_shop_door" method="_on_body_exited"]
 [connection signal="body_entered" from="world_door" to="world_door" method="_on_body_entered"]
 [connection signal="body_exited" from="world_door" to="world_door" method="_on_body_exited"]

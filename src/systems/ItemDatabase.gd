@@ -42,7 +42,6 @@ func load_items_from_json(file_path: String) -> void:
 		#if "potion" in clean_file_name:
 			#expected_path = "res://assets/potions/" + clean_file_name + ".png"
 		expected_path = "res://assets/items/" +  new_item.item_type.to_lower() + "/" + clean_file_name + ".png"
-			
 		#print("expected path: ", expected_path)
 		
 		if ResourceLoader.exists(expected_path):
@@ -53,3 +52,13 @@ func load_items_from_json(file_path: String) -> void:
 			print("failed to find path '", expected_path, "' for item: '", new_item.item_name, "'")
 			
 		items[item_data["name"]] = new_item
+
+
+func get_items_in_category(category: String) -> Dictionary:
+	var filtered_items: Dictionary = {}
+	for item_name in items:
+		var item_data = items[item_name]
+		# if item is in given category
+		if item_data.item_type.to_lower() == category.to_lower():
+			filtered_items[item_name] = item_data
+	return filtered_items

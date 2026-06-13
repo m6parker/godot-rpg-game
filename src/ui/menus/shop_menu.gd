@@ -15,10 +15,16 @@ func load_shop_items() -> void:
 	for child in list_container.get_children():
 		child.queue_free()
 		
-	for item_name in ItemDatabase.items:
+	# only put the foraging and brewing type items int the general shop
+	var brewing_items: Dictionary = ItemDatabase.get_items_in_category("brewing")
+	var forraging_items: Dictionary = ItemDatabase.get_items_in_category("foraging")
+	for item_name in brewing_items:
 		var item_data = ItemDatabase.items[item_name]
 		create_item_element(item_data)
-
+	for item_name in forraging_items:
+		var item_data = ItemDatabase.items[item_name]
+		create_item_element(item_data)
+		
 
 func create_item_element(item_data: ItemData) -> void:
 	var item_element = ITEM_UI_SCENE.instantiate() 
