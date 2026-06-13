@@ -4,78 +4,84 @@
 [ext_resource type="Texture2D" uid="uid://dixx1wk8twhwg" path="res://assets/ui/background_image.png" id="2_p3jrs"]
 [ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_vs67m"]
 [ext_resource type="Texture2D" uid="uid://c45qxqmp38gqo" path="res://assets/ui/main_menu/stone_button.png" id="4_jmap8"]
+[ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="4_y3puo"]
 
 [node name="main_menu" type="Node2D" unique_id=86334363]
 script = ExtResource("1_jf8mj")
 
-[node name="background" type="ColorRect" parent="." unique_id=641050956]
-visible = false
-offset_left = -178.0
-offset_top = -114.0
-offset_right = 2004.7122
-offset_bottom = 1151.0
-mouse_filter = 2
-color = Color(0.13682577, 0.13682574, 0.13682571, 1)
-
-[node name="TextureRect" type="TextureRect" parent="background" unique_id=2141249811]
-layout_mode = 1
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2141249811]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -430.0
-offset_top = 26.0
-offset_right = 121.98645
-offset_bottom = -54.0
+offset_left = -598.0
+offset_top = -105.0
+offset_right = 2053.1187
+offset_bottom = 1117.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_p3jrs")
 expand_mode = 3
 
+[node name="background" type="ColorRect" parent="." unique_id=641050956]
+offset_left = -178.0
+offset_top = -114.0
+offset_right = 2004.7122
+offset_bottom = 1151.0
+mouse_filter = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.87058824)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=359590543]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 468.0
-offset_top = 64.0
-offset_right = 1394.0
-offset_bottom = 1005.69495
+offset_left = 482.99997
+offset_top = 65.0
+offset_right = 837.0
+offset_bottom = 425.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_vs67m")
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="." unique_id=1592789088]
-offset_left = 363.0
-offset_top = 135.0
-offset_right = 1512.0
-offset_bottom = 427.0
-theme_override_font_sizes/font_size = 75
+[node name="game_title" type="Label" parent="." unique_id=1592789088]
+offset_left = 39.0
+offset_top = 20.0
+offset_right = 1188.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 150
 text = "cool game name"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="main_buttons" type="VBoxContainer" parent="." unique_id=838614786]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 631.0
-offset_top = 380.0
-offset_right = 1243.0
-offset_bottom = 807.0
+offset_left = 53.0
+offset_top = 283.0
+offset_right = 480.0
+offset_bottom = 1032.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="new_button" type="TextureButton" parent="main_buttons" unique_id=1241917744]
-custom_minimum_size = Vector2(200, 75)
+[node name="VBoxContainer" type="VBoxContainer" parent="main_buttons" unique_id=1663268456]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="new_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=1241917744]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_jmap8")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="main_buttons/new_button" unique_id=527658588]
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/new_button" unique_id=527658588]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,17 +94,19 @@ offset_right = 40.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "new game"
 horizontal_alignment = 1
 
-[node name="load_button" type="TextureButton" parent="main_buttons" unique_id=386509162]
-custom_minimum_size = Vector2(200, 75)
+[node name="load_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=386509162]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_jmap8")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="main_buttons/load_button" unique_id=854684307]
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/load_button" unique_id=854684307]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,17 +119,19 @@ offset_right = 40.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "load game"
 horizontal_alignment = 1
 
-[node name="settings_button" type="TextureButton" parent="main_buttons" unique_id=343884333]
-custom_minimum_size = Vector2(200, 75)
+[node name="settings_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=343884333]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_jmap8")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="main_buttons/settings_button" unique_id=1285552373]
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/settings_button" unique_id=1285552373]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,17 +144,19 @@ offset_right = 40.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "settings"
 horizontal_alignment = 1
 
-[node name="credits_button" type="TextureButton" parent="main_buttons" unique_id=754300414]
-custom_minimum_size = Vector2(200, 75)
+[node name="credits_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=754300414]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_jmap8")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="main_buttons/credits_button" unique_id=683716919]
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/credits_button" unique_id=683716919]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,17 +169,19 @@ offset_right = 40.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "credits"
 horizontal_alignment = 1
 
-[node name="quit_button" type="TextureButton" parent="main_buttons" unique_id=1263812479]
-custom_minimum_size = Vector2(200, 75)
+[node name="quit_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=1263812479]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_jmap8")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="main_buttons/quit_button" unique_id=37311105]
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/quit_button" unique_id=37311105]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,6 +194,8 @@ offset_right = 40.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "quit"
 horizontal_alignment = 1
 
@@ -212,6 +228,8 @@ theme_override_constants/separation = 100
 [node name="credits_label" type="Label" parent="credits_container" unique_id=55112037]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "by Mary "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -230,6 +248,8 @@ offset_bottom = 522.0
 
 [node name="Label" type="Label" parent="new_game_container" unique_id=1761891329]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y3puo")
+theme_override_font_sizes/font_size = 45
 text = "name:"
 
 [node name="player_name_text" type="LineEdit" parent="new_game_container" unique_id=518175083]
@@ -241,12 +261,12 @@ layout_mode = 2
 text = "start
 "
 
-[connection signal="pressed" from="main_buttons/new_button" to="." method="_on_new_button_pressed"]
-[connection signal="pressed" from="main_buttons/load_button" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="main_buttons/settings_button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="main_buttons/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/new_button" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/credits_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="settings_container/help_button" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="settings_container/back_button2" to="." method="_on_back_button_2_pressed"]
 [connection signal="pressed" from="credits_container/back_button" to="." method="_on_back_button_pressed"]
