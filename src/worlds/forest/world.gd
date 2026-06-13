@@ -1,9 +1,113 @@
+
+#
+## checks coords and tileset source id
+#func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
+	## ignore empty tiles
+	#if coords == Vector2i(-1, -1):
+		#return null
+		#
+	#for crop_pos in CROP_DATABASE:
+		#var crop_info = CROP_DATABASE[crop_pos]
+		## check for both matches
+		#if crop_info["full_coords"] == coords and crop_info["source_id"] == source_id:
+			#return crop_info
+	#return null
+	#
+	#
+#func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: TileMapLayer) -> void:
+	#var item_name = crop_info["item_name"]
+	#
+	#var target_item: ItemData = null
+	#for key in ItemDatabase.items.keys():
+		#if key.to_lower() == item_name.to_lower().strip_edges():
+			#target_item = ItemDatabase.items[key]
+			#break
+			#
+	#if target_item == null:
+		#push_error("error: '" + item_name + "' was not found in ItemDatabase!")
+		#return
+#
+	#if not Globals.has_empty_inventory_slot():
+		#print('inventory full!')
+		#return
+#
+	## revert to harvested empty
+	#target_layer.set_cell(cell_coords, crop_info["source_id"], crop_info["empty_coords"])
+		#
+	#for i in range(crop_info["harvest_amount"]):
+		#Globals.add_item(target_item)
+		#
+	## regrown from empty / harvested stage
+	#regrow_timers[cell_coords] = {
+		#"time": STAGE_GROWTH_TIME,
+		#"stage": 1, 
+		#"middle_coords": crop_info["middle_coords"],
+		#"full_coords": crop_info["full_coords"],
+		#"source_id": crop_info["source_id"],
+		#"layer": target_layer
+	#}
+	#
+	#
+#func try_plant(crop_info: Dictionary) -> void:
+	#var player_cell = crops_tile_map_layer.local_to_map(player.global_position - crops_tile_map_layer.global_position)
+	#var ground_data = soil_tile_map_layer.get_cell_tile_data(player_cell)
+	#var is_soil_tile = false
+	#if ground_data != null:
+		#is_soil_tile = ground_data.get_custom_data("is_soil")
+		#
+	#if not is_soil_tile:
+		#print("not soil!")
+		#return
+	#var current_tile_coords = crops_tile_map_layer.get_cell_atlas_coords(player_cell)
+	#
+	#if current_tile_coords != Vector2i(-1, -1) or regrow_timers.has(player_cell):
+		#print("cannot plant here!")
+		#return
+		#
+	#crops_tile_map_layer.set_cell(player_cell, crop_info["source_id"], crop_info["middle_coords"])
+	#
+	#regrow_timers[player_cell] = {
+		#"time": STAGE_GROWTH_TIME,
+		#"stage": 1,
+		#"middle_coords": crop_info["middle_coords"],
+		#"full_coords": crop_info["full_coords"],
+		#"source_id": crop_info["source_id"],
+		#"layer": crops_tile_map_layer
+	#}
+	#
+	## remove seeds from inventory
+	#Globals.remove_equipped_item()
+	#print("planted ", crop_info["seed_name"], " at ", player_cell)
+#
+#func advance_growth_stage(cell_coords: Vector2i) -> void:
+	#var timer_data = regrow_timers[cell_coords]
+	#var layer = timer_data["layer"]
+	#
+	#if timer_data["stage"] == 0:
+		#layer.set_cell(cell_coords, timer_data["source_id"], timer_data["middle_coords"])
+		#timer_data["stage"] = 1
+		#timer_data["time"] = STAGE_GROWTH_TIME 
+	#
+	#elif timer_data["stage"] == 1:
+		#layer.set_cell(cell_coords, timer_data["source_id"], timer_data["full_coords"])
+		#regrow_timers.erase(cell_coords)
+#
+## find crop based off seeds name
+#func get_crop_data_by_seed(seed_name: String) -> Variant:
+	#if seed_name == "": 
+		#return null
+	#for crop_pos in CROP_DATABASE:
+		#if CROP_DATABASE[crop_pos]["seed_name"] == seed_name:
+			#return CROP_DATABASE[crop_pos]
+	#return null
+
 extends Node2D
 
 @onready var player: CharacterBody2D = $player
 @onready var harvestables_tile_map_layer: TileMapLayer = $worldMap/harvestables
 @onready var crops_tile_map_layer: TileMapLayer = $worldMap/crops
 @onready var soil_tile_map_layer: TileMapLayer = $worldMap/soil
+@onready var plant_preview: Sprite2D = $plant_preview
 
 # tileset ids
 const BUSHES_TILESET_SOURCE_ID = 6
@@ -78,24 +182,64 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
+		#check if equipped item is seeds
 		var equipped_item = Globals.get_equipped_item() 
-		
-		# check if equipping seeds
 		var seed_crop_data = get_crop_data_by_seed(equipped_item.item_name if equipped_item else "")
-		
 		if seed_crop_data != null:
 			try_plant(seed_crop_data)
 		else:
 			try_harvest()
 
 func _process(delta: float) -> void:
+	# growth loop
 	for cell in regrow_timers.keys().duplicate():
 		regrow_timers[cell]["time"] -= delta
 		if regrow_timers[cell]["time"] <= 0:
 			advance_growth_stage(cell)
+			
+	# update highlight color
+	update_preview()
+
+func update_preview() -> void:
+	var equipped_item = Globals.get_equipped_item()
+	var seed_crop_data = get_crop_data_by_seed(equipped_item.item_name if equipped_item else "")
+	
+	if seed_crop_data == null:
+		plant_preview.visible = false
+		return
+		
+	var local_pos = crops_tile_map_layer.to_local(player.global_position)
+	var player_cell = crops_tile_map_layer.local_to_map(local_pos)
+	var cell_local_pos = crops_tile_map_layer.map_to_local(player_cell)
+	plant_preview.global_position = crops_tile_map_layer.to_global(cell_local_pos)
+	
+	# if the seeds is allowed to be planted on the tile standing on
+	if is_valid_planting_tile(player_cell):
+		plant_preview.visible = true
+		plant_preview.modulate = Color(0, 1, 0, 0.5)
+	else:
+		plant_preview.visible = true
+		plant_preview.modulate = Color(1, 0, 0, 0.5)
+		
+
+func is_valid_planting_tile(cell: Vector2i) -> bool:
+	var ground_data = soil_tile_map_layer.get_cell_tile_data(cell)
+	var is_soil_tile = false
+	if ground_data != null:
+		is_soil_tile = ground_data.get_custom_data("is_soil")
+		
+	if not is_soil_tile:
+		return false
+		
+	var current_tile_coords = crops_tile_map_layer.get_cell_atlas_coords(cell)
+	if current_tile_coords != Vector2i(-1, -1) or regrow_timers.has(cell):
+		return false
+		
+	return true
 
 func try_harvest() -> void:
-	var player_cell = harvestables_tile_map_layer.local_to_map(player.global_position - harvestables_tile_map_layer.global_position)
+	var local_pos = harvestables_tile_map_layer.to_local(player.global_position)
+	var player_cell = harvestables_tile_map_layer.local_to_map(local_pos)
 	
 	var check_offsets = [
 		Vector2i(0,0),    # current tile
@@ -112,19 +256,32 @@ func try_harvest() -> void:
 		
 		# check harvestables layer (wild)
 		var h_coords = harvestables_tile_map_layer.get_cell_atlas_coords(target_cell)
-		if CROP_DATABASE.has(h_coords):
-			harvest_tile(target_cell, CROP_DATABASE[h_coords], harvestables_tile_map_layer)
+		var h_source = harvestables_tile_map_layer.get_cell_source_id(target_cell)
+		var wild_crop_data = find_crop_in_database(h_coords, h_source)
+		if wild_crop_data != null:
+			harvest_tile(target_cell, wild_crop_data, harvestables_tile_map_layer)
 			break
 			
 		# check crops layer (planted)
 		var c_coords = crops_tile_map_layer.get_cell_atlas_coords(target_cell)
-		if CROP_DATABASE.has(c_coords):
-			harvest_tile(target_cell, CROP_DATABASE[c_coords], crops_tile_map_layer)
+		var c_source = crops_tile_map_layer.get_cell_source_id(target_cell)
+		var planted_crop_data = find_crop_in_database(c_coords, c_source)
+		if planted_crop_data != null:
+			harvest_tile(target_cell, planted_crop_data, crops_tile_map_layer)
 			break
+
+func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
+	if coords == Vector2i(-1, -1):
+		return null
+	for crop_pos in CROP_DATABASE:
+		var crop_info = CROP_DATABASE[crop_pos]
+		# Validates against both coordinates and unique tileset source structures
+		if crop_info["full_coords"] == coords and crop_info["source_id"] == source_id:
+			return crop_info
+	return null
 
 func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: TileMapLayer) -> void:
 	var item_name = crop_info["item_name"]
-	
 	var target_item: ItemData = null
 	for key in ItemDatabase.items.keys():
 		if key.to_lower() == item_name.to_lower().strip_edges():
@@ -139,13 +296,11 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		print('inventory full!')
 		return
 
-	# revert to harvested empty
 	target_layer.set_cell(cell_coords, crop_info["source_id"], crop_info["empty_coords"])
 		
 	for i in range(crop_info["harvest_amount"]):
 		Globals.add_item(target_item)
 		
-	# regrown from empty / harvested stage
 	regrow_timers[cell_coords] = {
 		"time": STAGE_GROWTH_TIME,
 		"stage": 1, 
@@ -155,20 +310,11 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		"layer": target_layer
 	}
 	
-	
 func try_plant(crop_info: Dictionary) -> void:
-	var player_cell = crops_tile_map_layer.local_to_map(player.global_position - crops_tile_map_layer.global_position)
-	var ground_data = soil_tile_map_layer.get_cell_tile_data(player_cell)
-	var is_soil_tile = false
-	if ground_data != null:
-		is_soil_tile = ground_data.get_custom_data("is_soil")
-		
-	if not is_soil_tile:
-		print("not soil!")
-		return
-	var current_tile_coords = crops_tile_map_layer.get_cell_atlas_coords(player_cell)
+	var local_pos = crops_tile_map_layer.to_local(player.global_position)
+	var player_cell = crops_tile_map_layer.local_to_map(local_pos)
 	
-	if current_tile_coords != Vector2i(-1, -1) or regrow_timers.has(player_cell):
+	if not is_valid_planting_tile(player_cell):
 		print("cannot plant here!")
 		return
 		
@@ -183,7 +329,6 @@ func try_plant(crop_info: Dictionary) -> void:
 		"layer": crops_tile_map_layer
 	}
 	
-	# remove seeds from inventory
 	Globals.remove_equipped_item()
 	print("planted ", crop_info["seed_name"], " at ", player_cell)
 
@@ -200,7 +345,6 @@ func advance_growth_stage(cell_coords: Vector2i) -> void:
 		layer.set_cell(cell_coords, timer_data["source_id"], timer_data["full_coords"])
 		regrow_timers.erase(cell_coords)
 
-# find crop based off seeds name
 func get_crop_data_by_seed(seed_name: String) -> Variant:
 	if seed_name == "": 
 		return null
