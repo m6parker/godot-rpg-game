@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://drcf5014r4kra" path="res://src/ui/menus/main_controller.gd" id="1_jf8mj"]
 [ext_resource type="Texture2D" uid="uid://dixx1wk8twhwg" path="res://assets/ui/background_image.png" id="2_p3jrs"]
+[ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_vs67m"]
+[ext_resource type="Texture2D" uid="uid://c45qxqmp38gqo" path="res://assets/ui/main_menu/stone_button.png" id="4_jmap8"]
 
 [node name="main_menu" type="Node2D" unique_id=86334363]
 script = ExtResource("1_jf8mj")
@@ -29,11 +31,25 @@ grow_vertical = 2
 texture = ExtResource("2_p3jrs")
 expand_mode = 3
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=359590543]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 468.0
+offset_top = 64.0
+offset_right = 1394.0
+offset_bottom = 1005.69495
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vs67m")
+
 [node name="Label" type="Label" parent="." unique_id=1592789088]
-offset_left = 488.0
-offset_top = 18.0
-offset_right = 1637.0
-offset_bottom = 310.0
+offset_left = 363.0
+offset_top = 135.0
+offset_right = 1512.0
+offset_bottom = 427.0
 theme_override_font_sizes/font_size = 75
 text = "cool game name"
 horizontal_alignment = 1
@@ -43,39 +59,129 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 977.0
-offset_top = 421.0
-offset_right = 1138.0
-offset_bottom = 656.0
+offset_left = 631.0
+offset_top = 380.0
+offset_right = 1243.0
+offset_bottom = 807.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="new_button" type="Button" parent="main_buttons" unique_id=1921958663]
+[node name="new_button" type="TextureButton" parent="main_buttons" unique_id=1241917744]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_jmap8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="main_buttons/new_button" unique_id=527658588]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "new game"
+horizontal_alignment = 1
 
-[node name="load_button" type="Button" parent="main_buttons" unique_id=974932315]
+[node name="load_button" type="TextureButton" parent="main_buttons" unique_id=386509162]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_jmap8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="main_buttons/load_button" unique_id=854684307]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "load game"
+horizontal_alignment = 1
 
-[node name="settings_button" type="Button" parent="main_buttons" unique_id=1502323308]
+[node name="settings_button" type="TextureButton" parent="main_buttons" unique_id=343884333]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_jmap8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="main_buttons/settings_button" unique_id=1285552373]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "settings"
+horizontal_alignment = 1
 
-[node name="credits_button" type="Button" parent="main_buttons" unique_id=314244072]
+[node name="credits_button" type="TextureButton" parent="main_buttons" unique_id=754300414]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_jmap8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="main_buttons/credits_button" unique_id=683716919]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "credits"
+horizontal_alignment = 1
 
-[node name="quit_button" type="Button" parent="main_buttons" unique_id=1759487589]
+[node name="quit_button" type="TextureButton" parent="main_buttons" unique_id=1263812479]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_jmap8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="main_buttons/quit_button" unique_id=37311105]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "quit"
+horizontal_alignment = 1
 
 [node name="settings_container" type="VBoxContainer" parent="." unique_id=1739282742]
 visible = false
@@ -138,8 +244,8 @@ text = "start
 [connection signal="pressed" from="main_buttons/new_button" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="main_buttons/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="main_buttons/settings_button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="main_buttons/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="settings_container/help_button" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="settings_container/back_button2" to="." method="_on_back_button_2_pressed"]
