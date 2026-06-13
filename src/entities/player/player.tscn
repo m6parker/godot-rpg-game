@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ek1s8kcdc4wo" path="res://src/ui/hotbar.tscn" id="12_3c4mh"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
 [ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="12_kc3pt"]
+[ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="12_p2qdy"]
 [ext_resource type="Script" uid="uid://dbm7b3y5uh5ni" path="res://src/ui/inventory.gd" id="12_yllr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
@@ -534,6 +535,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_p2qdy")
 theme_override_font_sizes/font_size = 48
 text = "gold:"
 
