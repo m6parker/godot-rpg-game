@@ -3,8 +3,55 @@
 [ext_resource type="Script" uid="uid://drcf5014r4kra" path="res://src/ui/menus/main_controller.gd" id="1_jf8mj"]
 [ext_resource type="Texture2D" uid="uid://dixx1wk8twhwg" path="res://assets/ui/background_image.png" id="2_p3jrs"]
 [ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_vs67m"]
-[ext_resource type="Texture2D" uid="uid://c45qxqmp38gqo" path="res://assets/ui/main_menu/stone_button.png" id="4_jmap8"]
 [ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="4_y3puo"]
+[ext_resource type="Texture2D" uid="uid://cojjpnxybe2js" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame1.png" id="6_f204y"]
+[ext_resource type="Texture2D" uid="uid://bg3frwjjchka6" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame2.png" id="7_qbpr7"]
+[ext_resource type="Texture2D" uid="uid://bdjdsdw6w0fjj" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame11.png" id="8_e2q8q"]
+[ext_resource type="Texture2D" uid="uid://yjcnhhuo2a6k" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame12.png" id="9_kaa7g"]
+[ext_resource type="Texture2D" uid="uid://b6vpr5k4xelo8" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame13.png" id="10_gnsnt"]
+[ext_resource type="Texture2D" uid="uid://xuhjw8gve41y" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame14.png" id="11_07grr"]
+[ext_resource type="Texture2D" uid="uid://ceoj8b5j22bto" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame15.png" id="12_1q1d3"]
+[ext_resource type="Texture2D" uid="uid://dut3ytf1fcjss" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame3.png" id="13_g84h4"]
+[ext_resource type="Texture2D" uid="uid://cmsj5ocbmjuuf" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame4.png" id="14_b7rn8"]
+[ext_resource type="Texture2D" uid="uid://oaxq6q4mvc3j" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame5.png" id="15_tvv0b"]
+[ext_resource type="Texture2D" uid="uid://oh0bhlvugkqd" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame6.png" id="16_rm3oi"]
+[ext_resource type="Texture2D" uid="uid://dqmq22sull5oc" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame7.png" id="17_k2iiv"]
+[ext_resource type="Texture2D" uid="uid://d0yr6ntd3k6k5" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame8.png" id="18_26cjh"]
+[ext_resource type="Texture2D" uid="uid://qx8dor5kbb6l" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame9.png" id="19_3faf4"]
+[ext_resource type="Texture2D" uid="uid://c7bvbmgwqster" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame10.png" id="20_q1c6c"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_i8qrr"]
+frames = 15
+speed_scale = 9.2
+frame_0/texture = ExtResource("6_f204y")
+frame_1/texture = ExtResource("7_qbpr7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("13_g84h4")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("14_b7rn8")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("15_tvv0b")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("16_rm3oi")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("17_k2iiv")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("18_26cjh")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("19_3faf4")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("20_q1c6c")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("8_e2q8q")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("9_kaa7g")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("10_gnsnt")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("11_07grr")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("12_1q1d3")
+frame_14/duration = 1.0
 
 [node name="main_menu" type="Node2D" unique_id=86334363]
 script = ExtResource("1_jf8mj")
@@ -78,7 +125,8 @@ theme_override_constants/separation = 50
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_jmap8")
+texture_normal = ExtResource("6_f204y")
+texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="main_buttons/VBoxContainer/new_button" unique_id=527658588]
@@ -103,7 +151,8 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_jmap8")
+texture_normal = ExtResource("6_f204y")
+texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="main_buttons/VBoxContainer/load_button" unique_id=854684307]
@@ -128,7 +177,9 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_jmap8")
+texture_normal = ExtResource("6_f204y")
+texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="main_buttons/VBoxContainer/settings_button" unique_id=1285552373]
@@ -153,7 +204,9 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_jmap8")
+texture_normal = ExtResource("6_f204y")
+texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="main_buttons/VBoxContainer/credits_button" unique_id=683716919]
@@ -178,7 +231,9 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_jmap8")
+texture_normal = ExtResource("6_f204y")
+texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="main_buttons/VBoxContainer/quit_button" unique_id=37311105]
