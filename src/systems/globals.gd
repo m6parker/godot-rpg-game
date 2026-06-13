@@ -2,10 +2,18 @@ extends Node
 
 # link signals
 signal inventory_updated
+@warning_ignore("unused_signal")
 signal hotbar_updated
+@warning_ignore("unused_signal")
 signal crafting_updated
+@warning_ignore("unused_signal")
 signal brewing_updated
 signal gold_changed(new_amount: int)
+signal night_state_changed(is_night: bool)
+
+@export var day_duration: float = 60.0 # seconds per day
+var time: float = 0.5
+var is_night: bool = false 
 
 # setup player
 var player_name: String = "player_name"
@@ -105,6 +113,16 @@ func remove_equipped_item() -> void:
 	equipped_item = null
 	hotbar_slots[equipped_slot_index] = null
 	Globals.inventory_updated.emit()
+	
+
+func _process(delta: float) -> void:
+	time += delta / day_duration
+	if time >= 1.0:
+		time = 0.0
+	var new_night_state = (time < 0.2 or time > 0.8)
+	if new_night_state != is_night:
+		is_night = new_night_state
+		night_state_changed.emit(is_night)
 
 # ------------------ store ----------------------------
 

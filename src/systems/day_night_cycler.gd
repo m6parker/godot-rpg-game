@@ -1,23 +1,18 @@
 extends CanvasModulate
 
-@export var day_duration: float = 120.0 #seconds
 @export var cycle_gradient: Gradient
 
-var time: float = 0.5
-var is_night: bool = false 
+func _ready() -> void:
+	Globals.night_state_changed.connect(_on_night_state_changed)
+	_on_night_state_changed(Globals.is_night)
 
-func _process(delta: float) -> void:
-	time += delta / day_duration
-	if time >= 1.0:
-		time = 0.0
-		
+func _process(_delta: float) -> void:
 	if cycle_gradient:
-		color = cycle_gradient.sample(time)
-	
-	var new_night_state = (time < 0.2 or time > 0.8)
-	if new_night_state != is_night:
-		# allows certain event to only happen at night / during the day
-		# bugs / moth layer is visible at night
-		is_night = new_night_state
-		
-		
+		color = cycle_gradient.sample(Globals.time)
+
+func _on_night_state_changed(is_night: bool) -> void:
+	# show nighttime bugs
+	if is_night:
+		print("It is now night in this scene!")
+	else:
+		print("It is now day in this scene!")

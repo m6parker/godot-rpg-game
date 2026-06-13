@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://nc57djd8us0d" path="res://src/common/interactables.gd" id="10_wyst0"]
 [ext_resource type="Texture2D" uid="uid://ds7htatox5evm" path="res://assets/tilesets/town_buildings.png" id="11_8i2yk"]
 [ext_resource type="Texture2D" uid="uid://dae2b2xj01j7s" path="res://assets/tilesets/decor.png" id="12_sot8y"]
+[ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://src/systems/day_night_cycler.gd" id="15_8iv4t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5w8"]
 texture = ExtResource("3_7iu8l")
@@ -1127,8 +1128,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8iv4t"]
 texture = ExtResource("12_sot8y")
 texture_region_size = Vector2i(32, 32)
-0:2/size_in_atlas = Vector2i(4, 2)
-0:2/0 = 0
 0:0/size_in_atlas = Vector2i(2, 1)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-16, 0)
@@ -1158,6 +1157,10 @@ radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8i2yk"]
 radius = 24.0
+
+[sub_resource type="Gradient" id="Gradient_lwwxs"]
+offsets = PackedFloat32Array(0, 0.24137932, 0.5015674, 0.7429467, 1)
+colors = PackedColorArray(0, 0.20784314, 0.43529412, 1, 0.47843137, 0.21568628, 0.13725491, 1, 1, 1, 1, 1, 1, 0.47259527, 0.5524737, 1, 0, 0.20784314, 0.43529412, 1)
 
 [node name="town" type="Node2D" unique_id=2122076680]
 y_sort_enabled = true
@@ -1248,6 +1251,10 @@ script = ExtResource("10_wyst0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable" unique_id=1736887516]
 shape = SubResource("CircleShape2D_f75s5")
+
+[node name="day_night_cycle" type="CanvasModulate" parent="." unique_id=484595586]
+script = ExtResource("15_8iv4t")
+cycle_gradient = SubResource("Gradient_lwwxs")
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]

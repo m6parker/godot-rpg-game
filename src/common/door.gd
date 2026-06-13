@@ -16,12 +16,13 @@ func _on_body_exited(body: Node2D) -> void:
 		can_interact = false
 
 
-func _process(_delta: float) -> void:
-	if can_interact && Input.is_action_just_pressed("interact"):
+func _unhandled_input(event: InputEvent) -> void:
+	if can_interact && event.is_action_pressed("interact"):
 		for body in get_overlapping_bodies():
 			if body.name == "player" or body.is_in_group("player"):
-				# change the scene and set where the player will spawn to/from
+				can_interact = false 
+				
+				# change scene and set where player will spawn to/from
 				Globals.target_transition_marker = target_spawn_marker
-				#print('going to ', Globals.target_transition_marker)
-				get_tree().change_scene_to_file(target_scene)
+				get_tree().call_deferred("change_scene_to_file", target_scene)
 				break
