@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dgm60ry1y64s7"]
+
+[ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="1_icx1b"]
+[ext_resource type="Script" uid="uid://d4j0ca1gtsq3" path="res://src/ui/menus/pause_menu.gd" id="1_jsa2b"]
+[ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="2_jsa2b"]
+[ext_resource type="Texture2D" uid="uid://cojjpnxybe2js" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame1.png" id="3_1rudu"]
+[ext_resource type="Texture2D" uid="uid://bg3frwjjchka6" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame2.png" id="4_3nbvw"]
+[ext_resource type="Texture2D" uid="uid://bdjdsdw6w0fjj" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame11.png" id="5_s258a"]
+[ext_resource type="Texture2D" uid="uid://yjcnhhuo2a6k" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame12.png" id="6_gxvio"]
+[ext_resource type="Texture2D" uid="uid://b6vpr5k4xelo8" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame13.png" id="7_t4gc2"]
+[ext_resource type="Texture2D" uid="uid://xuhjw8gve41y" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame14.png" id="8_odmhf"]
+[ext_resource type="Texture2D" uid="uid://ceoj8b5j22bto" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame15.png" id="9_8gffd"]
+[ext_resource type="Texture2D" uid="uid://dut3ytf1fcjss" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame3.png" id="10_meyxl"]
+[ext_resource type="Texture2D" uid="uid://cmsj5ocbmjuuf" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame4.png" id="11_ttvg5"]
+[ext_resource type="Texture2D" uid="uid://oaxq6q4mvc3j" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame5.png" id="12_fvqgn"]
+[ext_resource type="Texture2D" uid="uid://oh0bhlvugkqd" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame6.png" id="13_4ggvj"]
+[ext_resource type="Texture2D" uid="uid://dqmq22sull5oc" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame7.png" id="14_y7cdk"]
+[ext_resource type="Texture2D" uid="uid://d0yr6ntd3k6k5" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame8.png" id="15_8q48a"]
+[ext_resource type="Texture2D" uid="uid://qx8dor5kbb6l" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame9.png" id="16_47whx"]
+[ext_resource type="Texture2D" uid="uid://c7bvbmgwqster" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame10.png" id="17_nel83"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_sh3jw"]
+frames = 15
+speed_scale = 9.2
+frame_0/texture = ExtResource("3_1rudu")
+frame_1/texture = ExtResource("4_3nbvw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_meyxl")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("11_ttvg5")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("12_fvqgn")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("13_4ggvj")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("14_y7cdk")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("15_8q48a")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("16_47whx")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("17_nel83")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("5_s258a")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("6_gxvio")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("7_t4gc2")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("8_odmhf")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("9_8gffd")
+frame_14/duration = 1.0
+
+[node name="pause_menu" type="Control" unique_id=1830259848]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jsa2b")
+
+[node name="background" type="ColorRect" parent="." unique_id=864169802]
+layout_mode = 0
+offset_left = -178.0
+offset_top = -114.0
+offset_right = 2004.7122
+offset_bottom = 1151.0
+mouse_filter = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.50980395)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1639129640]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 482.99997
+offset_top = 65.0
+offset_right = 837.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_icx1b")
+stretch_mode = 4
+
+[node name="pause_label" type="Label" parent="." unique_id=1868000849]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 203.0
+offset_right = 1188.0
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("2_jsa2b")
+theme_override_font_sizes/font_size = 100
+text = "game paused"
+vertical_alignment = 1
+
+[node name="main_buttons" type="VBoxContainer" parent="." unique_id=2134184807]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 703.0
+offset_top = 333.0
+offset_right = 1130.0
+offset_bottom = 832.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_buttons" unique_id=1645040909]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="save_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=164122028]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_1rudu")
+texture_hover = SubResource("AnimatedTexture_sh3jw")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/save_button" unique_id=332352255]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jsa2b")
+theme_override_font_sizes/font_size = 45
+text = "save game"
+horizontal_alignment = 1
+
+[node name="settings_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=97799451]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_1rudu")
+texture_pressed = SubResource("AnimatedTexture_sh3jw")
+texture_hover = SubResource("AnimatedTexture_sh3jw")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/settings_button" unique_id=1483552480]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jsa2b")
+theme_override_font_sizes/font_size = 45
+text = "settings"
+horizontal_alignment = 1
+
+[node name="quit_button" type="TextureButton" parent="main_buttons/VBoxContainer" unique_id=1021429129]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_1rudu")
+texture_pressed = SubResource("AnimatedTexture_sh3jw")
+texture_hover = SubResource("AnimatedTexture_sh3jw")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="main_buttons/VBoxContainer/quit_button" unique_id=1076008873]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jsa2b")
+theme_override_font_sizes/font_size = 45
+text = "quit"
+horizontal_alignment = 1
+
+[node name="settings_container" type="VBoxContainer" parent="." unique_id=1110079523]
+visible = false
+layout_mode = 0
+offset_left = 420.0
+offset_top = 299.0
+offset_right = 731.0
+offset_bottom = 513.0
+size_flags_stretch_ratio = 1.38
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="help_button" type="Button" parent="settings_container" unique_id=1814169092]
+layout_mode = 2
+text = "help"
+
+[node name="back_button2" type="Button" parent="settings_container" unique_id=1224267787]
+layout_mode = 2
+text = "back"
+
+[connection signal="pressed" from="main_buttons/VBoxContainer/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_buttons/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="settings_container/back_button2" to="." method="_on_back_button_2_pressed"]

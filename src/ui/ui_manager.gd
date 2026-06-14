@@ -9,8 +9,10 @@ extends CanvasLayer
 @onready var notification_scene: PackedScene = preload("res://src/ui/skill_notification.tscn")
 @onready var craft_station_scene: PackedScene = preload("res://src/ui/menus/crafting_menu.tscn")
 @onready var brewing_station_scene: PackedScene = preload("res://src/ui/menus/brewing_menu.tscn")
+@onready var pause_menu_scene: PackedScene = preload("res://src/ui/menus/pause_menu.tscn")
 var craft_instance: Control = null
 var brew_instance: Control = null
+var pause_instance: Control = null
 
 
 func _ready() -> void:
@@ -23,7 +25,8 @@ func _ready() -> void:
 func is_any_menu_open() -> bool:
 	var craft_open = craft_instance and craft_instance.visible
 	var brew_open = brew_instance and brew_instance.visible
-	return notebook.visible or craft_open or brew_open
+	var pause_open = pause_instance and pause_instance.visible
+	return notebook.visible or inventory.visible or craft_open or brew_open or pause_open
 
 
 func update_gold_ui(new_amount: int = -1) -> void:
@@ -42,6 +45,15 @@ func update_skills_notebook() -> void:
 
 
 # ---------------- ui toggling ------------------------------
+
+func toggle_pause_menu() -> void:
+	if pause_instance == null:
+		pause_instance = pause_menu_scene.instantiate()
+		add_child(pause_instance)
+	Globals.game_paused = !Globals.game_paused
+	get_tree().paused = Globals.game_paused
+	pause_instance.visible = Globals.game_paused
+
 
 func toggle_notebook() -> void:
 	notebook.visible = !notebook.visible

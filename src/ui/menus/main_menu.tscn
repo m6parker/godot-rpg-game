@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dqmq22sull5oc" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame7.png" id="17_k2iiv"]
 [ext_resource type="Texture2D" uid="uid://d0yr6ntd3k6k5" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame8.png" id="18_26cjh"]
 [ext_resource type="Texture2D" uid="uid://qx8dor5kbb6l" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame9.png" id="19_3faf4"]
+[ext_resource type="PackedScene" uid="uid://dgm60ry1y64s7" path="res://src/ui/menus/pause_menu.tscn" id="20_f204y"]
 [ext_resource type="Texture2D" uid="uid://c7bvbmgwqster" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame10.png" id="20_q1c6c"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_i8qrr"]
@@ -315,6 +316,9 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "start
 "
+
+[node name="pause_menu" parent="." unique_id=1351332527 instance=ExtResource("20_f204y")]
+visible = false
 
 [connection signal="pressed" from="main_buttons/VBoxContainer/new_button" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="main_buttons/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]

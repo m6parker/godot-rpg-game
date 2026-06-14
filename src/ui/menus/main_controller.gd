@@ -18,7 +18,8 @@ func _on_new_game_button_pressed() -> void:
 # todo - load last position
 func _on_load_button_pressed() -> void:
 	Globals.game_paused = false
-	get_tree().change_scene_to_file(str("res://src/worlds/forest/", Globals.level, ".tscn"))
+	#get_tree().change_scene_to_file(str("res://src/worlds/forest/", Globals.level, ".tscn"))
+	Globals.load_game()
 
 
 func _on_quit_button_pressed() -> void:
