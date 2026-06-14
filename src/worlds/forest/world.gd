@@ -207,6 +207,7 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		"time": STAGE_GROWTH_TIME,
 		"stage": 1, 
 		"middle_coords": crop_info["middle_coords"],
+		"empty_coords": crop_info['empty_coords'],
 		"full_coords": crop_info["full_coords"],
 		"source_id": crop_info["source_id"],
 		"layer": target_layer
@@ -227,6 +228,7 @@ func try_plant(crop_info: Dictionary) -> void:
 		"time": STAGE_GROWTH_TIME,
 		"stage": 0,
 		"middle_coords": crop_info["middle_coords"],
+		"empty_coords": crop_info['empty_coords'],
 		"full_coords": crop_info["full_coords"],
 		"source_id": crop_info["source_id"],
 		"layer": crops_tile_map_layer
@@ -245,6 +247,10 @@ func advance_growth_stage(cell_coords: Vector2i) -> void:
 		timer_data["stage"] = 1
 		timer_data["time"] = STAGE_GROWTH_TIME 
 	elif timer_data["stage"] == 1:
+		layer.set_cell(cell_coords, timer_data["source_id"], timer_data["empty_coords"])
+		timer_data["stage"] = 2
+		timer_data["time"] = STAGE_GROWTH_TIME 
+	elif timer_data["stage"] == 2:
 		layer.set_cell(cell_coords, timer_data["source_id"], timer_data["full_coords"])
 		regrow_timers.erase(cell_coords)
 

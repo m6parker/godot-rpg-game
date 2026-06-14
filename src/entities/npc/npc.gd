@@ -61,7 +61,7 @@ func _get_random_target() -> void:
 # handle sprite animations and flipping
 func _update_animations() -> void:
 	if velocity.length() > 0:
-		animated_sprite.play("walk")
+		animated_sprite.play("run")
 		
 		# flip left or right
 		if velocity.x > 0:

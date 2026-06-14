@@ -11,7 +11,7 @@ signal brewing_updated
 signal gold_changed(new_amount: int)
 signal night_state_changed(is_night: bool)
 
-@export var day_duration: float = 60.0 # seconds per day
+@export var day_duration: float = 120.0 # seconds per day
 var time: float = 0.5
 var is_night: bool = false 
 
