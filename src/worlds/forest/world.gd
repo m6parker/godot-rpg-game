@@ -73,7 +73,11 @@ const CROP_DATABASE: Dictionary = {
 	}
 }
 
+
 func _ready() -> void:
+	# load crops
+	load_world_state()
+
 	if Globals.target_transition_marker != "":
 		var spawn_point = find_child(Globals.target_transition_marker)
 		if spawn_point:
@@ -81,6 +85,161 @@ func _ready() -> void:
 		else:
 			print("error no spawn: ", Globals.target_transition_marker)
 		Globals.target_transition_marker = ""
+
+# auto save when switching scenes
+func _exit_tree() -> void:
+	save_world_state()
+
+func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
+	if coords == Vector2i(-1, -1):
+		return null
+	for crop_pos in CROP_DATABASE:
+		var crop_info = CROP_DATABASE[crop_pos]
+		if crop_info["source_id"] == source_id:
+			if crop_info["full_coords"] == coords or \
+			   crop_info["middle_coords"] == coords or \
+			   crop_info["empty_coords"] == coords or \
+			   crop_info["seedling"] == coords:
+				return crop_info
+	return null
+
+
+func save_world_state() -> void:
+	var level_name = Globals.level
+	var saved_cells = {}
+
+	# save everything thats growing
+	for cell in regrow_timers.keys():
+		var timer_data = regrow_timers[cell]
+		var cell_key = str(cell.x) + "," + str(cell.y)
+		
+		var layer_name = "crops"
+		if timer_data["layer"] == harvestables_tile_map_layer:
+			layer_name = "harvestables"
+
+		saved_cells[cell_key] = {
+			"is_growing": true,
+			"time": timer_data["time"],
+			"stage": timer_data["stage"],
+			"source_id": timer_data["source_id"],
+			"layer": layer_name,
+			"middle_coords": [timer_data["middle_coords"].x, timer_data["middle_coords"].y],
+			"empty_coords": [timer_data["empty_coords"].x, timer_data["empty_coords"].y],
+			"full_coords": [timer_data["full_coords"].x, timer_data["full_coords"].y]
+		}
+	
+	# check layers for fully grown or harvested plants
+	for cell in crops_tile_map_layer.get_used_cells():
+		var cell_key = str(cell.x) + "," + str(cell.y)
+		if saved_cells.has(cell_key):
+			continue
+			
+		var coords = crops_tile_map_layer.get_cell_atlas_coords(cell)
+		var source_id = crops_tile_map_layer.get_cell_source_id(cell)
+		var crop_data = find_crop_in_database(coords, source_id)
+		
+		if crop_data != null:
+			# check if harvested
+			var is_harvested = (coords == crop_data["empty_coords"])
+			saved_cells[cell_key] = {
+				"is_growing": false,
+				"is_harvested": is_harvested,
+				"source_id": source_id,
+				"layer": "crops",
+				"full_coords": [crop_data["full_coords"].x, crop_data["full_coords"].y],
+				"empty_coords": [crop_data["empty_coords"].x, crop_data["empty_coords"].y]
+			}
+
+	# check for harvested wild bushes
+	for cell in harvestables_tile_map_layer.get_used_cells():
+		var cell_key = str(cell.x) + "," + str(cell.y)
+		if saved_cells.has(cell_key):
+			continue
+			
+		var coords = harvestables_tile_map_layer.get_cell_atlas_coords(cell)
+		var source_id = harvestables_tile_map_layer.get_cell_source_id(cell)
+		var crop_data = find_crop_in_database(coords, source_id)
+		
+		if crop_data != null:
+			var is_harvested = (coords == crop_data["empty_coords"])
+			saved_cells[cell_key] = {
+				"is_growing": false,
+				"is_harvested": is_harvested,
+				"source_id": source_id,
+				"layer": "harvestables",
+				"full_coords": [crop_data["full_coords"].x, crop_data["full_coords"].y],
+				"empty_coords": [crop_data["empty_coords"].x, crop_data["empty_coords"].y]
+			}
+
+	Globals.world_states[level_name] = {"cells": saved_cells}
+
+
+# restart timers and add tiles to layer
+func load_world_state() -> void:
+	var level_name = Globals.level
+	if not Globals.world_states.has(level_name):
+		return 
+		
+	var state = Globals.world_states[level_name]
+	var saved_cells = state.get("cells", {})
+	
+	regrow_timers.clear()
+	crops_tile_map_layer.clear()
+	harvestables_tile_map_layer.clear() 
+	
+	for cell_key in saved_cells.keys():
+		var coords_arr = cell_key.split(",")
+		var cell = Vector2i(int(coords_arr[0]), int(coords_arr[1]))
+		var data = saved_cells[cell_key]
+		
+		var target_layer = crops_tile_map_layer
+		if data["layer"] == "harvestables":
+			target_layer = harvestables_tile_map_layer
+
+		var source_id = int(data["source_id"])
+		var is_growing = data.get("is_growing", false)
+
+		if is_growing:
+			var mid = Vector2i(data["middle_coords"][0], data["middle_coords"][1])
+			var emp = Vector2i(data["empty_coords"][0], data["empty_coords"][1])
+			var ful = Vector2i(data["full_coords"][0], data["full_coords"][1])
+			var current_stage = int(data["stage"])
+			
+			regrow_timers[cell] = {
+				"time": float(data["time"]),
+				"stage": current_stage,
+				"source_id": source_id,
+				"layer": target_layer,
+				"middle_coords": mid,
+				"empty_coords": emp,
+				"full_coords": ful
+			}
+			
+			var current_atlas = emp
+			if current_stage == 0:
+				current_atlas = get_seedling_coords_fallback(ful)
+			elif current_stage == 1:
+				current_atlas = mid
+			elif current_stage == 2:
+				current_atlas = emp
+				
+			target_layer.set_cell(cell, source_id, current_atlas)
+		else:
+			var is_harvested = data.get("is_harvested", false)
+			if is_harvested:
+				var emp = Vector2i(data["empty_coords"][0], data["empty_coords"][1])
+				target_layer.set_cell(cell, source_id, emp)
+			else:
+				var ful = Vector2i(data["full_coords"][0], data["full_coords"][1])
+				target_layer.set_cell(cell, source_id, ful)
+				
+				
+func get_seedling_coords_fallback(full_coords: Vector2i) -> Vector2i:
+	for crop_pos in CROP_DATABASE:
+		if CROP_DATABASE[crop_pos]["full_coords"] == full_coords:
+			return CROP_DATABASE[crop_pos]["seedling"]
+	return Vector2i(0, 0) # Fallback baseline setup
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -170,15 +329,6 @@ func try_harvest() -> void:
 			harvest_tile(target_cell, planted_crop_data, crops_tile_map_layer)
 			break
 
-func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
-	if coords == Vector2i(-1, -1):
-		return null
-	for crop_pos in CROP_DATABASE:
-		var crop_info = CROP_DATABASE[crop_pos]
-		# checks if both coords and tileset is matching 
-		if crop_info["full_coords"] == coords and crop_info["source_id"] == source_id:
-			return crop_info
-	return null
 
 func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: TileMapLayer) -> void:
 	var item_name = crop_info["item_name"]
@@ -196,16 +346,16 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		print('inventory full!')
 		return
 
-	# revert to harvested empty
+	# Revert to harvested empty
 	target_layer.set_cell(cell_coords, crop_info["source_id"], crop_info["empty_coords"])
 		
 	for i in range(crop_info["harvest_amount"]):
 		Globals.add_item(target_item)
 		
-	# regrown from empty / harvested stage
+	# FIX: Set stage to 2 so it correctly aligns with empty_coords and grows back to full
 	regrow_timers[cell_coords] = {
 		"time": STAGE_GROWTH_TIME,
-		"stage": 1, 
+		"stage": 2, 
 		"middle_coords": crop_info["middle_coords"],
 		"empty_coords": crop_info['empty_coords'],
 		"full_coords": crop_info["full_coords"],

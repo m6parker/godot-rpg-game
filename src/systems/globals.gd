@@ -15,6 +15,7 @@ signal night_state_changed(is_night: bool)
 var time: float = 0.5
 var is_night: bool = false
 var game_paused: bool = true
+var world_states: Dictionary = {}
 
 # setup player
 var player_name: String = "player_name"
@@ -247,6 +248,11 @@ func create_item_by_name(name_id: String) -> ItemData:
 	
 # puts all save info into dictionary to save as json
 func save_game() -> void:
+	# saving world tiles (planted plants)
+	var current_scene = get_tree().current_scene
+	if current_scene and current_scene.has_method("save_world_state"):
+		current_scene.save_world_state()
+		
 	var save_data = {
 		"time": time,
 		"level": level,
@@ -256,7 +262,9 @@ func save_game() -> void:
 		"player_inventory": _inventory_to_paths(player_inventory),
 		"hotbar_slots": _inventory_to_paths(hotbar_slots),
 		"crafting_slots": _inventory_to_paths(crafting_slots),
-		"brewing_slots": _inventory_to_paths(brewing_slots)
+		"brewing_slots": _inventory_to_paths(brewing_slots),
+		# planted seeds
+		"world_states": world_states
 	}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -287,6 +295,7 @@ func load_game() -> void:
 			
 			time = save_data.get("time", 0.5)
 			level = save_data.get("level", "World")
+			world_states = save_data.get("world_states", {})
 			
 			# restore dictionaries
 			var loaded_stats = save_data.get("player_stats", {})
@@ -300,7 +309,7 @@ func load_game() -> void:
 				if playerSkills.has(upper_key):
 					playerSkills[upper_key] = int(loaded_skills[key])
 			
-			# restore arrays
+			# restore items
 			player_inventory = _paths_to_inventory(save_data.get("player_inventory", []), PLAYER_INVENTORY_SIZE)
 			hotbar_slots = _paths_to_inventory(save_data.get("hotbar_slots", []), 4)
 			crafting_slots = _paths_to_inventory(save_data.get("crafting_slots", []), 2)
