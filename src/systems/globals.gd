@@ -13,7 +13,8 @@ signal night_state_changed(is_night: bool)
 
 @export var day_duration: float = 120.0 # seconds per day
 var time: float = 0.5
-var is_night: bool = false 
+var is_night: bool = false
+var game_paused: bool = true
 
 # setup player
 var player_name: String = "player_name"
@@ -116,13 +117,14 @@ func remove_equipped_item() -> void:
 	
 
 func _process(delta: float) -> void:
-	time += delta / day_duration
-	if time >= 1.0:
-		time = 0.0
-	var new_night_state = (time < 0.2 or time > 0.8)
-	if new_night_state != is_night:
-		is_night = new_night_state
-		night_state_changed.emit(is_night)
+	if !game_paused:
+		time += delta / day_duration
+		if time >= 1.0:
+			time = 0.0
+		var new_night_state = (time < 0.2 or time > 0.8)
+		if new_night_state != is_night:
+			is_night = new_night_state
+			night_state_changed.emit(is_night)
 
 # ------------------ store ----------------------------
 

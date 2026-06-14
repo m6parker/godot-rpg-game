@@ -25,5 +25,14 @@
 		"result": [
 			"blueberries"
 		]
+	},
+	{
+		"ingredients": [
+			"blueberries",
+			"blueberries",
+		],
+		"result": [
+			"blueberries_seeds"
+		]
 	}
 ]
