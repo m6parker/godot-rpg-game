@@ -254,6 +254,7 @@ func save_game() -> void:
 		current_scene.save_world_state()
 		
 	var save_data = {
+		"player_name": player_name,
 		"time": time,
 		"level": level,
 		"player_stats": playerStats,
@@ -293,6 +294,8 @@ func load_game() -> void:
 		if parse_result == OK:
 			var save_data = json.get_data()
 			
+			#restore basics
+			player_name = save_data.get("player_name", "player_name")
 			time = save_data.get("time", 0.5)
 			level = save_data.get("level", "World")
 			world_states = save_data.get("world_states", {})
