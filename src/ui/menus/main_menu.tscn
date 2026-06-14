@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_vs67m"]
 [ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="4_y3puo"]
 [ext_resource type="Texture2D" uid="uid://cojjpnxybe2js" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame1.png" id="6_f204y"]
+[ext_resource type="Texture2D" uid="uid://dih3biyuqbr64" path="res://assets/ui/main_menu/stone_button_pressed.png" id="6_qbpr7"]
 [ext_resource type="Texture2D" uid="uid://bg3frwjjchka6" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame2.png" id="7_qbpr7"]
 [ext_resource type="Texture2D" uid="uid://bdjdsdw6w0fjj" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame11.png" id="8_e2q8q"]
 [ext_resource type="Texture2D" uid="uid://yjcnhhuo2a6k" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame12.png" id="9_kaa7g"]
@@ -127,6 +128,7 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_f204y")
+texture_pressed = ExtResource("6_qbpr7")
 texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
@@ -153,6 +155,7 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_f204y")
+texture_pressed = ExtResource("6_qbpr7")
 texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
@@ -179,7 +182,7 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_f204y")
-texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_pressed = ExtResource("6_qbpr7")
 texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
@@ -206,7 +209,7 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_f204y")
-texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_pressed = ExtResource("6_qbpr7")
 texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 
@@ -233,7 +236,7 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_f204y")
-texture_pressed = SubResource("AnimatedTexture_i8qrr")
+texture_pressed = ExtResource("6_qbpr7")
 texture_hover = SubResource("AnimatedTexture_i8qrr")
 stretch_mode = 4
 

@@ -19,7 +19,7 @@ var world_states: Dictionary = {}
 
 # setup player
 var player_name: String = "player_name"
-var level: String = "World"
+var world: String = "World"
 var target_transition_marker: String = ""
 var PLAYER_INVENTORY_SIZE = 9 #ui slots in basket
 
@@ -256,7 +256,7 @@ func save_game() -> void:
 	var save_data = {
 		"player_name": player_name,
 		"time": time,
-		"level": level,
+		"world": world,
 		"player_stats": playerStats,
 		"player_skills": playerSkills,
 		# convert to arrays of file paths
@@ -297,7 +297,7 @@ func load_game() -> void:
 			#restore basics
 			player_name = save_data.get("player_name", "player_name")
 			time = save_data.get("time", 0.5)
-			level = save_data.get("level", "World")
+			world = save_data.get("world", "World")
 			world_states = save_data.get("world_states", {})
 			
 			# restore dictionaries
@@ -323,7 +323,7 @@ func load_game() -> void:
 			equipped_slot_index = -1
 			
 			# player location
-			var scene_path = "res://src/worlds/forest/" + level + ".tscn"
+			var scene_path = "res://src/worlds/forest/" + world + ".tscn"
 			get_tree().change_scene_to_file(scene_path)
 			
 			_deferred_ui_refresh.call_deferred()

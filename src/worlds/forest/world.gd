@@ -105,7 +105,7 @@ func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
 
 
 func save_world_state() -> void:
-	var level_name = Globals.level
+	var world_name = Globals.world
 	var saved_cells = {}
 
 	# save everything thats growing
@@ -171,16 +171,16 @@ func save_world_state() -> void:
 				"empty_coords": [crop_data["empty_coords"].x, crop_data["empty_coords"].y]
 			}
 
-	Globals.world_states[level_name] = {"cells": saved_cells}
+	Globals.world_states[world_name] = {"cells": saved_cells}
 
 
 # restart timers and add tiles to layer
 func load_world_state() -> void:
-	var level_name = Globals.level
-	if not Globals.world_states.has(level_name):
+	var world_name = Globals.world
+	if not Globals.world_states.has(world_name):
 		return 
 		
-	var state = Globals.world_states[level_name]
+	var state = Globals.world_states[world_name]
 	var saved_cells = state.get("cells", {})
 	
 	regrow_timers.clear()
