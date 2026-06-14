@@ -19,6 +19,7 @@ func _ready() -> void:
 	player_name_label.text = Globals.player_name
 	Globals.gold_changed.connect(update_gold_ui)
 	update_gold_ui()
+	update_skills_notebook()
 
 
 # check if movement shoulf be blocked  
