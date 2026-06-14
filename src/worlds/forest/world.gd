@@ -352,7 +352,7 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 	for i in range(crop_info["harvest_amount"]):
 		Globals.add_item(target_item)
 		
-	# FIX: Set stage to 2 so it correctly aligns with empty_coords and grows back to full
+	# growth cycle
 	regrow_timers[cell_coords] = {
 		"time": STAGE_GROWTH_TIME,
 		"stage": 2, 
@@ -362,6 +362,9 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		"source_id": crop_info["source_id"],
 		"layer": target_layer
 	}
+	
+	Globals.increase_skill("FARMING")
+	print("skills: ", Globals.playerSkills)
 	
 func try_plant(crop_info: Dictionary) -> void:
 	var local_pos = crops_tile_map_layer.to_local(player.global_position)
@@ -387,6 +390,7 @@ func try_plant(crop_info: Dictionary) -> void:
 	# remove seeds from inventory
 	Globals.remove_equipped_item()
 	#print("planted ", crop_info["seed_name"], " at ", player_cell)
+	Globals.increase_skill("FARMING")
 
 func advance_growth_stage(cell_coords: Vector2i) -> void:
 	var timer_data = regrow_timers[cell_coords]

@@ -8,6 +8,7 @@ signal hotbar_updated
 signal crafting_updated
 @warning_ignore("unused_signal")
 signal brewing_updated
+signal skill_updated
 signal gold_changed(new_amount: int)
 signal night_state_changed(is_night: bool)
 
@@ -98,6 +99,7 @@ func increase_skill(skill_type: String) -> void:
 	if playerSkills.has(skill_type.to_upper()):
 		playerSkills[skill_type.to_upper()] += 1
 		#print(playerSkills)
+		skill_updated.emit()
 
 
 func equip_item(item: Resource, currently_equipped_index:int) -> void:

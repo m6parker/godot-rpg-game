@@ -19,6 +19,7 @@ var pause_instance: Control = null
 func _ready() -> void:
 	player_name_label.text = Globals.player_name
 	Globals.gold_changed.connect(update_gold_ui)
+	Globals.skill_updated.connect(update_skills_notebook)
 	update_gold_ui()
 	update_skills_notebook()
 

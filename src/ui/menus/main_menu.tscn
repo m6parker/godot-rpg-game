@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clcj7pickkv3v"]
 
 [ext_resource type="Script" uid="uid://drcf5014r4kra" path="res://src/ui/menus/main_controller.gd" id="1_jf8mj"]
-[ext_resource type="Texture2D" uid="uid://dixx1wk8twhwg" path="res://assets/ui/background_image.png" id="2_p3jrs"]
+[ext_resource type="Texture2D" uid="uid://c015gl73mcic2" path="res://assets/ui/main_menu/background.png" id="2_qbpr7"]
 [ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_vs67m"]
 [ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="4_y3puo"]
 [ext_resource type="Texture2D" uid="uid://cojjpnxybe2js" path="res://assets/ui/main_menu/animated_sprites/shine_animation_frame1.png" id="6_f204y"]
@@ -68,7 +68,7 @@ offset_right = 2053.1187
 offset_bottom = 1117.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_p3jrs")
+texture = ExtResource("2_qbpr7")
 expand_mode = 3
 
 [node name="background" type="ColorRect" parent="." unique_id=641050956]

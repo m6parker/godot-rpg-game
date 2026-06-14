@@ -60,4 +60,4 @@ func _on_item_collected(area: Area2D) -> void:
 		# tell ui manager to display the sill notification
 		ui.show_notification("+1 " + data.item_type)
 		Globals.increase_skill(data.item_type)
-		ui.update_skills_notebook()
+		#ui.update_skills_notebook()
