@@ -23,6 +23,8 @@ var player_name: String = "player_name"
 var world: String = "World"
 var target_transition_marker: String = ""
 var PLAYER_INVENTORY_SIZE = 9 #ui slots in basket
+var player_position: Vector2 = Vector2.ZERO
+var current_scene_path: String = "" # track where player is
 
 # ui state
 var can_craft: bool = false
@@ -254,19 +256,28 @@ func save_game() -> void:
 	var current_scene = get_tree().current_scene
 	if current_scene and current_scene.has_method("save_world_state"):
 		current_scene.save_world_state()
+	
+	# get player position
+	var player_node = current_scene.find_child("player", true, false)
+	if player_node:
+		player_position = player_node.global_position
+	
+	# get path of scene
+	if current_scene:
+		current_scene_path = current_scene.scene_file_path
 		
 	var save_data = {
 		"player_name": player_name,
 		"time": time,
 		"world": world,
+		"current_scene_path": current_scene_path,
+		"player_position": {"x": player_position.x, "y": player_position.y},
 		"player_stats": playerStats,
 		"player_skills": playerSkills,
-		# convert to arrays of file paths
 		"player_inventory": _inventory_to_paths(player_inventory),
 		"hotbar_slots": _inventory_to_paths(hotbar_slots),
 		"crafting_slots": _inventory_to_paths(crafting_slots),
 		"brewing_slots": _inventory_to_paths(brewing_slots),
-		# planted seeds
 		"world_states": world_states
 	}
 	
@@ -296,11 +307,16 @@ func load_game() -> void:
 		if parse_result == OK:
 			var save_data = json.get_data()
 			
-			#restore basics
+			# restore basics
 			player_name = save_data.get("player_name", "player_name")
 			time = save_data.get("time", 0.5)
 			world = save_data.get("world", "World")
 			world_states = save_data.get("world_states", {})
+			
+			# restore position coords
+			current_scene_path = save_data.get("current_scene_path", "")
+			var pos_data = save_data.get("player_position", {"x": 0.0, "y": 0.0})
+			player_position = Vector2(pos_data.get("x", 0.0), pos_data.get("y", 0.0))
 			
 			# restore dictionaries
 			var loaded_stats = save_data.get("player_stats", {})
@@ -324,16 +340,35 @@ func load_game() -> void:
 			equipped_item = null
 			equipped_slot_index = -1
 			
-			# player location
-			var scene_path = "res://src/worlds/forest/" + world + ".tscn"
-			get_tree().change_scene_to_file(scene_path)
+			# go to saved scene
+			if current_scene_path != "" and ResourceLoader.exists(current_scene_path):
+				get_tree().change_scene_to_file(current_scene_path)
+			else:
+				var fallback_path = "res://worlds/forest/world.tscn"
+				get_tree().change_scene_to_file(fallback_path)
 			
-			_deferred_ui_refresh.call_deferred()
+			_deferred_ui_refresh.call_deferred(true)
 		else:
 			print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
 
-func _deferred_ui_refresh() -> void:
+
+func _deferred_ui_refresh(should_reposition_player: bool = false) -> void:
 	await get_tree().process_frame
+	if should_reposition_player:
+		var current_scene = get_tree().current_scene
+		if not current_scene:
+			await get_tree().process_frame
+			current_scene = get_tree().current_scene
+			
+		if current_scene:
+			var player_node = current_scene.find_child("player", true, false)
+			if player_node:
+				player_node.global_position = player_position
+			else:
+				print_debug("error cant find player")
+		else:
+			print_debug("error")
+
 	inventory_updated.emit()
 	if has_signal("hotbar_updated"):
 		hotbar_updated.emit()

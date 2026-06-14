@@ -346,7 +346,7 @@ func harvest_tile(cell_coords: Vector2i, crop_info: Dictionary, target_layer: Ti
 		print('inventory full!')
 		return
 
-	# Revert to harvested empty
+	# revert to harvested empty
 	target_layer.set_cell(cell_coords, crop_info["source_id"], crop_info["empty_coords"])
 		
 	for i in range(crop_info["harvest_amount"]):

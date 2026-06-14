@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var inventory: Panel = $inventory
 @onready var foraging_count: Label = $notebook/SkillsGrid/ForagingPanel/count
 @onready var brewing_count: Label = $notebook/SkillsGrid/BrewingPanel/count
+@onready var farming_count: Label = $notebook/SkillsGrid/FarmingPanel/count
 @onready var player_name_label: Label = $notebook/player_name
 @onready var gold_count_label: Label = $gold/gold_count
 @onready var notification_container: VBoxContainer = $NotificationContainer
@@ -46,6 +47,7 @@ func show_notification(text: String) -> void:
 func update_skills_notebook() -> void:
 	foraging_count.text = str(Globals.playerSkills["FORAGING"])
 	brewing_count.text = str(Globals.playerSkills["BREWING"])
+	farming_count.text = str(Globals.playerSkills["FARMING"])
 
 
 # ---------------- ui toggling ------------------------------

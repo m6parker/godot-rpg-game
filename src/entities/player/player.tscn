@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dy24pmegbitlo" path="res://assets/ui/skillIcons/brewingIcon.png" id="8_p2qdy"]
 [ext_resource type="Texture2D" uid="uid://ctt7w847pupde" path="res://assets/ui/notebook.png" id="9_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://dpfqpvtd1gyji" path="res://assets/ui/skillIcons/foragingIcon.png" id="10_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://3lih201mxtce" path="res://assets/ui/skillIcons/farmingIcon.png" id="10_lqdhu"]
 [ext_resource type="PackedScene" uid="uid://ek1s8kcdc4wo" path="res://src/ui/hotbar.tscn" id="12_3c4mh"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
 [ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="12_kc3pt"]
@@ -320,6 +321,32 @@ offset_left = 1.0
 offset_right = 98.0
 offset_bottom = 95.0
 texture = ExtResource("8_p2qdy")
+
+[node name="FarmingPanel" type="Panel" parent="CanvasLayer/notebook/SkillsGrid" unique_id=1170471337]
+self_modulate = Color(1, 1, 1, 0.23137255)
+custom_minimum_size = Vector2(97, 95)
+layout_mode = 2
+
+[node name="count" type="Label" parent="CanvasLayer/notebook/SkillsGrid/FarmingPanel" unique_id=705786260]
+z_index = 1
+layout_mode = 0
+offset_left = 50.0
+offset_top = 66.0
+offset_right = 92.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 34
+text = "0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/SkillsGrid/FarmingPanel" unique_id=1269647246]
+texture_filter = 1
+custom_minimum_size = Vector2(97, 95)
+layout_mode = 0
+offset_left = 1.0
+offset_right = 98.0
+offset_bottom = 95.0
+texture = ExtResource("10_lqdhu")
 
 [node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
 visible = false
