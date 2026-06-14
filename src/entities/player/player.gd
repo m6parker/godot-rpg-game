@@ -30,6 +30,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		ui.toggle_pause_menu()
+	
 	if event.is_action_pressed("notebook"):
 		ui.toggle_notebook()
 		

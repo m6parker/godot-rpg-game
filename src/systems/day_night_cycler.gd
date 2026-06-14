@@ -11,8 +11,9 @@ func _process(_delta: float) -> void:
 		color = cycle_gradient.sample(Globals.time)
 
 func _on_night_state_changed(is_night: bool) -> void:
-	# show nighttime bugs
+	# show nighttime bugs and other nighttime events trigger here
+	# todo - cricket sounds
 	if is_night:
-		print("It is now night in this scene!")
+		print("is nighttime")
 	else:
-		print("It is now day in this scene!")
+		print("is daytime")

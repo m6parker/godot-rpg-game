@@ -11,12 +11,15 @@ func _on_new_game_button_pressed() -> void:
 		return
 	var username = $new_game_container/player_name_text.text
 	Globals.player_name = username
+	Globals.game_paused = false
 	get_tree().change_scene_to_file(str("res://src/worlds/forest/", Globals.level, ".tscn"))
 
 
 # todo - load last position
 func _on_load_button_pressed() -> void:
-	get_tree().change_scene_to_file(str("res://src/worlds/forest/", Globals.level, ".tscn"))
+	Globals.game_paused = false
+	#get_tree().change_scene_to_file(str("res://src/worlds/forest/", Globals.level, ".tscn"))
+	Globals.load_game()
 
 
 func _on_quit_button_pressed() -> void:

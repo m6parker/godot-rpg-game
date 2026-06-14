@@ -1,9 +1,8 @@
 extends GridContainer
 
+
 func _ready() -> void:
-	await get_tree().process_frame
 	Globals.inventory_updated.connect(_on_inventory_refresh)
-	
 	var children = get_children()
 	var slot_count = 0
 	for child in children:
@@ -12,9 +11,12 @@ func _ready() -> void:
 			child.slot_index = slot_count
 			slot_count += 1
 			
-	_on_inventory_refresh()
+	_on_inventory_refresh.call_deferred()
 
 func _on_inventory_refresh() -> void:
+	if not is_inside_tree():
+		return
+		
 	var children = get_children()
 	var slot_count = 0
 	var target_array: Array = Globals.player_inventory
