@@ -270,6 +270,7 @@ columns = 3
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel" unique_id=2143219979]
 z_index = 1
@@ -283,19 +284,22 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel" unique_id=774493888]
+[node name="foraging_skill_button" type="TextureButton" parent="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel" unique_id=720088401]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
 offset_left = 1.0
 offset_right = 98.0
 offset_bottom = 95.0
-texture = ExtResource("10_2ieo8")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_2ieo8")
+stretch_mode = 0
 
 [node name="BrewingPanel" type="Panel" parent="CanvasLayer/notebook/skills_page/SkillsGrid" unique_id=744210464]
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel" unique_id=528509875]
 z_index = 1
@@ -309,19 +313,22 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel" unique_id=1551814070]
+[node name="brewing_skill_button" type="TextureButton" parent="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel" unique_id=1938844471]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
 offset_left = 1.0
 offset_right = 98.0
 offset_bottom = 95.0
-texture = ExtResource("8_p2qdy")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_p2qdy")
+stretch_mode = 0
 
 [node name="FarmingPanel" type="Panel" parent="CanvasLayer/notebook/skills_page/SkillsGrid" unique_id=1170471337]
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel" unique_id=705786260]
 z_index = 1
@@ -335,14 +342,16 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel" unique_id=1269647246]
+[node name="farming_skill_button" type="TextureButton" parent="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel" unique_id=1007561542]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
 offset_left = 1.0
 offset_right = 98.0
 offset_bottom = 95.0
-texture = ExtResource("10_lqdhu")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_lqdhu")
+stretch_mode = 0
 
 [node name="skills_label" type="Label" parent="CanvasLayer/notebook/skills_page" unique_id=1877753936]
 texture_filter = 1
@@ -368,6 +377,103 @@ texture_normal = ExtResource("11_ogtao")
 texture_pressed = ExtResource("12_5qgjf")
 texture_hover = ExtResource("13_fjj3i")
 stretch_mode = 0
+
+[node name="foraging_info" type="Panel" parent="CanvasLayer/notebook/skills_page" unique_id=1620300132]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 131.28479
+offset_top = 128.25
+offset_right = 375.2848
+offset_bottom = 473.25
+
+[node name="foraging_label" type="Label" parent="CanvasLayer/notebook/skills_page/foraging_info" unique_id=1295903416]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 236.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 48
+text = "foraging"
+
+[node name="foraging_label2" type="Label" parent="CanvasLayer/notebook/skills_page/foraging_info" unique_id=2008428445]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 72.0
+offset_right = 236.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 24
+text = "Increase Foraging skills by discovering and collecting resources from nature."
+autowrap_mode = 2
+
+[node name="brewing_info" type="Panel" parent="CanvasLayer/notebook/skills_page" unique_id=1349174647]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 131.28479
+offset_top = 128.25
+offset_right = 375.2848
+offset_bottom = 473.25
+
+[node name="brewing_label" type="Label" parent="CanvasLayer/notebook/skills_page/brewing_info" unique_id=893817378]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 236.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 48
+text = "brewing"
+
+[node name="brewging_label" type="Label" parent="CanvasLayer/notebook/skills_page/brewing_info" unique_id=1563500527]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 72.0
+offset_right = 236.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 24
+text = "Increase Brewing skills by collecting ingredients and combing them to make potions"
+autowrap_mode = 2
+
+[node name="farming_info" type="Panel" parent="CanvasLayer/notebook/skills_page" unique_id=1340429130]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 131.28479
+offset_top = 128.25
+offset_right = 375.2848
+offset_bottom = 473.25
+
+[node name="farming_label" type="Label" parent="CanvasLayer/notebook/skills_page/farming_info" unique_id=245874028]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 236.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 48
+text = "farming
+"
+
+[node name="farmging_label" type="Label" parent="CanvasLayer/notebook/skills_page/farming_info" unique_id=2029087874]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 72.0
+offset_right = 236.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 24
+text = "Increase Farming skills by collection seeds and harvesting crops.  "
+autowrap_mode = 2
 
 [node name="inventory_page" type="Panel" parent="CanvasLayer/notebook" unique_id=336480068]
 visible = false
@@ -740,19 +846,22 @@ texture_pressed = ExtResource("17_5qgjf")
 texture_hover = ExtResource("18_fjj3i")
 stretch_mode = 0
 
-[node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
-visible = false
+[node name="gold" type="Panel" parent="CanvasLayer/notebook/inventory_page" unique_id=1893146636]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 229.0
-offset_bottom = 73.0
+layout_mode = 0
+offset_left = 89.28479
+offset_top = 356.25
+offset_right = 439.2848
+offset_bottom = 405.25
 
-[node name="gold_count" type="Label" parent="CanvasLayer/gold" unique_id=1412347302]
+[node name="gold_count" type="Label" parent="CanvasLayer/notebook/inventory_page/gold" unique_id=1412347302]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.1882353, 0.15686275, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("12_p2qdy")
 theme_override_font_sizes/font_size = 48
 text = "gold:"
@@ -763,5 +872,8 @@ offset_bottom = 1067.0
 
 [node name="Hotbar" parent="." unique_id=619510317 instance=ExtResource("12_3c4mh")]
 
+[connection signal="pressed" from="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel/foraging_skill_button" to="CanvasLayer" method="_on_foraging_skill_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel/brewing_skill_button" to="CanvasLayer" method="_on_brewing_skill_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel/farming_skill_button" to="CanvasLayer" method="_on_farming_skill_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/notebook/skills_page/back_button" to="CanvasLayer" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/notebook/inventory_page/next_button" to="CanvasLayer" method="_on_next_button_pressed"]

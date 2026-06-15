@@ -6,8 +6,11 @@ extends CanvasLayer
 @onready var brewing_count: Label = $notebook/skills_page/SkillsGrid/BrewingPanel/count
 @onready var farming_count: Label = $notebook/skills_page/SkillsGrid/FarmingPanel/count
 @onready var player_name_label: Label = $notebook/inventory_page/player_name
-@onready var gold_count_label: Label = $gold/gold_count
+@onready var gold_count_label: Label = $notebook/inventory_page/gold/gold_count
 @onready var notification_container: VBoxContainer = $NotificationContainer
+@onready var foraging_info: Panel = $notebook/skills_page/foraging_info
+@onready var brewing_info: Panel = $notebook/skills_page/brewing_info
+@onready var farming_info: Panel = $notebook/skills_page/farming_info
 @onready var notification_scene: PackedScene = preload("res://src/ui/skill_notification.tscn")
 @onready var craft_station_scene: PackedScene = preload("res://src/ui/menus/crafting_menu.tscn")
 @onready var brewing_station_scene: PackedScene = preload("res://src/ui/menus/brewing_menu.tscn")
@@ -124,4 +127,19 @@ func _on_back_button_pressed() -> void:
 func _on_next_button_pressed() -> void:
 	toggle_notebook()
 	
-	
+
+func _on_foraging_skill_button_pressed() -> void:
+	foraging_info.visible =true
+	farming_info.visible = false
+	brewing_info.visible = false
+
+func _on_brewing_skill_button_pressed() -> void:
+	brewing_info.visible = true
+	foraging_info.visible =false
+	farming_info.visible = false
+
+
+func _on_farming_skill_button_pressed() -> void:
+	farming_info.visible = true
+	foraging_info.visible =false
+	brewing_info.visible = false
