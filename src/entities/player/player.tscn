@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://edfe8xsufhla" path="res://assets/entities/player_spritesheet.png" id="3_8t03j"]
 [ext_resource type="Script" uid="uid://btaq5h4vlkwrl" path="res://src/ui/ui_manager.gd" id="4_kc3pt"]
 [ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://src/ui/item_slot.gd" id="5_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://fmistktattrj" path="res://assets/ui/notebook/skills_notebook.png" id="6_lqdhu"]
 [ext_resource type="Texture2D" uid="uid://b5hy6iug6lul3" path="res://assets/ui/heart.png" id="8_ebec5"]
 [ext_resource type="Texture2D" uid="uid://dy24pmegbitlo" path="res://assets/ui/skillIcons/brewingIcon.png" id="8_p2qdy"]
-[ext_resource type="Texture2D" uid="uid://ctt7w847pupde" path="res://assets/ui/notebook.png" id="9_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://dpfqpvtd1gyji" path="res://assets/ui/skillIcons/foragingIcon.png" id="10_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://3lih201mxtce" path="res://assets/ui/skillIcons/farmingIcon.png" id="10_lqdhu"]
+[ext_resource type="Texture2D" uid="uid://cb2t7i2uy8dut" path="res://assets/ui/notebook/inventory_notebook.png" id="11_t8d2k"]
 [ext_resource type="PackedScene" uid="uid://ek1s8kcdc4wo" path="res://src/ui/hotbar.tscn" id="12_3c4mh"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
-[ext_resource type="Texture2D" uid="uid://e020r7sa6brp" path="res://assets/ui/paper_empty.png" id="12_kc3pt"]
 [ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="12_p2qdy"]
 [ext_resource type="Script" uid="uid://dbm7b3y5uh5ni" path="res://src/ui/inventory.gd" id="12_yllr7"]
 
@@ -215,7 +215,6 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="notebook" type="Panel" parent="CanvasLayer" unique_id=1225059618]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
 custom_minimum_size = Vector2(128, 70)
@@ -231,7 +230,17 @@ offset_bottom = 294.25
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="book_background" type="TextureRect" parent="CanvasLayer/notebook" unique_id=898431132]
+[node name="skills_page" type="Panel" parent="CanvasLayer/notebook" unique_id=663651496]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book_background" type="TextureRect" parent="CanvasLayer/notebook/skills_page" unique_id=898431132]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -239,43 +248,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_hg6s5")
+texture = ExtResource("6_lqdhu")
 
-[node name="player_photo" type="TextureRect" parent="CanvasLayer/notebook" unique_id=1372786609]
-texture_filter = 1
-layout_mode = 0
-offset_left = 264.2848
-offset_top = 92.25
-offset_right = 438.2848
-offset_bottom = 251.25
-texture = SubResource("CompressedTexture2D_8t03j")
-
-[node name="player_name" type="Label" parent="CanvasLayer/notebook" unique_id=1811460918]
-layout_mode = 0
-offset_left = 267.2848
-offset_top = 266.25
-offset_right = 439.2848
-offset_bottom = 289.25
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_8t03j")
-horizontal_alignment = 1
-
-[node name="SkillsGrid" type="GridContainer" parent="CanvasLayer/notebook" unique_id=1766596061]
+[node name="SkillsGrid" type="GridContainer" parent="CanvasLayer/notebook/skills_page" unique_id=1766596061]
 layout_mode = 0
 offset_left = 619.2848
 offset_top = 141.25
-offset_right = 971.2848
+offset_right = 972.2848
 offset_bottom = 496.25
 theme_override_constants/h_separation = 31
 theme_override_constants/v_separation = 29
 columns = 3
 
-[node name="ForagingPanel" type="Panel" parent="CanvasLayer/notebook/SkillsGrid" unique_id=554365651]
+[node name="ForagingPanel" type="Panel" parent="CanvasLayer/notebook/skills_page/SkillsGrid" unique_id=554365651]
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
 
-[node name="count" type="Label" parent="CanvasLayer/notebook/SkillsGrid/ForagingPanel" unique_id=2143219979]
+[node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel" unique_id=2143219979]
 z_index = 1
 layout_mode = 0
 offset_left = 50.0
@@ -287,7 +277,7 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/SkillsGrid/ForagingPanel" unique_id=774493888]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/ForagingPanel" unique_id=774493888]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
@@ -296,12 +286,12 @@ offset_right = 98.0
 offset_bottom = 95.0
 texture = ExtResource("10_2ieo8")
 
-[node name="BrewingPanel" type="Panel" parent="CanvasLayer/notebook/SkillsGrid" unique_id=744210464]
+[node name="BrewingPanel" type="Panel" parent="CanvasLayer/notebook/skills_page/SkillsGrid" unique_id=744210464]
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
 
-[node name="count" type="Label" parent="CanvasLayer/notebook/SkillsGrid/BrewingPanel" unique_id=528509875]
+[node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel" unique_id=528509875]
 z_index = 1
 layout_mode = 0
 offset_left = 50.0
@@ -313,7 +303,7 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/SkillsGrid/BrewingPanel" unique_id=1551814070]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/BrewingPanel" unique_id=1551814070]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
@@ -322,12 +312,12 @@ offset_right = 98.0
 offset_bottom = 95.0
 texture = ExtResource("8_p2qdy")
 
-[node name="FarmingPanel" type="Panel" parent="CanvasLayer/notebook/SkillsGrid" unique_id=1170471337]
+[node name="FarmingPanel" type="Panel" parent="CanvasLayer/notebook/skills_page/SkillsGrid" unique_id=1170471337]
 self_modulate = Color(1, 1, 1, 0.23137255)
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 2
 
-[node name="count" type="Label" parent="CanvasLayer/notebook/SkillsGrid/FarmingPanel" unique_id=705786260]
+[node name="count" type="Label" parent="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel" unique_id=705786260]
 z_index = 1
 layout_mode = 0
 offset_left = 50.0
@@ -339,7 +329,7 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/SkillsGrid/FarmingPanel" unique_id=1269647246]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/notebook/skills_page/SkillsGrid/FarmingPanel" unique_id=1269647246]
 texture_filter = 1
 custom_minimum_size = Vector2(97, 95)
 layout_mode = 0
@@ -347,6 +337,376 @@ offset_left = 1.0
 offset_right = 98.0
 offset_bottom = 95.0
 texture = ExtResource("10_lqdhu")
+
+[node name="skills_label" type="Label" parent="CanvasLayer/notebook/skills_page" unique_id=1877753936]
+texture_filter = 1
+layout_mode = 0
+offset_left = 737.2848
+offset_top = 57.25
+offset_right = 852.2848
+offset_bottom = 109.25
+theme_override_colors/font_color = Color(0.1896576, 0.15509301, 0.12339621, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 50
+text = "skills"
+
+[node name="inventory_page" type="Panel" parent="CanvasLayer/notebook" unique_id=336480068]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book_background" type="TextureRect" parent="CanvasLayer/notebook/inventory_page" unique_id=1424131815]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_t8d2k")
+
+[node name="inventory_label" type="Label" parent="CanvasLayer/notebook/inventory_page" unique_id=635989746]
+texture_filter = 1
+layout_mode = 0
+offset_left = 694.2848
+offset_top = 61.25
+offset_right = 888.2848
+offset_bottom = 113.25
+theme_override_colors/font_color = Color(0.1896576, 0.15509301, 0.12339621, 1)
+theme_override_fonts/font = ExtResource("12_p2qdy")
+theme_override_font_sizes/font_size = 50
+text = "inventory"
+
+[node name="player_photo" type="TextureRect" parent="CanvasLayer/notebook/inventory_page" unique_id=1372786609]
+texture_filter = 1
+layout_mode = 0
+offset_left = 264.2848
+offset_top = 92.25
+offset_right = 438.2848
+offset_bottom = 251.25
+texture = SubResource("CompressedTexture2D_8t03j")
+
+[node name="player_name" type="Label" parent="CanvasLayer/notebook/inventory_page" unique_id=1811460918]
+layout_mode = 0
+offset_left = 267.2848
+offset_top = 266.25
+offset_right = 439.2848
+offset_bottom = 289.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_8t03j")
+text = "player_name"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/notebook/inventory_page" unique_id=1713086370]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -152.0
+offset_right = 442.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 39
+theme_override_constants/v_separation = 42
+columns = 3
+script = ExtResource("12_yllr7")
+
+[node name="item_slot" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1591176059]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot" unique_id=1304965243]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot" unique_id=605839483]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot2" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1542478168]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 1
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot2" unique_id=283825232]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot2" unique_id=1576410405]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot3" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=820120319]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 2
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot3" unique_id=1031705166]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot3" unique_id=219843534]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot4" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1712741286]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 3
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot4" unique_id=1122843554]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot4" unique_id=1549311944]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot5" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1023734546]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot5" unique_id=1731568845]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot5" unique_id=1909086310]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot6" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1531857010]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 5
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot6" unique_id=353923126]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot6" unique_id=1109524706]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot7" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1243689147]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 6
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot7" unique_id=1737973896]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot7" unique_id=444952046]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot8" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=2113873614]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 7
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot8" unique_id=952452444]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot8" unique_id=1228020279]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
+
+[node name="item_slot9" type="Panel" parent="CanvasLayer/notebook/inventory_page/GridContainer" unique_id=1821830100]
+self_modulate = Color(1, 1, 1, 0.27450982)
+custom_minimum_size = Vector2(87, 88)
+layout_mode = 2
+script = ExtResource("5_hg6s5")
+slot_index = 8
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot9" unique_id=1865058195]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 2
+
+[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/notebook/inventory_page/GridContainer/item_slot9" unique_id=924628360]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(54, 51)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ebec5")
+expand_mode = 1
 
 [node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
 visible = false
@@ -368,246 +728,5 @@ text = "gold:"
 [node name="NotificationContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=373873064]
 offset_right = 480.0
 offset_bottom = 1067.0
-
-[node name="inventory" type="Panel" parent="CanvasLayer" unique_id=2025456491]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 2
-custom_minimum_size = Vector2(128, 70)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -727.0
-offset_top = -119.0
-offset_right = -448.0
-offset_bottom = 135.625
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="inv_background" type="TextureRect" parent="CanvasLayer/inventory" unique_id=905269783]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_kc3pt")
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventory" unique_id=1713086370]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -100.375
-offset_right = 85.0
-offset_bottom = 100.375
-grow_horizontal = 2
-grow_vertical = 2
-columns = 3
-script = ExtResource("12_yllr7")
-
-[node name="item_slot" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1591176059]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 0
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=1304965243]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot" unique_id=605839483]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot2" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1542478168]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 1
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=283825232]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot2" unique_id=1576410405]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot3" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=820120319]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 2
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=1031705166]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot3" unique_id=219843534]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot4" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1712741286]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 3
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1122843554]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot4" unique_id=1549311944]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot5" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1023734546]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 4
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=1731568845]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot5" unique_id=1909086310]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot6" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1531857010]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 5
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=353923126]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot6" unique_id=1109524706]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot7" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1243689147]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 6
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=1737973896]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot7" unique_id=444952046]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot8" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=2113873614]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 7
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=952452444]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot8" unique_id=1228020279]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
-
-[node name="item_slot9" type="Panel" parent="CanvasLayer/inventory/GridContainer" unique_id=1821830100]
-self_modulate = Color(1, 1, 1, 0.27450982)
-custom_minimum_size = Vector2(54, 60)
-layout_mode = 2
-script = ExtResource("5_hg6s5")
-slot_index = 8
-
-[node name="icon" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=1865058195]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 32.0
-mouse_filter = 2
-
-[node name="hover_sprite" type="TextureRect" parent="CanvasLayer/inventory/GridContainer/item_slot9" unique_id=924628360]
-visible = false
-custom_minimum_size = Vector2(54, 51)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_ebec5")
 
 [node name="Hotbar" parent="." unique_id=619510317 instance=ExtResource("12_3c4mh")]

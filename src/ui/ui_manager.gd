@@ -1,11 +1,11 @@
 extends CanvasLayer
 
-@onready var notebook: Panel = $notebook
-@onready var inventory: Panel = $inventory
-@onready var foraging_count: Label = $notebook/SkillsGrid/ForagingPanel/count
-@onready var brewing_count: Label = $notebook/SkillsGrid/BrewingPanel/count
-@onready var farming_count: Label = $notebook/SkillsGrid/FarmingPanel/count
-@onready var player_name_label: Label = $notebook/player_name
+@onready var notebook: Panel = $notebook/skills_page
+@onready var inventory: Panel = $notebook/inventory_page
+@onready var foraging_count: Label = $notebook/skills_page/SkillsGrid/ForagingPanel/count
+@onready var brewing_count: Label = $notebook/skills_page/SkillsGrid/BrewingPanel/count
+@onready var farming_count: Label = $notebook/skills_page/SkillsGrid/FarmingPanel/count
+@onready var player_name_label: Label = $notebook/inventory_page/player_name
 @onready var gold_count_label: Label = $gold/gold_count
 @onready var notification_container: VBoxContainer = $NotificationContainer
 @onready var notification_scene: PackedScene = preload("res://src/ui/skill_notification.tscn")
@@ -62,13 +62,41 @@ func toggle_pause_menu() -> void:
 
 
 func toggle_notebook() -> void:
-	notebook.visible = !notebook.visible
+	if not notebook.visible:
+		inventory.visible = false
+		_close_stations()
+		notebook.visible = true
+	else:
+		notebook.visible = false
 
 
 func toggle_inventory() -> void:
-	inventory.visible = !inventory.visible
+	if not inventory.visible:
+		notebook.visible = false
+		inventory.visible = true
+	else:
+		inventory.visible = false
+		_close_stations()
+		
+		
+func _close_stations() -> void:
+	if craft_instance:
+		craft_instance.hide()
+		Globals.crafting_open = false
+	if brew_instance:
+		brew_instance.hide()
+		Globals.brewing_open = false
 
 
+func _toggle_station_instance(instance: Control, scene: PackedScene) -> Control:
+	if instance == null:
+		instance = scene.instantiate()
+		add_child(instance)
+		instance.visible = true
+	else:
+		instance.visible = !instance.visible
+	return instance
+	
 func toggle_craft_station() -> void:
 	craft_instance = _toggle_station_instance(craft_instance, craft_station_scene)
 	Globals.crafting_open = craft_instance.visible
@@ -87,13 +115,3 @@ func toggle_brew_station() -> void:
 	if Globals.brewing_open and craft_instance:
 		craft_instance.hide()
 		Globals.crafting_open = false
-
-
-func _toggle_station_instance(instance: Control, scene: PackedScene) -> Control:
-	if instance == null:
-		instance = scene.instantiate()
-		add_child(instance)
-		instance.visible = true
-	else:
-		instance.visible = !instance.visible
-	return instance
