@@ -10,11 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://dy24pmegbitlo" path="res://assets/ui/skillIcons/brewingIcon.png" id="8_p2qdy"]
 [ext_resource type="Texture2D" uid="uid://dpfqpvtd1gyji" path="res://assets/ui/skillIcons/foragingIcon.png" id="10_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://3lih201mxtce" path="res://assets/ui/skillIcons/farmingIcon.png" id="10_lqdhu"]
+[ext_resource type="Texture2D" uid="uid://8q804utcvvrd" path="res://assets/ui/notebook/turn_back_button.png" id="11_ogtao"]
 [ext_resource type="Texture2D" uid="uid://cb2t7i2uy8dut" path="res://assets/ui/notebook/inventory_notebook.png" id="11_t8d2k"]
 [ext_resource type="PackedScene" uid="uid://ek1s8kcdc4wo" path="res://src/ui/hotbar.tscn" id="12_3c4mh"]
+[ext_resource type="Texture2D" uid="uid://cjfp6iketi58" path="res://assets/ui/notebook/turn_back_button_pressed.png" id="12_5qgjf"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="12_ebec5"]
 [ext_resource type="FontFile" uid="uid://cr5g1xc8awllf" path="res://assets/fonts/Pixel Game.otf" id="12_p2qdy"]
 [ext_resource type="Script" uid="uid://dbm7b3y5uh5ni" path="res://src/ui/inventory.gd" id="12_yllr7"]
+[ext_resource type="Texture2D" uid="uid://d305awfes2y5g" path="res://assets/ui/notebook/turn_back_button_hovered.png" id="13_fjj3i"]
+[ext_resource type="Texture2D" uid="uid://ctmi2c2cr2yve" path="res://assets/ui/notebook/turn_page_button.png" id="16_a31ob"]
+[ext_resource type="Texture2D" uid="uid://c4b2i7mdsvkx5" path="res://assets/ui/notebook/turn_page_button_pressed.png" id="17_5qgjf"]
+[ext_resource type="Texture2D" uid="uid://x8hvjrp70uu0" path="res://assets/ui/notebook/turn_page_button_hovered.png" id="18_fjj3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12.108313, 5.710833)
@@ -349,6 +355,19 @@ theme_override_colors/font_color = Color(0.1896576, 0.15509301, 0.12339621, 1)
 theme_override_fonts/font = ExtResource("12_p2qdy")
 theme_override_font_sizes/font_size = 50
 text = "skills"
+
+[node name="back_button" type="TextureButton" parent="CanvasLayer/notebook/skills_page" unique_id=1530657991]
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.28479
+offset_top = 511.25
+offset_right = 120.28479
+offset_bottom = 545.25
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_ogtao")
+texture_pressed = ExtResource("12_5qgjf")
+texture_hover = ExtResource("13_fjj3i")
+stretch_mode = 0
 
 [node name="inventory_page" type="Panel" parent="CanvasLayer/notebook" unique_id=336480068]
 visible = false
@@ -708,6 +727,19 @@ grow_vertical = 2
 texture = ExtResource("12_ebec5")
 expand_mode = 1
 
+[node name="next_button" type="TextureButton" parent="CanvasLayer/notebook/inventory_page" unique_id=457125181]
+texture_filter = 1
+layout_mode = 0
+offset_left = 908.2848
+offset_top = 504.25
+offset_right = 993.2848
+offset_bottom = 538.25
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("16_a31ob")
+texture_pressed = ExtResource("17_5qgjf")
+texture_hover = ExtResource("18_fjj3i")
+stretch_mode = 0
+
 [node name="gold" type="Panel" parent="CanvasLayer" unique_id=1893146636]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
@@ -730,3 +762,6 @@ offset_right = 480.0
 offset_bottom = 1067.0
 
 [node name="Hotbar" parent="." unique_id=619510317 instance=ExtResource("12_3c4mh")]
+
+[connection signal="pressed" from="CanvasLayer/notebook/skills_page/back_button" to="CanvasLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/notebook/inventory_page/next_button" to="CanvasLayer" method="_on_next_button_pressed"]

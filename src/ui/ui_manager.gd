@@ -115,3 +115,13 @@ func toggle_brew_station() -> void:
 	if Globals.brewing_open and craft_instance:
 		craft_instance.hide()
 		Globals.crafting_open = false
+
+
+func _on_back_button_pressed() -> void:
+	toggle_inventory()
+
+
+func _on_next_button_pressed() -> void:
+	toggle_notebook()
+	
+	
