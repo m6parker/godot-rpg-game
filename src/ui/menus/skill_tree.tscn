@@ -55,3 +55,11 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="level_label2" type="Label" parent="." unique_id=1231424375]
+layout_mode = 0
+offset_left = 211.0
+offset_right = 494.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 75
+text = "100"
