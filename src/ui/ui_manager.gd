@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var notebook: Panel = $notebook/skills_page
 @onready var inventory: Panel = $notebook/inventory_page
+@onready var skill_tree: Control = $skill_tree
 @onready var foraging_count: Label = $notebook/skills_page/SkillsGrid/ForagingPanel/count
 @onready var brewing_count: Label = $notebook/skills_page/SkillsGrid/BrewingPanel/count
 @onready var farming_count: Label = $notebook/skills_page/SkillsGrid/FarmingPanel/count
@@ -80,6 +81,13 @@ func toggle_inventory() -> void:
 	else:
 		inventory.visible = false
 		_close_stations()
+		
+func toggle_skill_tree() -> void:
+	if not skill_tree.visible:
+		skill_tree.visible = true
+	else:
+		skill_tree.visible = false
+	_close_stations()
 		
 		
 func _close_stations() -> void:

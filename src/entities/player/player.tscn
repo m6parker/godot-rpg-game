@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ctmi2c2cr2yve" path="res://assets/ui/notebook/turn_page_button.png" id="16_a31ob"]
 [ext_resource type="Texture2D" uid="uid://c4b2i7mdsvkx5" path="res://assets/ui/notebook/turn_page_button_pressed.png" id="17_5qgjf"]
 [ext_resource type="Texture2D" uid="uid://x8hvjrp70uu0" path="res://assets/ui/notebook/turn_page_button_hovered.png" id="18_fjj3i"]
+[ext_resource type="PackedScene" uid="uid://d3ojrttmko6e7" path="res://src/ui/menus/skill_tree.tscn" id="21_fjj3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12.108313, 5.710833)
@@ -869,6 +870,9 @@ text = "gold:"
 [node name="NotificationContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=373873064]
 offset_right = 480.0
 offset_bottom = 1067.0
+
+[node name="skill_tree" parent="CanvasLayer" unique_id=789461114 instance=ExtResource("21_fjj3i")]
+visible = false
 
 [node name="Hotbar" parent="." unique_id=619510317 instance=ExtResource("12_3c4mh")]
 

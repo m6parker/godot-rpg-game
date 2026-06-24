@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d3ojrttmko6e7"]
+
+[ext_resource type="Script" uid="uid://cuaqjp7xgcp3p" path="res://src/ui/menus/skill_tree.gd" id="1_n1iqm"]
+[ext_resource type="Texture2D" uid="uid://bomi7ojia47my" path="res://assets/ui/main_menu/main_menu_background.png" id="2_bmu1b"]
+
+[node name="skill_tree" type="Control" unique_id=789461114]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n1iqm")
+
+[node name="Label" type="Label" parent="." unique_id=2007787313]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 75
+text = "level: "
+
+[node name="level_label" type="Label" parent="." unique_id=1957372802]
+layout_mode = 0
+offset_left = 211.0
+offset_right = 494.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 75
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1502340101]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -351.86438
+offset_right = 346.0
+offset_bottom = 351.86438
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bmu1b")
+
+[node name="branch_container" type="HBoxContainer" parent="TextureRect" unique_id=1751349658]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

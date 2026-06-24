@@ -38,6 +38,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("inventory"):
 		ui.toggle_inventory()
+		
+	if event.is_action_pressed("skill_tree"):
+		ui.toggle_skill_tree()
 	
 	if event.is_action_pressed("interact"):
 		if Globals.can_craft:

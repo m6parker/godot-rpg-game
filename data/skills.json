@@ -1,0 +1,34 @@
+[
+	{
+		"farming":[
+			{"gardener":true},
+			{"hobbyist":false},
+			{"homestead":false},
+			{"farmer":false}
+		]
+	},
+	{
+		"brewing":[
+			{"barista":false},
+			{"homecook":false},
+			{"chef":false},
+			{"witch":false}
+		]
+	},
+	{
+		"foraging":[
+			{"collector":false},
+			{"gatherer":false},
+			{"forager":false},
+			{"harvester":false}
+		]
+	},
+	{
+		"combat":[
+			{"basic":false},
+			{"fighter":false},
+			{"warrior":false},
+			{"assassin":false}
+		]
+	}
+]
