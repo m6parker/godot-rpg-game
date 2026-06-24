@@ -12,20 +12,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n1iqm")
 
-[node name="Label" type="Label" parent="." unique_id=2007787313]
+[node name="level_label2" type="Label" parent="." unique_id=1231424375]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 307.0
+offset_bottom = 122.0
 theme_override_font_sizes/font_size = 75
-text = "level: "
-
-[node name="level_label" type="Label" parent="." unique_id=1957372802]
-layout_mode = 0
-offset_left = 211.0
-offset_right = 494.0
-offset_bottom = 103.0
-theme_override_font_sizes/font_size = 75
-text = "100"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1502340101]
 layout_mode = 1
@@ -55,11 +48,3 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="level_label2" type="Label" parent="." unique_id=1231424375]
-layout_mode = 0
-offset_left = 211.0
-offset_right = 494.0
-offset_bottom = 103.0
-theme_override_font_sizes/font_size = 75
-text = "100"

@@ -1,5 +1,6 @@
 extends Control
 
+@onready var level_label: Label = $level_label2
 @onready var branch_container: HBoxContainer = $TextureRect/branch_container
 const JSON_FILE_PATH = "res://data/skills.json"
 
@@ -14,10 +15,15 @@ func _ready() -> void:
 	refresh_ui()
 
 func refresh_ui() -> void:
+	level_label.text = ""
 	for child in branch_container.get_children():
 		child.queue_free()
 		
 	load_and_build_ui()
+	
+	for key in Globals.playerSkills:
+		var value = Globals.playerSkills[key]
+		level_label.text += key + ": " + str(value) + "\n"
 
 func load_and_build_ui() -> void:
 	if not FileAccess.file_exists(JSON_FILE_PATH):
