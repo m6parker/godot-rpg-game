@@ -60,7 +60,7 @@ func create_branch_column(branch_name: String, skills: Array) -> void:
 	for i in range(skills.size()):
 		var skill_name = skills[i] as String
 		var skill_button = Button.new()
-		skill_button.text = skill_name.capitalize()
+		skill_button.text = skill_name
 		skill_button.custom_minimum_size = Vector2(120, 40)
 		
 		var cost_to_upgrade = 1 if i == 0 else i * 5
