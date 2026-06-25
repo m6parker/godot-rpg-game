@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ckfko6madwqbn"]
+
+[ext_resource type="Script" uid="uid://bdurpktubhn3t" path="res://src/entities/tools/tool.gd" id="1_lvbhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni57q"]
+size = Vector2(12, 13)
+
+[node name="WorldTool" type="Area2D" unique_id=75857767]
+script = ExtResource("1_lvbhm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1231976967]
+position = Vector2(0.25000018, 0.25000018)
+scale = Vector2(0.609375, 0.609375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467692001]
+shape = SubResource("RectangleShape2D_ni57q")

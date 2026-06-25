@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://cock6xc1dahoc" path="res://src/common/nighttime_bugs.gd" id="18_0lysu"]
 [ext_resource type="Script" uid="uid://sesoyjjwylno" path="res://src/systems/day_night_cycler.gd" id="19_xw5lg"]
 [ext_resource type="Texture2D" uid="uid://coc2se6nvjna1" path="res://assets/ui/plant_preview.png" id="20_sgo2g"]
+[ext_resource type="PackedScene" uid="uid://ckfko6madwqbn" path="res://src/entities/tools/tool.tscn" id="21_7of43"]
 [ext_resource type="PackedScene" uid="uid://ehcxh3hyyqrj" path="res://src/entities/npc/npc.tscn" id="22_dqu5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awrha"]
@@ -1307,6 +1308,12 @@ item_key_name = "strawberry_seeds"
 [node name="WorldItem11" parent="worldItems" unique_id=928150935 instance=ExtResource("4_k8do8")]
 position = Vector2(-192, 68)
 item_key_name = "carrot_seeds"
+
+[node name="Tools" type="Node2D" parent="." unique_id=1645526096]
+z_index = 1
+
+[node name="WorldTool" parent="Tools" unique_id=75857767 instance=ExtResource("21_7of43")]
+position = Vector2(-455, -180)
 
 [node name="worldMap" type="Node2D" parent="." unique_id=1816722267]
 y_sort_enabled = true

@@ -20,6 +20,7 @@ Globals="*uid://js3gn0hk6hk4"
 DialogueManager="*uid://cb8hwasd6wx6b"
 RecipeManager="*uid://ky4ta4ouoba4"
 ItemDatabase="*uid://d0l48ubl5reu7"
+ToolDatabase="*uid://6ffyo0p15u1w"
 
 [display]
 
