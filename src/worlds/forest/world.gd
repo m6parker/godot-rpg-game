@@ -9,6 +9,8 @@ extends Node2D
 # tileset ids
 const BUSHES_TILESET_SOURCE_ID = 6
 const CROPS_TILESET_SOURCE_ID = 7
+const SOIL_TILESET_SOURCE_ID = 9
+const SOIL_ATLAS_COORDS = Vector2i(0, 4)
 
 # growth stuff
 const STAGE_GROWTH_TIME = 5.0 # seconds per stage
@@ -73,9 +75,8 @@ const CROP_DATABASE: Dictionary = {
 	}
 }
 
-
 func _ready() -> void:
-	# load crops
+	# load crops & ground changes
 	load_world_state()
 
 	if Globals.target_transition_marker != "":
@@ -102,7 +103,6 @@ func find_crop_in_database(coords: Vector2i, source_id: int) -> Variant:
 			   crop_info["seedling"] == coords:
 				return crop_info
 	return null
-
 
 func save_world_state() -> void:
 	var world_name = Globals.world
@@ -139,7 +139,6 @@ func save_world_state() -> void:
 		var crop_data = find_crop_in_database(coords, source_id)
 		
 		if crop_data != null:
-			# check if harvested
 			var is_harvested = (coords == crop_data["empty_coords"])
 			saved_cells[cell_key] = {
 				"is_growing": false,
@@ -171,8 +170,17 @@ func save_world_state() -> void:
 				"empty_coords": [crop_data["empty_coords"].x, crop_data["empty_coords"].y]
 			}
 
-	Globals.world_states[world_name] = {"cells": saved_cells}
+	# save soil
+	var saved_soil = []
+	for cell in soil_tile_map_layer.get_used_cells():
+		var tile_data = soil_tile_map_layer.get_cell_tile_data(cell)
+		if tile_data and tile_data.get_custom_data("is_soil") == true:
+			saved_soil.append([cell.x, cell.y])
 
+	Globals.world_states[world_name] = {
+		"cells": saved_cells,
+		"tilled_soil": saved_soil
+	}
 
 # restart timers and add tiles to layer
 func load_world_state() -> void:
@@ -186,6 +194,12 @@ func load_world_state() -> void:
 	regrow_timers.clear()
 	crops_tile_map_layer.clear()
 	harvestables_tile_map_layer.clear() 
+	
+	# till saved soil before replanting crops
+	var saved_soil = state.get("tilled_soil", [])
+	for cell_arr in saved_soil:
+		var soil_cell = Vector2i(cell_arr[0], cell_arr[1])
+		soil_tile_map_layer.set_cell(soil_cell, SOIL_TILESET_SOURCE_ID, SOIL_ATLAS_COORDS)
 	
 	for cell_key in saved_cells.keys():
 		var coords_arr = cell_key.split(",")
@@ -240,17 +254,43 @@ func get_seedling_coords_fallback(full_coords: Vector2i) -> Vector2i:
 			return CROP_DATABASE[crop_pos]["seedling"]
 	return Vector2i(0, 0) # Fallback baseline setup
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		#check if equipped item is seeds
 		var equipped_item = Globals.get_equipped_item() 
-		var seed_crop_data = get_crop_data_by_seed(equipped_item.item_name if equipped_item else "")
-		if seed_crop_data != null:
-			try_plant(seed_crop_data)
+		var equipped_name = equipped_item.item_name if equipped_item else ""
+		
+		if equipped_name == "hoe":
+			try_till()
+		elif get_crop_data_by_seed(equipped_name) != null:
+			try_plant(get_crop_data_by_seed(equipped_name))
 		else:
 			try_harvest()
 
+func try_till() -> void:
+	var local_pos = soil_tile_map_layer.to_local(player.global_position)
+	var player_cell = soil_tile_map_layer.local_to_map(local_pos)
+	
+	if not is_valid_tilling_tile(player_cell):
+		print("Cannot till here!")
+		return
+		
+	# place soil tile on soil layer
+	soil_tile_map_layer.set_cell(player_cell, SOIL_TILESET_SOURCE_ID, SOIL_ATLAS_COORDS)
+	Globals.increase_skill("FARMING") 
+
+func is_valid_tilling_tile(cell: Vector2i) -> bool:
+	# cehck if already soil
+	var current_soil_data = soil_tile_map_layer.get_cell_tile_data(cell)
+	if current_soil_data != null and current_soil_data.get_custom_data("is_soil") == true:
+		return false # Already tillable soil
+		
+	# check if grass
+	if current_soil_data != null:
+		var is_tillable = current_soil_data.get_custom_data("is_tillable")
+		if not is_tillable:
+			return false
+			
+	return true
 func _process(delta: float) -> void:
 	# growth loop
 	for cell in regrow_timers.keys().duplicate():
@@ -263,23 +303,30 @@ func _process(delta: float) -> void:
 
 func update_preview() -> void:
 	var equipped_item = Globals.get_equipped_item()
-	var seed_crop_data = get_crop_data_by_seed(equipped_item.item_name if equipped_item else "")
+	var equipped_name = equipped_item.item_name if equipped_item else ""
+	var seed_crop_data = get_crop_data_by_seed(equipped_name)
 	
-	if seed_crop_data == null:
+	# hide preview is seeds or hoe is not equipped
+	if seed_crop_data == null and equipped_name != "hoe":
 		plant_preview.visible = false
 		return
 		
-	var local_pos = crops_tile_map_layer.to_local(player.global_position)
-	var player_cell = crops_tile_map_layer.local_to_map(local_pos)
-	var cell_local_pos = crops_tile_map_layer.map_to_local(player_cell)
-	plant_preview.global_position = crops_tile_map_layer.to_global(cell_local_pos)
+	var local_pos = soil_tile_map_layer.to_local(player.global_position)
+	var player_cell = soil_tile_map_layer.local_to_map(local_pos)
+	var cell_local_pos = soil_tile_map_layer.map_to_local(player_cell)
+	plant_preview.global_position = soil_tile_map_layer.to_global(cell_local_pos)
 	
-	# if the seeds is allowed to be planted on the tile standing on
-	if is_valid_planting_tile(player_cell):
-		plant_preview.visible = true
+	# valid check
+	var is_valid = false
+	if equipped_name == "hoe":
+		is_valid = is_valid_tilling_tile(player_cell)
+	else:
+		is_valid = is_valid_planting_tile(player_cell)
+		
+	plant_preview.visible = true
+	if is_valid:
 		plant_preview.modulate = Color(0, 1, 0, 0.5)
 	else:
-		plant_preview.visible = true
 		plant_preview.modulate = Color(1, 0, 0, 0.5)
 		
 
