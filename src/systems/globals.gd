@@ -61,7 +61,8 @@ var equipped_slot_index: int = -1
 
 
 func _ready() -> void:
-	_load_item_database()
+	_load_item_database(ITEMS_JSON_PATH, item_database)
+	_load_item_database(TOOTS_JSON_PATH, tool_database)
 
 	_setup_inventory(PLAYER_INVENTORY_SIZE)
 	
@@ -208,14 +209,16 @@ func move_to_inventory(item: Resource, source_type: String, source_index: int) -
 
 const SAVE_PATH = "user://savegame.json"
 const ITEMS_JSON_PATH = "res://data/items.json"
+const TOOTS_JSON_PATH = "res://data/tools.json"
 var item_database: Dictionary = {}
+var tool_database: Dictionary = {}
 
-func _load_item_database() -> void:
-	if not FileAccess.file_exists(ITEMS_JSON_PATH):
-		print_debug("json file not found at: ", ITEMS_JSON_PATH)
+func _load_item_database(path: String, database: Dictionary) -> void:
+	if not FileAccess.file_exists(path):
+		print_debug("json file not found at: ", path)
 		return
 		
-	var file = FileAccess.open(ITEMS_JSON_PATH, FileAccess.READ)
+	var file = FileAccess.open(path, FileAccess.READ)
 	var json_string = file.get_as_text()
 	file.close()
 	
@@ -226,7 +229,7 @@ func _load_item_database() -> void:
 			for item_data in items_list:
 				var item_name = item_data.get("name", "")
 				if item_name != "":
-					item_database[item_name] = item_data
+					database[item_name] = item_data
 	else:
 		print("parse error: ", json.get_error_message())
 
@@ -379,18 +382,18 @@ func _deferred_ui_refresh(should_reposition_player: bool = false) -> void:
 	gold_changed.emit(playerStats.get("gold", 0))
 
 
-# turns [Resource, null, Resource] into ["acorn", "", "red_potion"] 
+# turns [Resource, null, ToolResource] into ["acorn", "", "iron_pickaxe"] 
 func _inventory_to_paths(inventory_array: Array) -> Array:
 	var name_array: Array = []
 	for item in inventory_array: 
-		if item is ItemData and item.item_name != "":
+		if item and "item_name" in item and item.item_name != "":
 			name_array.append(item.item_name)
 		else:
 			name_array.append("")
 	return name_array
 
 
-# turns ["acorn", "", "red_potion"] back into resources
+# turns ["acorn", "", "iron_pickaxe"] back into resources (items or tools)
 func _paths_to_inventory(name_array: Array, fixed_size: int) -> Array:
 	var new_inventory: Array = []
 	new_inventory.resize(fixed_size)
@@ -399,6 +402,42 @@ func _paths_to_inventory(name_array: Array, fixed_size: int) -> Array:
 	for i in range(min(name_array.size(), fixed_size)):
 		var item_name = name_array[i]
 		if item_name != "":
-			new_inventory[i] = create_item_by_name(item_name)
+			new_inventory[i] = create_any_item_by_name(item_name)
 			
 	return new_inventory
+
+# creates tools and items from jusdt the name
+func create_any_item_by_name(name_id: String) -> Resource:
+	if name_id == "":
+		return null
+		
+	# check item db
+	if item_database.has(name_id):
+		var data = item_database[name_id]
+		var item = ItemData.new()
+		item.item_name = data.get("name", "")
+		item.price = int(data.get("price", 0))
+		item.description = data.get("description", "")
+		item.item_type = data.get("type", "")
+		
+		var texture_path = "res://assets/items/" + item.item_type.to_lower() + "/" + item.item_name.to_lower() + ".png"
+		if ResourceLoader.exists(texture_path):
+			item.item_texture = load(texture_path)
+		return item
+		
+	# check tool db
+	elif tool_database.has(name_id):
+		var data = tool_database[name_id]
+		var tool_item = ItemData.new() 
+		tool_item.item_name = data.get("name", "")
+		tool_item.price = int(data.get("price", 0))
+		tool_item.description = data.get("description", "")
+		tool_item.item_type = data.get("type", "")
+		
+		var texture_path = "res://assets/tools/" + tool_item.item_name.to_lower() + ".png"
+		if ResourceLoader.exists(texture_path):
+			tool_item.item_texture = load(texture_path)
+		return tool_item
+		
+	return null
+	
