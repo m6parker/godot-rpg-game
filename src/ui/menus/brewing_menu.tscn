@@ -1,9 +1,60 @@
 [gd_scene format=3 uid="uid://dnxp75ypnrn74"]
 
 [ext_resource type="Script" uid="uid://b26e4armr0yge" path="res://src/ui/menus/brewing_menu.gd" id="1_euycs"]
-[ext_resource type="Texture2D" uid="uid://dx4vtwxwn0jow" path="res://assets/ui/brewing_station.png" id="2_4m0i2"]
+[ext_resource type="Texture2D" uid="uid://d3dgdunw8bkc7" path="res://assets/ui/brewing_menu_ui.png" id="2_512dm"]
 [ext_resource type="Script" uid="uid://l6gnhxeie2w" path="res://src/ui/item_slot.gd" id="2_euycs"]
 [ext_resource type="Texture2D" uid="uid://sbj0brnsmgrn" path="res://assets/ui/hover_sprite.png" id="3_4m0i2"]
+[ext_resource type="Texture2D" uid="uid://d2aosj1tljnsd" path="res://assets/ui/animations/animation_flame.png" id="5_mqfod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lceks"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(0, 0, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmc7e"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(62, 0, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0n8w"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(124, 0, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmtd"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(186, 0, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s52cu"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(248, 0, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pioxy"]
+atlas = ExtResource("5_mqfod")
+region = Rect2(310, 0, 62, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thvfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lceks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmc7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0n8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s52cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pioxy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BrewingMenu" type="Control" unique_id=2053023131]
 layout_mode = 3
@@ -18,6 +69,7 @@ grow_horizontal = 0
 script = ExtResource("1_euycs")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2137450976]
+visible = false
 layout_mode = 0
 offset_left = -762.0
 offset_right = 40.0
@@ -31,8 +83,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -733.0
-offset_bottom = 613.0
+offset_left = -1330.0
+offset_top = -17.0
+offset_right = -597.0
+offset_bottom = 596.0
 grow_horizontal = 0
 
 [node name="background" type="TextureRect" parent="Panel" unique_id=1192381531]
@@ -40,42 +94,37 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 366.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_4m0i2")
+texture = ExtResource("2_512dm")
+expand_mode = 5
 
 [node name="Label" type="Label" parent="Panel" unique_id=2111944626]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 84.0
-offset_right = 150.0
-offset_bottom = 107.0
+offset_left = 357.0
+offset_top = -27.0
+offset_right = 449.0
+offset_bottom = -4.0
 text = "ingredients:"
-
-[node name="Label2" type="Label" parent="Panel" unique_id=1670592959]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 157.0
-offset_right = 514.0
-offset_bottom = 180.0
-text = "result:"
 
 [node name="Label3" type="Label" parent="Panel" unique_id=1714983275]
 layout_mode = 0
-offset_left = 518.0
-offset_top = 293.0
-offset_right = 575.0
-offset_bottom = 316.0
+offset_left = 877.0
+offset_top = 336.0
+offset_right = 934.0
+offset_bottom = 359.0
 text = "vessel:"
 
 [node name="ingredients_container" type="Node2D" parent="Panel" unique_id=2029156088]
 
 [node name="ingredient_slot" type="Panel" parent="Panel/ingredients_container" unique_id=1297436189]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 64)
-offset_left = 146.0
-offset_top = 161.0
-offset_right = 210.0
-offset_bottom = 234.0
+offset_left = 646.0
+offset_top = 72.0
+offset_right = 710.0
+offset_bottom = 136.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 0
@@ -83,7 +132,7 @@ slot_index = 0
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=1312210252]
 layout_mode = 0
 offset_right = 63.0
-offset_bottom = 72.0
+offset_bottom = 63.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=1326809994]
 visible = false
@@ -93,11 +142,12 @@ offset_bottom = 72.0
 texture = ExtResource("3_4m0i2")
 
 [node name="ingredient_slot2" type="Panel" parent="Panel/ingredients_container" unique_id=483247573]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 64)
-offset_left = 187.0
-offset_top = 302.0
-offset_right = 251.0
-offset_bottom = 375.0
+offset_left = 465.0
+offset_top = 299.0
+offset_right = 529.0
+offset_bottom = 363.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 1
@@ -105,7 +155,7 @@ slot_index = 1
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=713304687]
 layout_mode = 0
 offset_right = 63.0
-offset_bottom = 72.0
+offset_bottom = 63.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=439562355]
 visible = false
@@ -115,11 +165,12 @@ offset_bottom = 72.0
 texture = ExtResource("3_4m0i2")
 
 [node name="ingredient_slot3" type="Panel" parent="Panel/ingredients_container" unique_id=14325488]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 64)
-offset_left = 519.0
-offset_top = 320.0
-offset_right = 583.0
-offset_bottom = 393.0
+offset_left = 879.0
+offset_top = 380.0
+offset_right = 943.0
+offset_bottom = 444.0
 script = ExtResource("2_euycs")
 container_type = "brewing"
 slot_index = 2
@@ -127,7 +178,7 @@ slot_index = 2
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot3" unique_id=167200773]
 layout_mode = 0
 offset_right = 63.0
-offset_bottom = 72.0
+offset_bottom = 62.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot3" unique_id=1921459673]
 visible = false
@@ -140,11 +191,12 @@ texture = ExtResource("3_4m0i2")
 position = Vector2(5, -102)
 
 [node name="yield_slot" type="Panel" parent="Panel/yeild_container" unique_id=295290123]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 64)
-offset_left = 514.0
-offset_top = 505.0
-offset_right = 578.0
-offset_bottom = 569.0
+offset_left = 874.0
+offset_top = 578.0
+offset_right = 938.0
+offset_bottom = 642.0
 script = ExtResource("2_euycs")
 container_type = "brewing_result"
 slot_index = 0
@@ -163,8 +215,259 @@ texture = ExtResource("3_4m0i2")
 
 [node name="brew_button" type="Button" parent="Panel" unique_id=941772364]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 512.0
-offset_right = 617.0
-offset_bottom = 543.0
+offset_left = 849.0
+offset_top = 582.0
+offset_right = 974.0
+offset_bottom = 613.0
 text = "brew"
+
+[node name="flame" type="AnimatedSprite2D" parent="Panel" unique_id=1978106568]
+visible = false
+position = Vector2(502.00003, 469.99997)
+scale = Vector2(2.1551733, 2.1551733)
+sprite_frames = SubResource("SpriteFrames_thvfd")
+frame_progress = 0.39497232
+speed_scale = 1.75
+
+[node name="inventory" type="Node2D" parent="Panel" unique_id=286262609]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/inventory" unique_id=842525105]
+offset_left = 62.0
+offset_top = -93.0
+offset_right = 144.0
+offset_bottom = 704.0
+theme_override_constants/separation = 7
+
+[node name="inv_slot" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=482976975]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot" unique_id=968666075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot" unique_id=976043251]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot2" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=626142517]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot2" unique_id=1419489474]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot2" unique_id=1336853035]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot3" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=713825952]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot3" unique_id=229407336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot3" unique_id=579574050]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot4" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=1627680126]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot4" unique_id=1881429391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot4" unique_id=1188061242]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot5" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=1987987972]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot5" unique_id=652904575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot5" unique_id=2020036502]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot6" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=2032420114]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot6" unique_id=319057898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot6" unique_id=1670839723]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot7" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=1095197112]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot7" unique_id=979855233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot7" unique_id=1790570033]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot8" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=208177310]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot8" unique_id=639944125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot8" unique_id=555214861]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")
+
+[node name="inv_slot9" type="Panel" parent="Panel/inventory/VBoxContainer" unique_id=273398138]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 82)
+layout_mode = 2
+script = ExtResource("2_euycs")
+container_type = "brewing_inv"
+slot_index = 0
+
+[node name="icon" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot9" unique_id=1393456140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hover_sprite" type="TextureRect" parent="Panel/inventory/VBoxContainer/inv_slot9" unique_id=769823611]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4m0i2")

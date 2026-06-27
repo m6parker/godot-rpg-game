@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # see what player is trying to interact with
 func get_target_array() -> Array:
-	if container_type == "inventory":
+	if container_type == "inventory" or container_type == "brewing_inv":
 		return Globals.player_inventory
 	elif container_type == "hotbar":
 		return Globals.hotbar_slots
@@ -169,7 +169,7 @@ func handle_shift_click() -> void:
 		return
 
 	match container_type:
-		"inventory", "hotbar":
+		"inventory", "hotbar", "brewing_inv":
 			if Globals.get(&"brewing_open"):
 				if Globals.move_to_brewing(item, slot_index):
 					print("moved to brewing station")
@@ -205,7 +205,7 @@ func get_item_in_this_slot() -> Resource:
 			return Globals.brewing_slots[slot_index] if slot_index < Globals.brewing_slots.size() else null
 		"hotbar":
 			return Globals.hotbar_slots[slot_index] if slot_index < Globals.hotbar_slots.size() else null
-		"inventory":
+		"inventory", "brewing_inv":
 			return Globals.player_inventory[slot_index] if slot_index < Globals.player_inventory.size() else null
 		_:
 			return null

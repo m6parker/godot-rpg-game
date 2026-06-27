@@ -1,9 +1,26 @@
 extends Control
 
+@onready var brewing_inv_container: VBoxContainer = $Panel/inventory/VBoxContainer
+
 func _ready() -> void:
 	Globals.brewing_updated.connect(_update_slots)
+	Globals.inventory_updated.connect(_update_slots)
 	$Panel/brew_button.pressed.connect(_on_brew_button_pressed)
+	
+	_initialize_inventory_display_slots()
 	_update_slots()
+
+
+func _initialize_inventory_display_slots() -> void:
+	if not brewing_inv_container:
+		return
+		
+	var slots = brewing_inv_container.get_children()
+	for i in range(slots.size()):
+		var slot = slots[i]
+		if slot.has_method("display_item"):
+			slot.container_type = "brewing_inv"
+			slot.slot_index = i
 
 
 func validate_slot_drop(type: String, index: int, item_data: Resource) -> bool:
@@ -24,12 +41,21 @@ func _update_slots() -> void:
 	
 	if res_slot: res_slot.display_item(Globals.brewing_result)
 	
-	#enable the brew button when a valid recipe is given
+	if brewing_inv_container:
+		var inv_slots = brewing_inv_container.get_children()
+		for i in range(inv_slots.size()):
+			if i >= Globals.player_inventory.size():
+				break
+			var slot = inv_slots[i]
+			if slot.has_method("display_item"):
+				slot.display_item(Globals.player_inventory[i])
+	
+	# enable brew button when valid recipe is given
 	var can_brew = check_recipe() != null and Globals.brewing_result == null
 	$Panel/brew_button.disabled = !can_brew
 
 
-# checking if item is a bottle or vessel or whatever
+# check if item is a bottle or vessel or whatever
 func is_item_a_bottle(item: Resource) -> bool:
 	if item == null:
 		return false
@@ -50,7 +76,7 @@ func check_recipe() -> ItemData:
 		return null
 
 	var current_ingredients: Array[String] = []
-	#check if the slots are filled up and add it to the list of ingredients
+	# check if the slots are filled up and add it to list of ingredients
 	if Globals.brewing_slots[0] != null:
 		current_ingredients.append(Globals.brewing_slots[0].item_name.to_lower().strip_edges())
 	if Globals.brewing_slots[1] != null:
@@ -60,8 +86,8 @@ func check_recipe() -> ItemData:
 	#loop thru the possible potion recipes and see if the ingredients match to anything
 	for recipe in RecipeManager.potion_recipes:
 		if current_ingredients == recipe.ingredients:
-			# get the result of the ingredients from the recipes database
-			# find the item using the result
+			# get result from recipes database
+			# find item using the result
 			var result_name = recipe.result_item_name.to_lower().strip_edges()
 			for key in ItemDatabase.items.keys():
 				var clean_key = key.to_lower().strip_edges()
@@ -76,6 +102,7 @@ func check_recipe() -> ItemData:
 			
 	return null
 
+
 # after the recipe if confirmed
 func _on_brew_button_pressed() -> void:
 	var base_recipe = check_recipe()
@@ -85,13 +112,14 @@ func _on_brew_button_pressed() -> void:
 		var total_quality: float = 0.0
 		var ingredient_count: int = 0
 		
-		# checkthe quality attribute of each ingredient item
+		# check quality attribute of each ingredient item
 		for item in Globals.brewing_slots:
 			if item != null:
 				if "quality" in item and item.quality > 0:
 					total_quality += item.quality
 					ingredient_count += 1
-		#calculate the average quality between the ingredients
+					
+		# calculate average quality
 		if ingredient_count > 0:
 			var avg_quality = total_quality / ingredient_count
 			finalized_potion.quality = snapped(avg_quality, 0.01)

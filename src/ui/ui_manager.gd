@@ -121,12 +121,18 @@ func toggle_craft_station() -> void:
 func toggle_brew_station() -> void:
 	brew_instance = _toggle_station_instance(brew_instance, brewing_station_scene)
 	Globals.brewing_open = brew_instance.visible
-	inventory.visible = brew_instance.visible
+	
+	#inventory.visible = brew_instance.visible
+	inventory.visible = false
 
-	if Globals.brewing_open and craft_instance:
-		craft_instance.hide()
-		Globals.crafting_open = false
-
+	if Globals.brewing_open:
+		if craft_instance:
+			craft_instance.hide()
+			Globals.crafting_open = false
+		
+		# Forces the freshly opened brewing window to synchronize visual data instantly
+		if brew_instance.has_method("update_brewing_inventory_ui"):
+			brew_instance.update_brewing_inventory_ui()
 
 func _on_back_button_pressed() -> void:
 	toggle_inventory()
