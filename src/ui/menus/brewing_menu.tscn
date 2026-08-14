@@ -131,8 +131,10 @@ slot_index = 0
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=1312210252]
 layout_mode = 0
-offset_right = 63.0
-offset_bottom = 63.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 73.0
+offset_bottom = 73.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot" unique_id=1326809994]
 visible = false
@@ -154,8 +156,10 @@ slot_index = 1
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=713304687]
 layout_mode = 0
-offset_right = 63.0
-offset_bottom = 63.0
+offset_left = -12.0
+offset_top = -9.0
+offset_right = 67.0
+offset_bottom = 70.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot2" unique_id=439562355]
 visible = false
@@ -177,8 +181,10 @@ slot_index = 2
 
 [node name="icon" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot3" unique_id=167200773]
 layout_mode = 0
-offset_right = 63.0
-offset_bottom = 62.0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 72.30645
+offset_bottom = 73.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/ingredients_container/ingredient_slot3" unique_id=1921459673]
 visible = false
@@ -201,10 +207,12 @@ script = ExtResource("2_euycs")
 container_type = "brewing_result"
 slot_index = 0
 
-[node name="icon" type="TextureRect" parent="Panel/yeild_container/yield_slot" unique_id=928077710]
+[node name="icon" type="TextureRect" parent="Panel/yeild_container/yield_slot" unique_id=985370983]
 layout_mode = 0
-offset_right = 63.0
-offset_bottom = 64.0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 72.30645
+offset_bottom = 73.0
 
 [node name="hover_sprite" type="TextureRect" parent="Panel/yeild_container/yield_slot" unique_id=336964362]
 visible = false
@@ -221,12 +229,20 @@ offset_right = 974.0
 offset_bottom = 613.0
 text = "brew"
 
+[node name="flame_button" type="Button" parent="Panel" unique_id=811084721]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 618.0
+offset_right = 563.0
+offset_bottom = 649.0
+text = "flame on"
+
 [node name="flame" type="AnimatedSprite2D" parent="Panel" unique_id=1978106568]
 visible = false
 position = Vector2(502.00003, 469.99997)
 scale = Vector2(2.1551733, 2.1551733)
 sprite_frames = SubResource("SpriteFrames_thvfd")
-frame_progress = 0.39497232
+frame_progress = 0.76263416
 speed_scale = 1.75
 
 [node name="inventory" type="Node2D" parent="Panel" unique_id=286262609]
@@ -471,3 +487,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_4m0i2")
+
+[connection signal="pressed" from="Panel/flame_button" to="." method="_on_flame_button_pressed"]

@@ -1,6 +1,9 @@
 extends Control
 
 @onready var brewing_inv_container: VBoxContainer = $Panel/inventory/VBoxContainer
+@onready var flame: AnimatedSprite2D = $Panel/flame
+@onready var flame_button: Button = $Panel/flame_button
+var flameOn: bool = false
 
 func _ready() -> void:
 	Globals.brewing_updated.connect(_update_slots)
@@ -137,3 +140,15 @@ func _on_brew_button_pressed() -> void:
 		Globals.brewing_updated.emit()
 	else:
 		print("error someting went wrong!")
+
+
+func _on_flame_button_pressed() -> void:
+	flameOn = !flameOn
+	flame.visible = flameOn
+	
+	if flameOn:
+		flame.play()
+		flame_button.text = "flame off"
+	else:
+		flame.stop()
+		flame_button.text = "flame on"
